@@ -16,20 +16,25 @@ body {
   margin: 0;
   font-size: 30px;
   background: rgb(255,255,255);
-  background: radial-gradient(circle, rgba(253,255,145,1) 99%, rgba(255,241,209,1) 100%);
+  /*background: radial-gradient(circle, rgba(253,255,145,1) 99%, rgba(255,241,209,1) 100%);*/
 }
 
 .header {
-  background: #90EE90;
+  /*background: #90EE90;*/
   color: white;
   font-size: 20px;
   border: 4px solid #000000;
+  background-image:
+    linear-gradient(
+		to right,
+      white, #26C756
+    );
 }
 
 .headerText{
-    color: Black;
+    color: #26C756;
 	font-size: 50px;
-    font-family: Georgia, serif;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
     font-weight: bolder;
 	font-style: italic;
     margin-left: 150px;
@@ -37,7 +42,7 @@ body {
 
 #navbar {
   overflow: hidden;
-  background-color: #90EE90;
+  background-color: #4682B4;
   border: 4px solid #FFFFFF;
   font-family:sans-serif;
   width: 100%;
@@ -47,7 +52,7 @@ body {
 #navbar a {
   float: left;
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -55,11 +60,11 @@ body {
 }
 
 #navbar a:hover{
-  background-color: #add8e6;
+  background-color: #26C756;
 }
 
 #navbar .active {
-  background-color: #add8e6;
+  background-color: #4682B4;
 }
 
 .sticky {
@@ -173,19 +178,19 @@ td.contactInfoBack {
 
 .input{
     padding: 10px;
-    background: #FFFFE0;
-    border: 1px solid #800000;
+    background: #F1F1F1;
+    border: 1px solid #black;
     border-radius: 10px;
     width:95%;
     font-size:15px;
     font-family:Times New Roman;
     font-weight: bold;
-    color: #800000;
+    color: #black;
     outline: none;
 }
 
 .text{
-    font-family:Times New Roman;
+    font-family:font-family:sans-serif;
     padding: 14px 16px;
     font-size:25px;
     color: #000000;
@@ -213,16 +218,16 @@ td.contactInfoBack {
   font-family:Times New Roman;
   padding: 10px;
   font-size:20px;
-  color: gold;
-  background-color: #800000;
-  border: 3px solid #000000;
+  color: white;
+  background-color: #4682B4;
+  border: 1px solid #000000;
   border-radius: 10px;
   width: 250px;
   margin-top: 30px;
   outline: none;
 }
 .button:hover{
-    background: black;
+    background: #26C756;
 }
 
 .footerColumn1{
