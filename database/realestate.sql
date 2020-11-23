@@ -190,6 +190,12 @@ CREATE TABLE `zip_code` (
 --
 
 --
+-- Indexes for table `admin_login`
+--
+ALTER TABLE `admin_login`
+  ADD PRIMARY KEY (`admin_id`);
+
+--
 -- Indexes for table `buy_type`
 --
 ALTER TABLE `buy_type`
@@ -267,6 +273,12 @@ ALTER TABLE `zip_code`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admin_login`
+--
+ALTER TABLE `admin_login`
+  MODIFY `admin_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user_information`
