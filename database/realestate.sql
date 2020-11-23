@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `buy_type` (
   `buy_id` int NOT NULL,
   `type_is` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -41,7 +41,7 @@ CREATE TABLE `buy_type` (
 CREATE TABLE `buy_zip_code` (
   `buy_id` int NOT NULL,
   `zip_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE `buy_zip_code` (
 CREATE TABLE `city` (
   `city_id` int NOT NULL,
   `city_name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 -- --------------------------------------------------------
 
@@ -76,8 +76,8 @@ CREATE TABLE `property` (
   `pet_allowed` tinyint DEFAULT NULL,
   `min_lease_period` varchar(10) DEFAULT NULL,
   `max_lease_period` varchar(10) DEFAULT NULL,
-  `property_note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `property_note` varchar(255)  DEFAULT NULL
+);
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE `property_buy` (
   `buy_id` int NOT NULL,
   `buy_description` varchar(255) NOT NULL,
   `buy_note` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -101,7 +101,7 @@ CREATE TABLE `property_media` (
   `media_id` int NOT NULL,
   `media_src` blob NOT NULL,
   `property_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE `property_media` (
 CREATE TABLE `property_type` (
   `type_id` int NOT NULL,
   `type_name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,7 @@ CREATE TABLE `repair_job` (
   `job_description` varchar(255) NOT NULL,
   `job_note` varchar(255) DEFAULT NULL,
   `property_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE `repair_job` (
 CREATE TABLE `state` (
   `state_id` int NOT NULL,
   `state_name` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -153,11 +153,11 @@ CREATE TABLE `user_information` (
   `name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(50) NOT NULL,
   `address1` varchar(255) NOT NULL,
   `address2` varchar(255) DEFAULT NULL,
   `zip_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -170,7 +170,7 @@ CREATE TABLE `zip_code` (
   `zip_code` varchar(10) NOT NULL,
   `city_id` int NOT NULL,
   `state_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Indexes for dumped tables
