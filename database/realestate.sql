@@ -27,6 +27,19 @@ SET time_zone = "+00:00";
 -- Table structure for table `buy_type`
 --
 
+CREATE TABLE `admin_login` (
+  `admin_id` int NOT NULL,
+  `admin_password` varchar(255) NOT NULL
+) ;
+
+--
+-- Dumping data for table `admin_login`
+--
+
+INSERT INTO `admin_login` (`admin_id`, `admin_password`) VALUES
+(1, 'admin123');
+
+
 CREATE TABLE `buy_type` (
   `buy_id` int NOT NULL,
   `type_is` int NOT NULL
