@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rental Properties</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../style/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+  <script type="text/javascript" src="../javascript/rental.js" charset="utf-8"></script>  
+</head>
+<body class="body">
+<div class="container">
+
+<!-- Property Popup -->
+<table id="propertiesTable" align="center" width="100%" >
+	<col width="20%">
+	<col width="65%">
+	<col width="15%">
+
+  </table>
+
+</div>
+  <div id="propertyPopup" class="popup">
+	<div class="popup-content" align="center" style="width:40%;margin-top:180p	x;">
+	  <span class="close">&times;</span>
+	  <h3 id="propTitle" class="text" style="padding:0px;"></h3>
+	  <div name="extraInfo">
+		  <table align="center" width="100%">
+            <col width="33%">
+            <col width="33%">
+            <col width="33%">
+            <tr>
+                <td valign="top">
+                    <label id="sqft" class="title" style="font-size:15px;">Floor Area</label><br/>
+                    <label id="parking" class="title" style="font-size:15px;">Parking</label>
+                </td>
+                <td valign="top">
+                    <label id="bed" class="title" style="font-size:15px;">Bed</label><br/>
+                    <label id="bath" class="title" style="font-size:15px;">Bath</label>
+                </td>
+                <td valign="top">
+                    <label id="pet" class="title" style="font-size:15px;">Pet</label><br/>
+                    <label id="electricity" class="title" style="font-size:15px;">Electricity</label>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="3">
+                    <label id="water" class="title" style="font-size:15px;">Water, Sewage, Trash</label>
+                </td>
+            </tr>
+        </table>
+	  </div>
+	  
+	</div>
+  
+  </div>
+<!-- All Properties -->
+  <div id="propertyImages" class="popup">
+	<div class="popup-content" align="center" style="width:40%;margin-top:180p	x;">
+	  <span class="close">&times;</span>
+	  <div id="myCarousel" data-ride="carousel">
+        <div class="carousel-inner" id="parentDiv">
+      </div>
+	</div>
+  
+  </div>
+
+<script>
+	getPropertiesUser();
+</script>
+</body>
+</html>
