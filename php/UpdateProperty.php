@@ -4,29 +4,31 @@
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN'];  
 
-    $PROPERTY = json_decode($_POST['PAYLOAD']);    
-    
-    $PROPERTY_ID = $PROPERTY->property_id;
-    $PROPERTY_NAME = $PROPERTY->propery_name;
-    $PROPERTY_TYPE = $PROPERTY->type_id;
-    $PROPERTY_PRICE = $PROPERTY->propery_price;
-    $PROPERTY_ADDRESS1 = $PROPERTY->property_address1;
-    $PROPERTY_ADDRESS2 = $PROPERTY->property_address2;
-    $PROPERTY_ZIP = $PROPERTY->zip_id;
-    $PROPERTY_AVAILABLE = $PROPERTY->property_availability;
-    $PROPERTY_SQUARE_FEET = $PROPERTY->property_square_feet;
-    $PROPERTY_BED = $PROPERTY->property_bed;
-    $PROPERTY_BATH = $PROPERTY->property_bath;
-    $PROPERTY_PARKING = $PROPERTY->property_parking;
-    $PROPERTY_PET_FRIENDLY = $PROPERTY->pet_allowed;
-    $PROPERTY_LEASE_MIN = $PROPERTY->min_lease_period;
-    $PROPERTY_LEASE_MAX = $PROPERTY->max_lease_period;
-    $PROPERTY_NOTE = $PROPERTY->property_note;
+    $PROPERTY_ID = $_POST['propertyId'];
+    $PROPERTY_TYPE = $_POST['propertyType'];
+	$PROPERTY_PRICE = $_POST['propertyPrice'];
+    $PROPERTY_ADDRESS1 = $_POST['propertyAddress1'];
+    $PROPERTY_ADDRESS2 = $_POST['propertyAddress2'];
+    $PROPERTY_ZIP = $_POST['zipID'];
+	
+	if(isset($_POST['propertyAvailable'])){
+		$PROPERTY_AVAILABLE = 1;
+	}
+	else{
+		$PROPERTY_AVAILABLE = 0;
+	}
+    $PROPERTY_SQUARE_FEET = $_POST['propertySqrFt'];
+	$PROPERTY_BED = $_POST['propertyBed'];
+    $PROPERTY_BATH = $_POST['propertyBath'];
+    $PROPERTY_PARKING = $_POST['propertyParking'];
+    $PROPERTY_PET_FRIENDLY = $_POST['propertyPet'];
+    $PROPERTY_LEASE_MIN = $_POST['propertyMinLease'];
+    $PROPERTY_LEASE_MAX = $_POST['propertyMaxLease'];
+    $PROPERTY_NOTE = $_POST['propertyNote'];
     
     $query = "UPDATE property SET 
-                propery_name = $PROPERTY_NAME,
                 type_id = '$PROPERTY_TYPE',
-                propery_price = $PROPERTY_PRICE,
+                property_price = $PROPERTY_PRICE,
                 property_address1 = '$PROPERTY_ADDRESS1',
                 property_address2 = '$PROPERTY_ADDRESS2',
                 zip_id = $PROPERTY_ZIP,
@@ -40,6 +42,7 @@
                 max_lease_period = '$PROPERTY_LEASE_MAX',
                 property_note = '$PROPERTY_NOTE'
                 WHERE property_id = $PROPERTY_ID";
+	
 
     if (mysqli_query($conn, $query))
     {

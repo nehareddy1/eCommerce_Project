@@ -21,7 +21,7 @@
             // Pack property into properties array 
             array_push($types, $type);
         }
-        // echo json_encode($types);
+        echo json_encode($types);
     }
     else 
     {
