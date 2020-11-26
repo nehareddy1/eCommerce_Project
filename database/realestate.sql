@@ -206,5 +206,16 @@ CREATE TABLE `user_information` (
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `user_login`
+--
 
+CREATE TABLE `user_login` (
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `phone` varchar(255),
+  `address` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ;
 
