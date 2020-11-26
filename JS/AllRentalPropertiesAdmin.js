@@ -17,7 +17,8 @@ function getPropertiesAdmin()
 			   var zip_code = property['ZIPCODE'];
 			   var city = property['CITY'];
 			   var state = property['STATE'];
-               var img = property['IMAGE'];
+			   var img = property['IMAGE'];
+
 
                tr_tag = document.createElement("tr");
 

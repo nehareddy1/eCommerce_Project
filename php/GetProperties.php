@@ -65,6 +65,12 @@
             $imgrow = mysqli_fetch_assoc($imgresult);
             $property["IMAGE"] = $imgrow["media_src"];
             
+			$id = $property["ID"];
+            $query = "SELECT * FROM property_media WHERE property_id = $id LIMIT 1";
+            $imgresult = mysqli_query($conn, $query);
+            $imgrow = mysqli_fetch_assoc($imgresult);
+            $property["IMAGE"] = $imgrow["media_src"];
+			
             // Pack property into properties array 
             array_push($properties, $property);
         }
