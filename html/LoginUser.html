@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../style/style.css">
+<script>
+	function first ()
+	{	
+		document.getElementById("fier").innerHTML = "string of lower or upper case letters of length at least two";	
+	}
+	function last()
+	{
+		document.getElementById("laer").innerHTML = "string of lower or upper case letters of length at least two";
+	}
+	function phone ()
+	{
+		document.getElementById("pher").innerHTML = "xxx-xxx-xxxx (numbers)";
+	}
+	function email ()
+	{
+		document.getElementById("emer").innerHTML = "xxxxx@gmail.com";
+	}
+	function  addr()
+	{
+		document.getElementById("ader").innerHTML = "street, city, state, zipcode";
+	}
+	function  pass()
+	{
+		document.getElementById("per").innerHTML = "Atleast 1Uppercase, 1Lowercase, 1Number in order. Example: Pw1";
+	}
+	
+	
+	function firstOut ()
+	{
+		document.getElementById("fier").innerHTML = "";
+	}
+	function lastOut ()
+	{
+		document.getElementById("laer").innerHTML = "";
+	}
+	function phoneOut ()
+	{
+		document.getElementById("pher").innerHTML = "";
+	}
+	function eOut ()
+	{
+		document.getElementById("emer").innerHTML = "";
+	}
+	function adOut ()
+	{
+		document.getElementById("ader").innerHTML = "";
+	}
+	function passOut ()
+	{
+		document.getElementById("per").innerHTML = "";
+	}
+	
+	
+	function firstFocus ()
+	{
+		var box = document.getElementById("fir");
+		box.style.background = "white";
+	}
+	function lastFocus ()
+	{
+		var box1 = document.getElementById("las");
+		box1.style.background = "white";
+	}
+	function phoneFocus ()
+	{
+		var box2 = document.getElementById("ph");
+		box2.style.background = "white";
+	}
+	function eFocus ()
+	{
+		var box3 = document.getElementById("userId1");
+		box3.style.background = "white";
+	}
+	function passFocus ()
+	{
+		var box4 = document.getElementById("password1");
+		box4.style.background = "white";
+	}
+	
+	function firstBlur()
+	{
+		var box = document.getElementById("fir");
+		var firstName = document.getElementById ("fir").value;
+		if (firstName!="")
+			idPassPhoneChange ();
+		else
+			box.style.background = "red";
+	}
+	function lastBlur()
+	{
+		var box1 = document.getElementById("las");
+		var lastName = document.getElementById ("las").value;
+		if (lastName!="")
+			idPassPhoneChange ();
+		else
+			box1.style.background = "red";
+	}
+	function phoneBlur()
+	{
+		var box2 = document.getElementById("ph");
+		var phoneNum = document.getElementById ("ph").value;
+		if (phoneNum!="")
+			idPassPhoneChange ();
+		else
+			box2.style.background = "red";
+	}
+	function eBlur()
+	{
+		var box3 = document.getElementById("userId1");
+		var eb = document.getElementById ("userId1").value;
+		if (eb!="")
+			idPassPhoneChange ();
+		else
+			box3.style.background = "red";
+	}
+	function passBlur()
+	{
+		var box4 = document.getElementById("password1");
+		var pb = document.getElementById ("password1").value;
+		if (pb!="")
+			idPassPhoneChange ();
+		else
+			box4.style.background = "red";
+	}
+	
+	function idPassPhoneChange ()
+	{
+		var firstName = document.getElementById ("fir").value;
+		var lastName = document.getElementById ("las").value;
+		var phoneNum = document.getElementById ("ph").value;
+		var email = document.getElementById ("userId1").value;
+		var pass = document.getElementById ("password1").value;
+		var firstColor = document.getElementById("fir");
+		var lastColor = document.getElementById("las");
+		var phoneColor = document.getElementById("ph");
+		var emailColor = document.getElementById ("userId1");
+		var passColor = document.getElementById ("password1");
+		
+		
+		
+		if ((pass.search(/^[A-Z]+[a-z]+[0-9]+$/) == 0) && (email.search(/^[a-zA-Z]+[0-9]*@gmail.com$/) == 0) && (phoneNum.search(/^\d{3}-\d{3}-\d{4}$/) == 0) && (firstName.search(/^[a-zA-Z][a-zA-Z]+$/)==0) && (lastName.search(/^[a-zA-Z][a-zA-Z]+$/)==0)){
+		
+			firstColor.style.background = "white";
+			lastColor.style.background = "white";
+			phoneColor.style.background = "white";
+			emailColor.style.background = "white";
+			passColor.style.background = "white";
+					
+		}	
+		if (firstName.search(/^[a-zA-Z][a-zA-Z]+$/)!=0 && firstName!=""){
+			firstColor.style.background = "red";	
+		}
+			
+		if (lastName.search(/^[a-zA-Z][a-zA-Z]+$/)!=0 && lastName!=""){
+			lastColor.style.background = "red";			
+		}		
+	
+		if (phoneNum.search(/^\d{3}-\d{3}-\d{4}$/)!= 0 && phoneNum!=""){
+			phoneColor.style.background = "red";	
+		}
+
+		if (email.search(/^[a-zA-Z]+[0-9]*@gmail.com$/)!= 0 && email!=""){
+			emailColor.style.background = "red";	
+		}
+
+		if (pass.search(/^[A-Z]+[a-z]+[0-9]+$/)!= 0 && pass!=""){
+			passColor.style.background = "red";	
+		}		
+	}
+	
+	</script>
+
+</head>
+
+  <body class="body">
+
+  <header>
+	<div class="header">
+		<a class="active" href="Login.html"><img src="../images/logo.png" class="logo"></a>
+		<h1 class="headerText">Real Estate</h1>
+		</div>
+</header>
+
+<div style=" padding-top: 60px;">
+<form method="post" action="../php/UserLogin.php">
+<table width="30%" align="center">
+    <tr>
+        <th class="contactBack">Login</th>
+    </tr>
+    <tr>
+        <td class="contactInfoBack">
+            <table width="100%">
+                <tr>
+                    <td><input type="text" id="userId" name="userId" class="input" tabindex="1" placeholder="Email" style="text-align: center"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr style="width: 80%; height: 2px; background: #800000; border: 1px solid #000000;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="password" id="password" name="password" class="input" tabindex="2" placeholder="Password" style="text-align: center"></td>
+                </tr>    
+            </table>			
+				<input type="submit" id="login" class="submit" style="width: 120px; margin-left:150px; margin-top:10px;" tabindex="3" value="Login" ></input>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+
+<hr style="width: 90%; height: 3px; background: #800000; border: 1px solid #000000;"/>
+                    
+<div style=" padding-top: 10px;">
+<form method="post" action="../php/UserSignup.php">
+<table width="30%" align="center">
+    <tr>
+        <th class="contactBack">Sign Up</th>
+    </tr>
+    <tr>
+        <td class="contactInfoBack">
+            <table width="100%">
+				<tr>
+                    <td><input type="text" id="fir" name="fir" class="input" tabindex="2" placeholder="First Name" style="text-align: center" onmousemove="first()" onmouseout="firstOut()" onfocus=
+"firstFocus()" onchange="idPassPhoneChange()" onblur="firstBlur()"><label id="fier"></label></td>
+                </tr>
+				<tr>
+                    <td><input type="text" id="las" name="las" class="input" tabindex="2" placeholder="Last Name" style="text-align: center" onmousemove="last()" onmouseout="lastOut()" onfocus=
+"lastFocus()" onchange="idPassPhoneChange()" onblur="lastBlur()"><label id="laer"></label></td>
+                </tr>
+				<tr>
+                    <td><input type="text" id="ph" name="ph" class="input" tabindex="2" placeholder="Phone Number" style="text-align: center" onmousemove="phone()" onmouseout="phoneOut()" onfocus=
+"phoneFocus()" onchange="idPassPhoneChange()" onblur="phoneBlur()"><label id="pher"></label></td>
+                </tr>
+				<tr>
+                    <td><input type="text" id="add1" name="add" class="input" tabindex="2" placeholder="Address" style="text-align: center" onmousemove="addr()" onmouseout="adOut()"><label id="ader"></label></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="userId1" name="userId" class="input" tabindex="1" placeholder="Email" style="text-align: center" onmousemove="email()" onmouseout="eOut()" onfocus=
+"eFocus()" onchange="idPassPhoneChange()" onblur="eBlur()"><label id="emer"></label></td>
+                </tr>              
+                <tr>
+                    <td><input type="password" id="password1" name="password" class="input" tabindex="2" placeholder="Password" style="text-align: center" onmousemove="pass()" onmouseout="passOut()" onfocus=
+"passFocus()" onchange="idPassPhoneChange()" onblur="passBlur()"><label id="per"></td>
+                </tr>
+            </table>
+			<input type="submit" id="login1" class="submit" style="width: 120px; margin-left:150px; margin-top:10px;" tabindex="3" value="Signup"></input>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>
