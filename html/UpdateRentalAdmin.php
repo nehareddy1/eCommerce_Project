@@ -3,9 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
     <link rel="stylesheet" type="text/css" href="../style/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script type="text/javascript" src="../JS/UpdateRentalProperty.js"></script>
 	<script type="text/javascript" src="../JS/GetPropertyTypes.js" ></script>
 </head>
@@ -14,14 +12,15 @@
 
 <header>
 	<div class="header">
-		<a class="active" href="HomeAdmin.html"><img src="../logo.png" class="logo"></a>
-		<h1 class="headerText">Andrew's Dream LLC.</h1>
-	</div>
+		<a class="active" href="Home.html"><img src="../images/logo.png" class="logo"></a>
+		<h1 class="headerText">Real Estate</h1>
+		</div>
 </header>
 
 	<div id="navbar" class="sticky">
-	    <a href="HomeAdmin.html"> HOME</a>
-        <a class="active" href="RentalAdmin.html">TURNKEY RENTAL</a>
+	    <a href=".html">RENTAL</a>
+        <a class="active" href="RentalAdmin.html">BUY</a>
+		<a href=".html">Jobs</a>
         <a href="AddRentalAdmin.html">ADD NEW PROPERTY</a>
 	</div>
 
@@ -207,4 +206,16 @@
         getProperty(<?php echo $_GET['ID']; ?>); 
 </script>
 </body>
+<footer>
+	<div class="footerColumn1">
+        <h2>Real Estate Project</h2>
+        Specialized in rentals, buying, and repair jobs.
+	</div>
+
+	<div class="footerColumn2">
+        <h2>Brought to you by students at EMU</h2>
+         This website was made by a group of students studying computer science at Eastern Michigan University.</div>
+
+    <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
+</footer>
 </html>

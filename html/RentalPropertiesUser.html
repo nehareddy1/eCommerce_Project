@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Rental Properties</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../style/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-  <script type="text/javascript" src="../javascript/rental.js" charset="utf-8"></script>  
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../style/style.css">
+<script type="text/javascript" src="../JS/AllRentalPropertiesUser.js"></script>
 </head>
-<body class="body">
-<div class="container">
 
-<!-- Property Popup -->
-<table id="propertiesTable" align="center" width="100%" >
-	<col width="20%">
-	<col width="65%">
-	<col width="15%">
+<body class="body" onload = "getPropertiesUser();" >
+<header>
+	<div class="header">
+		<a class="active" href="Home.html"><img src="../images/logo.png" class="logo"></a>
+		<h1 class="headerText">Real Estate</h1>
+		</div>
+</header>
 
-  </table>
-
+<div id="navbar" class="sticky">
+  <a class="active" href="Home.html"> HOME</a>
+  <a href="RentalUser.html">RENTAL HOUSE</a>
+  <a href="SaleUser.html">LIST OF HOUSES FOR SALE</a>
+  <a class="active" href="AddSalePropertyInfoUser.html">ADD NEW PROPERTY TO SELL</a>
+  <a class="active" href="JobsUser.html">Jobs</a>
 </div>
-  <div id="propertyPopup" class="popup">
-	<div class="popup-content" align="center" style="width:40%;margin-top:180p	x;">
+
+<div style=" padding-top: 60px;">
+    <h3 style="text-align:center;font-size:40px;color:Black;" class="text">Rental Properties</h3>
+	
+        <hr style="width: 97%"/>
+      
+    <table id="propertiesTable" align="center" width = 100%>
+      <col width="25%">
+      <col width="50%">
+	  <col width="25%">
+	  
+    </table>
+	
+	<div id="imgSlider" class="modal">
+	  <span class="close cursor" onclick="closeModal()">&times;</span>
+	  <div class="modal-content" id = "imgContent">
+
+		<div class="mySlides" id = "imgSelected">
+		  
+		</div>
+
+		
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+	  </div>
+	</div>
+
+	<div id="propertyPopup" class="popup">
+	<div class="popup-content" align="center" style="width:40%;margin-top:180px;">
 	  <span class="close">&times;</span>
 	  <h3 id="propTitle" class="text" style="padding:0px;"></h3>
 	  <div name="extraInfo">
@@ -42,33 +69,31 @@
                 </td>
                 <td valign="top">
                     <label id="pet" class="title" style="font-size:15px;">Pet</label><br/>
-                    <label id="electricity" class="title" style="font-size:15px;">Electricity</label>
+                    <label id="lease" class="title" style="font-size:15px;">Lease Peroiod</label>
                 </td>
             </tr>
-            <tr>
-                <td align="center" colspan="3">
-                    <label id="water" class="title" style="font-size:15px;">Water, Sewage, Trash</label>
-                </td>
-            </tr>
+            
         </table>
 	  </div>
 	  
 	</div>
   
   </div>
-<!-- All Properties -->
-  <div id="propertyImages" class="popup">
-	<div class="popup-content" align="center" style="width:40%;margin-top:180p	x;">
-	  <span class="close">&times;</span>
-	  <div id="myCarousel" data-ride="carousel">
-        <div class="carousel-inner" id="parentDiv">
-      </div>
-	</div>
-  
-  </div>
+    
+</div>
 
-<script>
-	getPropertiesUser();
-</script>
-</body>
+
+<footer>
+	<div class="footerColumn1">
+        <h2>Real Estate Project</h2>
+        Specialized in rentals, buying, and repair jobs.
+	</div>
+
+	<div class="footerColumn2">
+        <h2>Brought to you by students at EMU</h2>
+         This website was made by a group of students studying computer science at Eastern Michigan University.</div>
+
+    <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
+</footer>
+	</body>
 </html>
