@@ -58,6 +58,12 @@
             $property["LEASE_MIN"] = $row["min_lease_period"];
             $property["LEASE_MAX"] = $row["max_lease_period"];
             $property["NOTE"] = $row["property_note"];
+
+            $id = $property["ID"];
+            $query = "SELECT * FROM property_media WHERE property_id = $id LIMIT 1";
+            $imgresult = mysqli_query($conn, $query);
+            $imgrow = mysqli_fetch_assoc($imgresult);
+            $property["IMAGE"] = $imgrow["media_src"];
             
 			$id = $property["ID"];
             $query = "SELECT * FROM property_media WHERE property_id = $id LIMIT 1";

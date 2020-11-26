@@ -19,14 +19,16 @@ function getPropertiesAdmin()
 			   var state = property['STATE'];
 			   var img = property['IMAGE'];
 
+
                tr_tag = document.createElement("tr");
 
                img_td_tag = document.createElement("td");
                img_tag = document.createElement("img");
-               img_tag.src = "..\\PropertyImages\\" +img;
+               img_tag.src = "..\\PropertyImages\\"+img;
                img_tag.width = "100";
                img_tag.height = "100";
                img_tag.align = "center";
+               img_tag.onclick = function(){document.location.href='UpdateImagesAdmin.php?ID=' +  property_key;}; 
                img_td_tag.appendChild(img_tag); 
                tr_tag.appendChild(img_td_tag);
 
