@@ -60,3 +60,43 @@ function getJobs()
     xmlhttp.open("GET", "../php/GetJobs.php", true);
     xmlhttp.send();
 }
+
+
+function getJobsUser()
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+            var jobs = JSON.parse(this.responseText);
+            jobs.forEach(createJob);
+            
+            function createJob(job)
+            {
+                var job_id = job['ID'];
+                var job_title = job['TITLE'];
+                var property_name = job['PROPERTY'];
+
+                tr_tag = document.createElement("tr");
+
+                    title_td_tag = document.createElement("td");
+                    title_p_tag = document.createElement("p");
+                    title_p_tag.class = "title";
+                    title_p_tag.innerHTML = job_title;
+			   
+                    property_p_tag = document.createElement("p");
+                    property_p_tag.class = "title";
+                    property_p_tag.innerHTML = "For "+property_name;
+			   
+                    title_td_tag.appendChild(title_p_tag); 
+                    title_td_tag.appendChild(property_p_tag); 
+                    tr_tag.appendChild(title_td_tag); 
+
+               document.getElementById("jobsTable").appendChild(tr_tag);  
+            }
+        }
+    };
+    xmlhttp.open("GET", "../php/GetJobs.php", true);
+    xmlhttp.send();
+}
