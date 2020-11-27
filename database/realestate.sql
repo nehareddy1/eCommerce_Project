@@ -175,7 +175,7 @@ CREATE TABLE `property_media` (
 --
 
 CREATE TABLE `repair_job` (
-  `job_id` int NOT NULL,
+  `job_id` int NOT NULL AUTO_INCREMENT,
   `job_title` varchar(45) NOT NULL,
   `job_description` varchar(255) NOT NULL,
   `job_note` varchar(255) DEFAULT NULL,
@@ -206,5 +206,16 @@ CREATE TABLE `user_information` (
 
 -- --------------------------------------------------------
 
+--
+-- Table structure for table `user_login`
+--
 
+CREATE TABLE `user_login` (
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `phone` varchar(255),
+  `address` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ;
 

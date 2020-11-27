@@ -39,8 +39,10 @@ function getPropertyImages(propertyKey){
                             location.reload();
                         }; 
                         delete_button.innerHTML = "Delete";
+						delete_button.className = "button"
+						delete_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
                         button_td_tag.appendChild(delete_button); 
-                    tr_tag.appendChild(button_td_tag);
+						tr_tag.appendChild(button_td_tag);
 
                 document.getElementById("imagesTable").appendChild(tr_tag);  
             }

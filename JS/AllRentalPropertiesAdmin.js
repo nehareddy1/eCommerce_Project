@@ -35,12 +35,13 @@ function getPropertiesAdmin()
                title_td_tag = document.createElement("td");
                //title_td_tag.padding = "10px 30px";
                title_p_tag = document.createElement("p");
+			   title_p_tag.style.color = "#4682B4";
                title_p_tag.class = "title";
                title_p_tag.innerHTML = property_name;
 			   
                address_p_tag = document.createElement("p");
                address_p_tag.class = "title";
-               //address_p_tag.fontSize = "5px";
+               address_p_tag.style.fontSize = "25px";
                address_p_tag.innerHTML = property_address1 +",<br> " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
 			   
                title_td_tag.appendChild(title_p_tag); 

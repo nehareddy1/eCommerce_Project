@@ -6,7 +6,6 @@
 <script type="text/javascript" src="../JS/GetPropertyTypes.js" charset="utf-8"></script>
 </head>
 
-
 <body class="body" onload = "getPropertyTypes();">
 
 <header>
@@ -17,9 +16,9 @@
 </header>
 
 	<div id="navbar" class="sticky">
-	    <a href="HomeAdmin.html"> Rental</a>
-        <a href="RentalAdmin.html">Buy</a>
-        <a class="active" href="AddRentalAdmin.html">Job</a>
+	    <a href=".html"> RENTAL</a>
+        <a href=".html">BUY</a>
+        <a class="active" href="AddRentalAdmin.html">JOB</a>
 	</div>
 
 <div>
@@ -59,7 +58,7 @@
             Property Type
         </td>
         <td>
-            <select name="propertyType" id="propertyType" class="input" tabindex="2" required="required">
+            <select name="propertyType" id="propertyType" class="input" tabindex="2" required="required" style="width: 100%; border: 2px solid #000000;">
 	
 			</select>  
         </td>
@@ -193,8 +192,6 @@
        <tr>
         <td colspan="5" align="center">
 			<input type="file" name="files[]" multiple>
-            <!--<input type="file" name="photo[]" id="files" accept="PropertyImages/*" class = "inputfile" multiple="multiple" onchange="imageSelection(event)" />-->
-            <!--<label for="files">Choose Image</label>-->
         </td>
        </tr>
        <tr>
@@ -215,14 +212,18 @@
      <br/>
 </div>
 
-<div class="container">
-	  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner" id="myCarouselData">
-		  <div class="item active">
-		  </div>
-		</div>
-	  </div>
+
+<footer>
+	<div class="footerColumn1">
+        <h2>Real Estate Project</h2>
+        Specialized in rentals, buying, and repair jobs.
 	</div>
 
+	<div class="footerColumn2">
+        <h2>Brought to you by students at EMU</h2>
+         This website was made by a group of students studying computer science at Eastern Michigan University.</div>
+
+    <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
+</footer>
 </body>
 </html>
