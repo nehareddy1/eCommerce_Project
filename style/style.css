@@ -1,0 +1,478 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+body {
+  margin: 0;
+  font-size: 30px;
+  background: rgb(255,255,255);
+  /*background: radial-gradient(circle, rgba(253,255,145,1) 99%, rgba(255,241,209,1) 100%);*/
+}
+
+.header {
+  /*background: #90EE90;*/
+  color: white;
+  font-size: 20px;
+  border: 4px solid #000000;
+  background-image:
+    linear-gradient(
+		to right,
+      white, #26C756
+    );
+}
+
+.headerText{
+    color: #26C756;
+	font-size: 50px;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    font-weight: bolder;
+	font-style: italic;
+    margin-left: 150px;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #4682B4;
+  border: 4px solid #FFFFFF;
+  font-family:sans-serif;
+  width: 100%;
+  z-index: 500;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size:20px;
+}
+
+#navbar a:hover{
+  background-color: #26C756;
+}
+
+#navbar .active {
+  background-color: #4682B4;
+}
+
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  top:0;
+  width: 100%;
+}
+
+.hidden{
+  display: none;
+  width: 25%;
+  float: right;
+  margin-right: 5%;
+  padding-left: 5%;
+}
+
+.unhidden{
+  display: block;
+  width: 25%;
+  float: right;
+  margin-right: 5%;
+  padding-left: 5%;
+}
+
+.hiddenForm{
+  text-align: center;
+  font-size: 20px;
+}
+.logo{
+  height: 100px;
+	object-fit: cover;
+	float: left;
+	padding:10px;
+	position:absolute;
+	display:inline-block
+}
+.phone{
+  display:inline-block;
+  background-color: #800000;
+  color:gold;
+  border-radius:2em;
+  box-sizing: border-box;
+	text-align: center;
+	padding-top:10px;
+	padding-left: 7%;
+	padding-right: 5%;
+	font-size: 36px;
+	margin-right: 7%;
+	overflow: hidden;
+  white-space: nowrap;
+}
+
+.contact{
+  background: #000000;
+  color: gold;
+	padding: 5%;
+	height: 200px;
+	margin-left: 7%;
+	margin-right: 7%;
+	overflow: hidden;
+  white-space: nowrap;
+}
+
+.content{
+  max-width: 75%;
+  height: 100%;
+  background: rgba(255,255,165,.99);
+  margin: auto;
+}
+td.top50 {
+    border-collapse: collapse;
+    width: 50%;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;
+    height: 100%;
+    margin-top:5%;
+    border-collapse: collapse;
+}
+td.top15 {
+    border-collapse: collapse;
+    width: 15%;
+    text-align: left;
+}
+td.top35 {
+    border-collapse: collapse;
+    width: 35%;
+    text-align: left;
+}
+
+th.contactBack {
+  border-radius: 25px 25px 0px 0px;
+  border: 3px solid #4682B4;
+  background: #90EE90;
+  font-size:25px;
+  color: black;
+  font-family:Times New Roman;
+  padding: 20px;
+}
+
+td.contactInfoBack {
+  border-radius: 0px 0px 25px 25px;
+  border: 3px solid #4682B4;
+  font-size:20px;
+  color: black;
+  font-family:Times New Roman;
+  padding: 20px;
+}
+
+.input{
+    padding: 10px;
+    background: #F1F1F1;
+    border: 1px solid #black;
+    border-radius: 10px;
+    width:95%;
+    font-size:15px;
+    font-family:Times New Roman;
+    font-weight: bold;
+    color: #black;
+    outline: none;
+}
+
+.text{
+    font-family:font-family:sans-serif;
+    padding: 14px 16px;
+    font-size:25px;
+    color: #000000;
+}
+
+.title{
+    font-family:Times New Roman;
+    font-size:30px;
+    color: #000000;
+    display: inline;
+}
+
+.line{
+
+    background: #800000;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    width: 100%;
+    height: 5px;
+    outline: none;
+    border-radius: 10px;
+}
+
+.button{
+  font-family:Times New Roman;
+  padding: 10px;
+  font-size:20px;
+  color: white;
+  background-color: #4682B4;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  width: 250px;
+  margin-top: 30px;
+  outline: none;
+}
+.button:hover{
+    background: #26C756;
+}
+
+.footerColumn1{
+    color: #000000;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
+.footerColumn2{
+    color: #000000;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 40px;
+}
+
+.footerTextCopy {
+  color:#000000;
+  font-size: 18px;
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding-left: 10px;
+    background-color: #90EE90;
+    font-size: 45%;
+    border: 4px solid #000000;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+  display: inline-block;
+  font-family:Times New Roman;
+  padding: 10px;
+  font-size:20px;
+  color: gold;
+  background-color: #800000;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  width: 200px;
+  margin-top: 30px;
+  outline: none;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: black;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    margin: auto;
+    height:200px;
+  }
+
+ .close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #800000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+}
+.popup-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid #800000;
+  width: 80%;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.checkbox > input[type=checkbox] {
+  visibility: hidden;
+}
+
+.checkbox {
+  position: relative;
+  display: block;
+  width: 170px;
+  height: 26px;
+  margin: 0 auto;
+  background: #FFFFE0;
+  border: 1.5px solid #800000;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+}
+
+.checkbox:after {
+  position: absolute;
+  display: inline;
+  right: 10px;
+  content: 'NotAvailable';
+  color: #000000;
+  font: 13px/26px Times New Roman, Times New Roman;
+  font-weight: bold;
+  text-transform: capitalize;
+  z-index: 0;
+}
+
+.checkbox:before {
+  position: absolute;
+  display: inline;
+  left: 10px;
+  content: 'Available';
+  color: #800000;
+  font: 13px/26px Times New Roman, Times New Roman;
+  font-weight: bold;
+  text-transform: capitalize;
+  z-index: 0;
+}
+
+.checkbox label {
+  position: absolute;
+  display: block;
+  top: 3px;
+  left: 4px;
+  width: 80px;
+  height: 20px;
+  background: #000000;
+  cursor: pointer;
+  transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  z-index: 1;
+}
+
+.checkbox input[type=checkbox]:checked + label {
+  left: 87px;
+  background: #800000;
+}
+
+  .thumb {
+    height: 70px;
+    width: 70px;
+    margin: 5px 5px 5px 5px;
+  }
+  
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

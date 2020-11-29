@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../style/style.css">
+</head>
+
+  <body class="body">
+
+<header>
+	<div class="header">
+		<a class="active" href="Home.html"><img src="../images/logo.png" class="logo"></a>
+		<h1 class="headerText">Real Estate</h1>
+		</div>
+</header>
+
+<div style=" padding-top: 60px;">
+<form method="post" action="../php/AdminLogin.php">
+<table width="30%" align="center">
+    <tr>
+        <th class="contactBack">Login</th>
+    </tr>
+    <tr>
+        <td class="contactInfoBack">
+            <table width="100%">
+                <tr>
+                    <td><input type="text" id="userId" name="userId" class="input" tabindex="1" placeholder="Email" style="text-align: center"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr style="width: 80%; height: 2px; background: #800000; border: 1px solid #000000;"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="password" id="password" name="password" class="input" tabindex="2" placeholder="Password" style="text-align: center"></td>
+                </tr>    
+            </table>			
+				<input type="submit" id="login" class="submit" style="width: 120px; margin-left:150px; margin-top:10px;" tabindex="3" value="Login" ></input>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>

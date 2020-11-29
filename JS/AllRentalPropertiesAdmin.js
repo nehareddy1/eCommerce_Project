@@ -1,0 +1,83 @@
+function getPropertiesAdmin()
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() 
+    {
+        if (this.readyState == 4 && this.status == 200) 
+        {
+            var properties = JSON.parse(this.responseText);
+            properties.forEach(createProperty);
+            
+            function createProperty(property, index)
+            {
+               var property_key = property['ID'];
+               var property_name = property['NAME'];
+               var property_address1 = property['ADDRESS1'];
+			   var property_address2 = property['ADDRESS2'];
+			   var zip_code = property['ZIPCODE'];
+			   var city = property['CITY'];
+			   var state = property['STATE'];
+			   var img = property['IMAGE'];
+
+
+               tr_tag = document.createElement("tr");
+
+               img_td_tag = document.createElement("td");
+               img_tag = document.createElement("img");
+               img_tag.src = "..\\PropertyImages\\"+img;
+               img_tag.width = "100";
+               img_tag.height = "100";
+               img_tag.align = "center";
+               img_tag.onclick = function(){document.location.href='UpdateImagesAdmin.php?ID=' +  property_key;}; 
+               img_td_tag.appendChild(img_tag); 
+               tr_tag.appendChild(img_td_tag);
+
+               title_td_tag = document.createElement("td");
+               //title_td_tag.padding = "10px 30px";
+               title_p_tag = document.createElement("p");
+			   title_p_tag.style.color = "#4682B4";
+               title_p_tag.class = "title";
+               title_p_tag.innerHTML = property_name;
+			   
+               address_p_tag = document.createElement("p");
+               address_p_tag.class = "title";
+               address_p_tag.style.fontSize = "25px";
+               address_p_tag.innerHTML = property_address1 +",<br> " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
+			   
+               title_td_tag.appendChild(title_p_tag); 
+               title_td_tag.appendChild(address_p_tag); 
+               tr_tag.appendChild(title_td_tag); 
+
+               menu_td_tag = document.createElement("td");
+               //menu_td_tag.padding = "10px";
+               menu_td_tag.align = "center";
+               update_button = document.createElement("button");
+               update_button.type = "button";
+               update_button.id="rentalPropertyUpdate" 
+               update_button.className = "button"
+               update_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
+               update_button.onclick = function(){document.location.href='UpdateRentalAdmin.php?ID=' +  property_key;}; // UpdateRentalAdmin.html should be a php page or have inline php to facilitate providing property_key to the page
+               update_button.innerHTML = "Update";
+               delete_button = document.createElement("button");
+               delete_button.type = "button";
+               delete_button.id="rentalPropertyUpdate";
+               delete_button.onclick = function(){
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.open("GET", "../php/DeleteProperty.php?ID=" +  property_key, true);
+                    xmlhttp.send();
+                    location.reload();
+                }; 
+               delete_button.className = "button";
+               delete_button.style="width: 100px;margin-top: 0px;";
+               delete_button.innerHTML = "Delete";
+               menu_td_tag.appendChild(update_button); 
+               menu_td_tag.appendChild(delete_button); 
+               tr_tag.appendChild(menu_td_tag); 
+
+               document.getElementById("propertiesTable").appendChild(tr_tag);  
+            }
+        }
+    };
+    xmlhttp.open("GET", "../php/GetProperties.php", true);
+    xmlhttp.send();
+}
