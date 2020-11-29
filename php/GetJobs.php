@@ -14,9 +14,9 @@
             $job = array();   
             $job["ID"] = $row["job_id"];
             $job["TITLE"] = $row["job_title"];
-
+			
             $propertyId = $row["property_id"];
-            $query = "SELECT * FROM property WHERE type_id = $propertyId";
+            $query = "SELECT * FROM property WHERE property_id = $propertyId";
             $propertresult = mysqli_query($conn, $query);
             $propertyrow = mysqli_fetch_assoc($propertresult);
             $job["PROPERTY"] = $propertyrow["property_name"];

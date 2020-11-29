@@ -46,7 +46,7 @@
 
     if (mysqli_query($conn, $query))
     {
-        echo "Property updated";
+        header("Location: ../html/RentalPropertiesAdmin.html");
     }
     else 
     {

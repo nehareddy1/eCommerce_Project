@@ -46,14 +46,6 @@ function getProperty(propertyKey)
         }   
     }
     xhr.send('PROPERTY_KEY=' + propertyKey);
+	window.location.replace("../html/RentalPropertiesAdmin.html");
 }
 
-function propertyUpdate(){
-    required();
-    if (allFilled == 0){
-        alert("Please Fill Required Inputs.");
-	}else{
-        setProperty(propertyID);
-        window.location.replace("../html/RentalAdmin.html");
-    }
-}

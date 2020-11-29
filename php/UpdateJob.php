@@ -17,7 +17,7 @@
 
     if (mysqli_query($conn, $query))
     {
-        echo "Job updated";
+        header("Location: ../html/JobsAdmin.html");
     }
     else 
     {
