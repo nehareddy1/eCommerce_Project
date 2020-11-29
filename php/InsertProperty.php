@@ -74,7 +74,7 @@
 			}
 		}
 		
-
+		header("Location: ../html/RentalPropertiesAdmin.html");
 
 
 ?>

@@ -66,8 +66,8 @@ function getPropertiesUser() {
 	                    link_tag.href = "..\\PropertyImages\\"+Images[i];
                     };
 
-                    var span = document.getElementsByClassName("close")[0];
-                        span.onclick = function() {
+                    var span2 = document.getElementsByClassName("close")[0];
+                        span2.onclick = function() {
                             imagePopup.style.display = "none";
                         };
  
@@ -139,9 +139,8 @@ function getPropertiesUser() {
 					 
                       
 
-                     var span = document.getElementsByClassName("close")[0];
- 
-                     span.onclick = function() {
+                     var span1 = document.getElementsByClassName("close")[1];
+                     span1.onclick = function() {
                          property.style.display = "none";
                      };
  

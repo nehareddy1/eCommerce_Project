@@ -11,5 +11,12 @@
     $query = "INSERT INTO repair_job (job_title, job_description, job_note, property_id)
               VALUES('$JOB_TITLE','$JOB_DESCRIPTION','$JOB_NOTE',$PROPRTY_ID)";
             
-    mysqli_query($conn, $query);
+    if (mysqli_query($conn, $query))
+    {
+        header("Location: ../html/JobsAdmin.html");
+    }
+    else 
+    {
+        echo "Error: " . $conn . "<br>" . mysqli_error($conn);
+    }
 ?>

@@ -1,10 +1,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">        
         <link rel="stylesheet" type="text/css" href="../style/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
         <script type="text/javascript" src="../JS/UpdateJob.js"></script>
 	    <script type="text/javascript" src="../JS/GetProperties.js" ></script>
         <style>
@@ -18,10 +16,10 @@
                 margin:2%;
             }
             #col1 {
-                width:30%;
+                width:35%;
             }
             #col2 {
-                width: 70%;
+                width: 65%;
             }
         </style>
     </head>
@@ -30,15 +28,15 @@
 
         <header>
 	        <div class="header">
-		        <a class="active" href="Home.html"><img src="../images/logo.png" class="logo"></a>
+		        <a class="active" href="RentalPropertiesAdmin.html"><img src="../images/logo.png" class="logo"></a>
 		        <h1 class="headerText">Real Estate</h1>
 		    </div>
         </header>
 
 	    <div id="navbar" class="sticky">
-	        <a href="HomeAdmin.html"> HOME</a>
-            <a class="active" href="RentalAdmin.html">TURNKEY RENTAL</a>
-            <a href="AddRentalAdmin.html">ADD NEW PROPERTY</a>
+	        <a href="RentalPropertiesAdmin.html"> HOME</a>
+            <a href=".html">BUY A HOUSE</a>
+            <a href="JobAdmin.html">JOB</a>
 	    </div>
         
         <h3 class="text">Update Repair Job</h3>
@@ -90,7 +88,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" class="button" tabindex="5" value="Update" />
+                        <input type="submit" class="button" tabindex="5" value="Update" style="width: 120px;" />
                     </td>
                 </tr>
             </table>

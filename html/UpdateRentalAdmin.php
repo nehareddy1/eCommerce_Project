@@ -12,16 +12,16 @@
 
 <header>
 	<div class="header">
-		<a class="active" href="Home.html"><img src="../images/logo.png" class="logo"></a>
+		<a class="active" href="RentalPropertiesAdmin.html"><img src="../images/logo.png" class="logo"></a>
 		<h1 class="headerText">Real Estate</h1>
 		</div>
 </header>
 
 	<div id="navbar" class="sticky">
-	    <a href=".html">RENTAL</a>
-        <a class="active" href="RentalAdmin.html">BUY</a>
-		<a href=".html">Jobs</a>
-        <a href="AddRentalAdmin.html">ADD NEW PROPERTY</a>
+	    <a href="RentalPropertiesAdmin.html">RENTAL</a>
+        <a href=".html">BUY A HOUSE</a>
+		<a href="JobsAdmin.html">JOBS</a>
+        
 	</div>
 
 <div>
@@ -39,7 +39,7 @@
         <th colspan="2" style="padding-bottom: 10px;">Property Amenities</th>
       </tr>
       <tr>
-        <td colspan="5"><hr class="line" style="width: 97%"/></td>
+        <td colspan="5"><hr style="width: 97%"/></td>
        </tr>
       <tr>
         <td style="padding-top: 20px;">
@@ -69,14 +69,7 @@
         <td class="text">
             Total Bed
         </td>
-        <td><input type="text" list="bed" id="propertyBed" name="propertyBed" class="input" tabindex="11" required="required"  onkeypress="return isNumberKey(event)">
-                <datalist id="bed">
-                    <option value="1">
-                    <option value="2">
-                    <option value="3">
-                    <option value="4">
-                    <option value="5">
-                </datalist>
+        <td><input type="number" list="bed" id="propertyBed" name="propertyBed" class="input" tabindex="11" required="required"  onkeypress="return isNumberKey(event)">
         </td>
        </tr>
        <tr>
@@ -90,14 +83,7 @@
             Total Bath
         </td>
         <td>
-            <input type="text" list="bath" id="propertyBath" name="propertyBath" class="input" tabindex="12" required="required" onkeypress="return isNumberWithDecimal(event)">
-                <datalist id="bath">
-                    <option value="1">
-                    <option value="1.5">
-                    <option value="2">
-                    <option value="2.5">
-                    <option value="3">
-                </datalist>
+            <input type="number" list="bath" id="propertyBath" name="propertyBath" class="input" min="1" tabindex="12" required="required" onkeypress="return isNumberWithDecimal(event)">
         </td>
        </tr>
        <tr>
@@ -190,7 +176,7 @@
         
        </tr>
         <td colspan="5" align="center">
-            <button type="button" id="cancel" class="button" style="width: 120px;" tabindex="24" onClick="location.href='RentalAdmin.html'">Cancel</button>
+            <button type="button" id="cancel" class="button" style="width: 120px;" tabindex="24" onClick="location.href='RentalPropertiesAdmin.html'">Cancel</button>
             <button type="submit" id="update" class="button" style="width: 120px;" tabindex="23">Update</button>
         </td>
        </tr>
