@@ -46,6 +46,5 @@ function getProperty(propertyKey)
         }   
     }
     xhr.send('PROPERTY_KEY=' + propertyKey);
-	window.location.replace("../html/RentalPropertiesAdmin.html");
 }
 
