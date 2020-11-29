@@ -4,6 +4,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <script type="text/javascript" src="../JS/AllRentalPropertiesUser.js"></script>
+    <style>
+        #col1 {
+            width:40%;
+        }
+        #col2 {
+            width: 50%;
+        }
+        #col3 {
+            width: 10%;
+        }
+        h2 {
+            text-align: center;
+            color: #4682B4;
+        }
+    </style>
 </head>
 
 <body class="body" onload = "getPropertiesUser();" >
@@ -22,78 +37,76 @@
   <a class="active" href="JobsUser.html">Jobs</a>
 </div>
 
-<div style=" padding-top: 60px;">
-    <h3 style="text-align:center;font-size:40px;color:Black;" class="text">Rental Properties</h3>
-	
-        <hr style="width: 97%"/>
-      
-    <table id="propertiesTable" align="center" width = 100%>
-      <col width="25%">
-      <col width="50%">
-	  <col width="25%">
-	  
+<div>
+    <h2>Rental Properties</h2>
+
+    <hr style="width:70%" />
+
+    <table id="propertiesTable" align="center" width=60%>
+        <colgroup>
+            <col id="col1" />
+            <col id="col2" />
+            <col id="col3" />
+        </colgroup>
     </table>
-	
-	<div id="imgSlider" class="modal">
-	  <span class="close cursor" onclick="closeModal()">&times;</span>
-	  <div class="modal-content" id = "imgContent">
-
-		<div class="mySlides" id = "imgSelected">
-		  
-		</div>
-
-		
-		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-		<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-	  </div>
-	</div>
-
-	<div id="propertyPopup" class="popup">
-	<div class="popup-content" align="center" style="width:40%;margin-top:180px;">
-	  <span class="close">&times;</span>
-	  <h3 id="propTitle" class="text" style="padding:0px;"></h3>
-	  <div name="extraInfo">
-		  <table align="center" width="100%">
-            <col width="33%">
-            <col width="33%">
-            <col width="33%">
-            <tr>
-                <td valign="top">
-                    <label id="sqft" class="title" style="font-size:15px;">Floor Area</label><br/>
-                    <label id="parking" class="title" style="font-size:15px;">Parking</label>
-                </td>
-                <td valign="top">
-                    <label id="bed" class="title" style="font-size:15px;">Bed</label><br/>
-                    <label id="bath" class="title" style="font-size:15px;">Bath</label>
-                </td>
-                <td valign="top">
-                    <label id="pet" class="title" style="font-size:15px;">Pet</label><br/>
-                    <label id="lease" class="title" style="font-size:15px;">Lease Peroiod</label>
-                </td>
-            </tr>
-            
-        </table>
-	  </div>
-	  
-	</div>
-  
-  </div>
-    
 </div>
 
+    <div id="imagePopup" class="popup">
+        <div class="popup-content" align="center" style="width:40%;margin-top:180px;">
+            <span class="close">&times;</span>
+            <div name="extraInfo">
+                <div>
+                    <a href="" target="_blank" id="link"><img id="slider" src=""/></a>
+                </div>
+                <br />
+                <input type="button" onclick="previous()" class="button" style="width:120px;" value="Previous" id="previous" />
+                <input type="button" onclick="next()" class="button" style="width:120px;" value="Next" id="next"/>
+            </div>
+        </div>
+    </div>
 
-<footer>
-	<div class="footerColumn1">
-        <h2>Real Estate Project</h2>
-        Specialized in rentals, buying, and repair jobs.
-	</div>
+	<div id="propertyPopup" class="popup">
+	    <div class="popup-content" align="center" style="width:40%;margin-top:180px;">
+	        <span class="close">&times;</span>
+	        <h3 id="propTitle" class="text" style="padding:0px;"></h3>
+	        <div name="extraInfo">
+		          <table align="center" width="100%">
+                    <col width="33%">
+                    <col width="33%">
+                    <col width="33%">
+                    <tr>
+                        <td valign="top">
+                            <label id="sqft" class="title" style="font-size:15px;">Floor Area</label><br/>
+                            <label id="parking" class="title" style="font-size:15px;">Parking</label>
+                        </td>
+                        <td valign="top">
+                            <label id="bed" class="title" style="font-size:15px;">Bed</label><br/>
+                            <label id="bath" class="title" style="font-size:15px;">Bath</label>
+                        </td>
+                        <td valign="top">
+                            <label id="pet" class="title" style="font-size:15px;">Pet</label><br/>
+                            <label id="lease" class="title" style="font-size:15px;">Lease Peroiod</label>
+                        </td>
+                    </tr>
+            
+                </table>
+	        </div>
+	  
+	    </div>
+  
+    </div>
 
-	<div class="footerColumn2">
-        <h2>Brought to you by students at EMU</h2>
-         This website was made by a group of students studying computer science at Eastern Michigan University.</div>
+    <footer>
+	    <div class="footerColumn1">
+            <h3>Real Estate Project</h3>
+            Specialized in rentals, buying, and repair jobs.
+	    </div>
 
-    <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
-</footer>
+	    <div class="footerColumn2">
+            <h3>Brought to you by students at EMU</h3>
+             This website was made by a group of students studying computer science at Eastern Michigan University.</div>
+        <div></div>
+        <p class="footerTextCopy">©2020 Dhwani Neha Pooja </p>
+    </footer>
 	</body>
 </html>

@@ -56,7 +56,7 @@ function getPropertiesAdmin()
                update_button.id="rentalPropertyUpdate" 
                update_button.className = "button"
                update_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
-               update_button.onclick = function(){document.location.href='UpdateRentalAdmin.php?ID=' +  property_key;}; // UpdateRentalAdmin.html should be a php page or have inline php to facilitate providing property_key to the page
+               update_button.onclick = function(){document.location.href='UpdateRentalAdmin.php?ID=' +  property_key;};
                update_button.innerHTML = "Update";
                delete_button = document.createElement("button");
                delete_button.type = "button";

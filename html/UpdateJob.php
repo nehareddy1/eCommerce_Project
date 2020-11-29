@@ -24,7 +24,7 @@
         </style>
     </head>
 
-    <body class="body" onload="getProperties();">
+    <body class="body">
 
         <header>
 	        <div class="header">
@@ -74,8 +74,8 @@
                         For Property
                     </td>
                     <td>
-                        <select id="propertyTitle" name="propertyId" class="input" tabindex="3">
-                        </select>
+                        <select id="propertyTitle" name="propertyTitle" class="input" tabindex="3"></select>
+                        <script>getProperties()</script>
                     </td>
                 </tr>
                 <tr>

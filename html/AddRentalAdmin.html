@@ -50,7 +50,8 @@
         <td class="text" style="padding-top: 20px;">
             Total Square Feet
         </td>
-        <td style="padding-top: 20px;"><input type="text" name="propertySqrFt" class="input" tabindex="10" required="required" onkeypress="return isNumberWithDecimal(event)">
+        <td style="padding-top: 20px;">
+            <input type="text" name="propertySqrFt" class="input" tabindex="10" required="required" onkeypress="return isNumberWithDecimal(event)">
         </td>
       </tr>
       <tr>
@@ -67,14 +68,7 @@
             Total Bed
         </td>
         <td>
-            <input type="text" list="bed" name="propertyBed" class="input" tabindex="11" required="required" onkeypress="return isNumberKey(event)">
-                <datalist id="bed">
-                    <option value="1">
-                    <option value="2">
-                    <option value="3">
-                    <option value="4">
-                    <option value="5">
-                </datalist>
+            <input type="number" list="bed" name="propertyBed" class="input" tabindex="11" required="required" onkeypress="return isNumberKey(event)">
         </td>
        </tr>
        <tr>
@@ -88,14 +82,7 @@
             Total Bath
         </td>
         <td>
-            <input type="text" list="bath" name="propertyBath" class="input" tabindex="12" required="required" onkeypress="return isNumberWithDecimal(event)">
-                <datalist id="bath">
-                    <option value="1">
-                    <option value="1.5">
-                    <option value="2">
-                    <option value="2.5">
-                    <option value="3">
-                </datalist>
+            <input type="number" list="bath" name="propertyBath" class="input" tabindex="12" min=1 required="required" onkeypress="return isNumberWithDecimal(event)">
         </td>
        </tr>
        <tr>

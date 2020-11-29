@@ -20,10 +20,7 @@ body {
 }
 
 .header {
-  /*background: #90EE90;*/
-  color: white;
-  font-size: 20px;
-  border: 4px solid #000000;
+  border: 1px solid #fff;
   background-image:
     linear-gradient(
 		to right,
@@ -37,7 +34,7 @@ body {
     font-family: New Century Schoolbook, TeX Gyre Schola, serif;
     font-weight: bolder;
 	font-style: italic;
-    margin-left: 150px;
+    margin-left: 170px;
 }
 
 #navbar {
@@ -45,7 +42,7 @@ body {
   background-color: #4682B4;
   border: 4px solid #FFFFFF;
   font-family:sans-serif;
-  width: 100%;
+  width: 99.5%;
   z-index: 500;
 }
 
@@ -179,18 +176,18 @@ td.contactInfoBack {
 .input{
     padding: 10px;
     background: #F1F1F1;
-    border: 1px solid #black;
+    border: 1px solid black;
     border-radius: 10px;
     width:95%;
     font-size:15px;
     font-family:Times New Roman;
     font-weight: bold;
-    color: #black;
+    color: black;
     outline: none;
 }
 
 .text{
-    font-family:font-family:sans-serif;
+    font-family:sans-serif;
     padding: 14px 16px;
     font-size:25px;
     color: #000000;
@@ -214,54 +211,48 @@ td.contactInfoBack {
     border-radius: 10px;
 }
 
-.button{
-  font-family:Times New Roman;
-  padding: 10px;
-  font-size:20px;
-  color: white;
-  background-color: #4682B4;
-  border: 1px solid #000000;
-  border-radius: 10px;
-  width: 250px;
-  margin-top: 30px;
-  outline: none;
+.button {
+    font-family: Times New Roman;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: #4682B4;
+    border: 2px solid #26C756;
+    border-radius: 10px;
+    width: 250px;
+    margin-top: 30px;
+    outline: none;
 }
-.button:hover{
-    background: #26C756;
-}
+
+    .button:hover {
+        background: #26C756;
+        border: 2px solid #4682B4;
+    }
 
 .footerColumn1{
     color: #000000;
-    padding-top: 40px;
-    padding-left: 40px;
-    padding-right: 20px;
+    padding-left: 2%;
 }
 
-.footerColumn2{
+.footerColumn2 {
     color: #000000;
-    padding-top: 40px;
-    padding-left: 20px;
-    padding-right: 40px;
+    padding-right: 2%;
+    text-align: right;
 }
 
 .footerTextCopy {
   color:#000000;
-  font-size: 18px;
-  padding-left: 40px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  text-align:right;
+  padding-right: 2%;
 }
-
 
 footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    font-size: 20px;
     font-family: sans-serif;
-    padding-left: 10px;
-    background-color: #90EE90;
-    font-size: 45%;
-    border: 4px solid #000000;
+    background-image: linear-gradient( to left, white, #26C756 );
+    font-size:45%;
+    margin-top:2%;
 }
 
 .inputfile {
@@ -305,12 +296,12 @@ footer {
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-  color: #800000;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .close:hover,
+    .close:focus {
+        color: #27C857;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
 .popup {
   display: none;
@@ -323,13 +314,14 @@ footer {
   height: 100%; 
   overflow: auto; 
 }
+
 .popup-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 2px solid #800000;
-  width: 80%;
-  border-radius: 10px 10px 10px 10px;
+    background-color: #F1FBF4;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #4682B4;
+    width: 80%;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .checkbox > input[type=checkbox] {
@@ -401,78 +393,9 @@ footer {
     width: 70px;
     margin: 5px 5px 5px 5px;
   }
-  
-  .modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
 
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
-}
-
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mySlides {
-  display: none;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+hr {
+    height: 2px;
+    background-color: #26C756;
+    border: none;
 }

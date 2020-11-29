@@ -6,7 +6,7 @@
     $JOB_TITLE = $_POST['jobTitle'];
 	$JOB_DESCRIPTION = $_POST['jobDescription'];
     $JOB_NOTE = $_POST['jobNote'];
-	$PROPRTY_ID = $_POST['propertyId'];
+	$PROPRTY_ID = $_POST['propertyTitle'];
     
     $query = "UPDATE repair_job SET 
                 job_title = '$JOB_TITLE',

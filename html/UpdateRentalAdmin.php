@@ -62,23 +62,14 @@
         <td class="text">
             Property Type
         </td>
-        <td><select name="propertyType" id="propertyType" name="propertyType" class="input" tabindex="2" required="required">
-	
-			</select>  
+        <td><select name="propertyType" id="propertyType" class="input" tabindex="2" required="required"></select>  
 			<script>getPropertyTypes()</script>			
         </td>
         <td></td>
         <td class="text">
             Total Bed
         </td>
-        <td><input type="text" list="bed" id="propertyBed" name="propertyBed" class="input" tabindex="11" required="required"  onkeypress="return isNumberKey(event)">
-                <datalist id="bed">
-                    <option value="1">
-                    <option value="2">
-                    <option value="3">
-                    <option value="4">
-                    <option value="5">
-                </datalist>
+        <td><input type="number" list="bed" id="propertyBed" name="propertyBed" class="input" tabindex="11" required="required"  onkeypress="return isNumberKey(event)">
         </td>
        </tr>
        <tr>
@@ -92,14 +83,7 @@
             Total Bath
         </td>
         <td>
-            <input type="text" list="bath" id="propertyBath" name="propertyBath" class="input" tabindex="12" required="required" onkeypress="return isNumberWithDecimal(event)">
-                <datalist id="bath">
-                    <option value="1">
-                    <option value="1.5">
-                    <option value="2">
-                    <option value="2.5">
-                    <option value="3">
-                </datalist>
+            <input type="number" list="bath" id="propertyBath" name="propertyBath" class="input" min="1" tabindex="12" required="required" onkeypress="return isNumberWithDecimal(event)">
         </td>
        </tr>
        <tr>
@@ -165,7 +149,7 @@
         
         <td></td><td></td>
 		<td>
-		<input type="text" id="propertyMaxLease" name="propertyMaxLease" class="input" style="width:44%;" tabindex="21" placeholder="Max"/>
+		    <input type="text" id="propertyMaxLease" name="propertyMaxLease" class="input" style="width:44%;" tabindex="21" placeholder="Max"/>
 		</td>
         
        </tr>
@@ -200,10 +184,7 @@
     <br/>
 </form>
 </div>
-<script> 
-        
-
-        getProperty(<?php echo $_GET['ID']; ?>); 
+<script>getProperty(<?php echo $_GET['ID']; ?>); 
 </script>
 </body>
 <footer>
