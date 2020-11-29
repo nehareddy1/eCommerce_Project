@@ -34,25 +34,6 @@ function getPropertiesUser() {
                img_tag.height = "150";
                img_tag.align = "center";
                img_tag.onclick = function (){
-                    var Images = [];
-					var xmlhttp = new XMLHttpRequest();
-					xmlhttp.open("POST", '../php/GetPropertyImages.php', true);
-					xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-					xmlhttp.onreadystatechange = function() { 
-						if (this.readyState === XMLHttpRequest.DONE && this.status === 200) 
-						{
-							var propertiesImg = JSON.parse(this.responseText);
-							propertiesImg.forEach(createPropertyImages);
-							
-							function createPropertyImages(image)
-							{
-                                Images.push(image["MEDIASRC"]);
-							}		
-						}   
-					}
-					xmlhttp.send('PROPERTY_KEY=' + property_key);
-
                     var imagePopup = document.getElementById("imagePopup");
                     imagePopup.style.display = "block";
 
@@ -100,6 +81,27 @@ function getPropertiesUser() {
                img_td_tag.appendChild(img_tag); 
                tr_tag.appendChild(img_td_tag);
 
+
+                var Images = [];
+			    var xhr = new XMLHttpRequest();
+					xhr.open("POST", '../php/GetPropertyImages.php', true);
+					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+					xhr.onreadystatechange = function() { 
+						if (this.readyState === xhr.DONE && this.status === 200) 
+						{
+							var propertiesImg = JSON.parse(this.responseText);
+							propertiesImg.forEach(createPropertyImages);
+							
+							function createPropertyImages(image)
+							{
+                                Images.push(image["MEDIASRC"]);
+							}		
+						}   
+					}
+					xhr.send('PROPERTY_KEY=' + property_key);
+
+
                title_td_tag = document.createElement("td");
                //title_td_tag.padding = "10px 30px";
                title_p_tag = document.createElement("p");
@@ -110,7 +112,7 @@ function getPropertiesUser() {
                address_p_tag = document.createElement("p");
                address_p_tag.class = "title";
                address_p_tag.style.fontSize = "25px";
-               address_p_tag.innerHTML = property_address1 +",<br> " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
+               address_p_tag.innerHTML = property_address1 +", " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
 			   
                title_td_tag.appendChild(title_p_tag); 
                title_td_tag.appendChild(address_p_tag); 

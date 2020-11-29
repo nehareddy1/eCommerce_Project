@@ -14,7 +14,6 @@ function getProperties()
                var property_name = property['NAME'];
 
                option = document.createElement("option");
-                   option.id = property_id;
                    option.value = property_id;
                    option.innerHTML = property_name;
                document.getElementById("propertyTitle").appendChild(option);  
