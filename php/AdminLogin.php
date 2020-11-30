@@ -4,31 +4,28 @@
     $conn = $GLOBALS['SQL_CONN']; 
     
     $PASSWORD = $_POST['password'];
+	$ID = $_POST['userId'];
+	
+	if ($ID!=null && $PASSWORD!=null){
 
-    // Call query on SQL server
-    $query = "SELECT * FROM admin_login WHERE admin_id = 1";
+		// Call query on SQL server	
+		$query = "SELECT * FROM admin_login where Email='$ID' && admin_password='$PASSWORD'";
 
-    $result = mysqli_query($conn, $query);
-    
-    // If we have results 
-    if(mysqli_num_rows($result) == 1)
-    {   
-        $pwd = $row["admin_password"];
-        if($PASSWORD == $pwd){
-            session_start();
-            $_SESSION["user"] = "Admin";
-            if(isset($_SESSION["user"])) {
-                header("Location: ../html/HomeAdmin.js");
-                http_response_code(202);
-            }  
-        }else{
-            header("Location: ../html/AdminLogin.js");
-            http_response_code(401);
-        }
-        exit();
-    }
-    else 
-    {
-        echo "Error: " . $conn . "<br>" . mysqli_error($conn);
-    }  
+		$result = mysqli_query($conn, $query);
+		
+		// If we have results 
+		if(mysqli_num_rows($result) == 1)
+		{   
+			session_start();
+			header('Location: ../html/RentalPropertiesAdmin.html');   
+		}
+		else 
+		{
+			header('Location: ../html/AdminUser_Errorcredentialpage.html');
+		} 
+
+	}
+	
+	else
+		header('Location: ../html/AdminUser_Errorcredentialpage.html'); 
 ?>
