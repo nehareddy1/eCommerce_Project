@@ -15,8 +15,6 @@ html {
 body {
   margin: 0;
   font-size: 30px;
-  background: rgb(255,255,255);
-  /*background: radial-gradient(circle, rgba(253,255,145,1) 99%, rgba(255,241,209,1) 100%);*/
 }
 
 .header {

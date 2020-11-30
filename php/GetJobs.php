@@ -14,6 +14,7 @@
             $job = array();   
             $job["ID"] = $row["job_id"];
             $job["TITLE"] = $row["job_title"];
+            $job["DESCRIPTION"] = $row["job_description"];
 			
             $propertyId = $row["property_id"];
             $query = "SELECT * FROM property WHERE property_id = $propertyId";

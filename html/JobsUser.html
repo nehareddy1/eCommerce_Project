@@ -1,74 +1,148 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Job List</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="../style/style.css"> 
-  <script type="text/javascript" src="../JS/AllJobs.js"></script>
-</head>
-<body class="body">
-<header>
-    <div class="header">
-        <a class="active" href="HomeUser.html"><img src="../images/logo.png" class="logo"></a>
-		<h1 class="headerText">Real Estate</h1>
-    </div>
-</header>
-<div id="navbar" class="sticky">
-	<a href="HomeUser.html"> HOME</a>
-	<a href="RentalPropertiesUser.html">RENTAL HOUSE</a>
-	<a class="active" href="JobsUser.html">JOBS</a>
-	<a class="active" href="LoginUser.html">LOGIN/SIGNUP</a>
-</div>
+    <head>
+        <meta charset="utf-8">
+        <title>Real Estate</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../style/style.css"> 
+        <script type="text/javascript" src="../JS/AllJobs.js"></script>
+        <style>
+            h2 {
+                text-align: center;
+                color: #4682B4;
+            }
+            #maincol1 {
+                width: 75%;
+            }
 
-<div id="title">
-    <h2 style="font-size:40px;color:Black;margin-left:90px;" class="text">List of Jobs Available</h2>
-</div>
+            #maincol2 {
+                width: 25%;
+            }
+            #col1 {
+                width: 15%;
+            }
 
-<p class="text" id="homeDescription" style="padding:0px;">If you like any job here, please enter the contact info to start working<a href="ContactJobUser.html">Contact</a></p>
-			
-<table width = "100%">
-    <col width = "65%"/>
-    <col width = "35%"/>
-    <tr>
-            <td>
-                 <table id="jobsTable" >
-					<script>
-						getJobsUser();
-					</script>
-				 </table>
-            </td>
-            <td valign="top" align="center">
-                <table width="80%">
-                    <tr>
-                        <th class="contactBack">Contact Detalis</th>
-                    </tr>
-                    <tr>
-                        <td class="contactInfoBack">
-                            Address: <p id="add" class="title" style="font-size:20px;">address</p>
-                            <br/><br/>
-                            Phone: <p id="contact" class="title" style="font-size:20px;">phone number</p>
-                            <br/><br/>
-                            Email: <p id="email" class="title" style="font-size:20px;">email</p>
-                            <br/><br/>
-                        </td>
-                    </tr>
-                </table>            
-            </td>
-        </tr>
-</table>
+            #col2 {
+                width: 25%;
+            }
 
-<footer>
-	<div class="footerColumn1">
-        <h2>Real Estate Project</h2>
-        Specialized in rentals, buying, and repair jobs.
-	</div>
+            #col3 {
+                width: 50%;
+            }
 
-	<div class="footerColumn2">
-        <h2>Brought to you by students at EMU</h2>
-         This website was made by a group of students studying computer science at Eastern Michigan University.</div>
+            #col4 {
+                width: 10%;
+            }
+        </style>
+    </head>
 
-    <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
-</footer>
-	</body>
+    <body onload="getJobsUser();">
+        <header>
+            <div class="header">
+                <a class="active" href="HomeUser.html"><img src="../images/logo.png" class="logo"></a>
+                <h1 class="headerText">Real Estate</h1>
+            </div>
+        </header>
+
+        <div id="navbar" class="sticky">
+            <a href="HomeUser.html"> HOME</a>
+            <a href="RentalPropertiesUser.html">RENTAL HOUSE</a>
+            <a class="active" href="JobsUser.html">JOBS</a>
+            <a class="active" href="LoginUser.html">LOGIN/SIGNUP</a>
+        </div>
+
+        <div>
+            <h2>Repair Jobs</h2>
+            <hr style="width:98%" />
+            <!--<p>Contact <a href="ContactJobUser.html">HERE</a> to get repair job.</p>-->
+            <table width="97%">
+                <colgroup>
+                    <col id="maincol1" />
+                    <col id="maincol2" />
+                </colgroup>
+                <tr>
+                    <td>
+                        <table id="jobsTable" width="80%" align="center">
+                            <colgroup>
+                                <col id="col1" />
+                                <col id="col2" />
+                                <col id="col3" />
+                                <col id="col4" />
+                            </colgroup>
+                        </table>
+                    </td>
+                    <td valign="top">
+                        <table width="100%">
+                            <tr>
+                                <th class="contactBack">Contact US</th>
+                            </tr>
+                            <tr>
+                                <td class="contactInfoBack">
+                                    <b>Address:</b> <p class="inlinep">41416, Temp Dr., TempCity, TempState, USA - 13579</p>
+                                    <br /><br />
+                                    <b>Phone:</b> <p class="inlinep">+1(909)909-9090</p>
+                                    <br /><br />
+                                    <b>Email:</b> <p class="inlinep">realestate@temp.com</p>
+                                    <br />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="contactPopup" class="popup">
+            <div class="popup-content" align="center" style="width:30%;margin-top:180px;">
+                <span class="close">&times;</span>
+                <div name="extraInfo">
+                    <form method="post" >
+                        <table>
+                            <tr>
+                                <td>
+                                    <table width="100%">
+                                        <tr>
+                                            <td>
+                                                <input type="text" id="per" name="name" class="input" tabindex="1" placeholder="Name" style="text-align: center">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" id="address" name="add" class="input" tabindex="2" placeholder="Address" style="text-align: center">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="text" id="ph" name="phone" class="input" tabindex="3" placeholder="Phone Number" style="text-align: center">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:center">
+                                                <input type="hidden" id="jbid" name="jId">
+                                                <input type="submit" id="login" class="button" style="margin-top:3%" tabindex="4" value="Submit"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footerColumn1">
+                <h3>Real Estate Project</h3>
+                Specialized in rentals, buying, and repair jobs.
+            </div>
+
+            <div class="footerColumn2">
+                <h3>Brought to you by students at EMU</h3>
+                This website was made by a group of students studying computer science at Eastern Michigan University.
+            </div>
+            <div></div>
+            <p class="footerTextCopy">&copy;2020 Dhwani Neha Pooja</p>
+        </footer>
+    </body>
 </html>
