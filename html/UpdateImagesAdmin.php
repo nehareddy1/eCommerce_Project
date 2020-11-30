@@ -11,15 +11,15 @@
 
 <header>
 	<div class="header">
-		<a class="active" href="Home.html"><img src="../images/logo.png" class="logo"></a>
+		<a class="active" href="RentalPropertiesAdmin.html"><img src="../images/logo.png" class="logo"></a>
 		<h1 class="headerText">Real Estate</h1>
 		</div>
 </header>
 
 	<div id="navbar" class="sticky">
-	    <a href=".html"> RENTAL</a>
-        <a class="active" href="RentalAdmin.html">BUY</a>
-        <a href="AddRentalAdmin.html">Jobs</a>
+	    <a href="RentalPropertiesAdmin.html">RENTAL</a>
+        <a class="active" href="RentalAdmin.html">BUY A HOUSE</a>
+        <a href="JobsAdmin.html">JOBS</a>
 	</div>
 
 <div>
