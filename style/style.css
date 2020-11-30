@@ -200,6 +200,10 @@ td.contactInfoBack {
     display: inline;
 }
 
+.inlinep {
+    display: inline;
+}
+
 .line{
 
     background: #800000;
