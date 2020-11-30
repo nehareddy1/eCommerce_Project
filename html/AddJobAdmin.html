@@ -5,14 +5,12 @@
         <link rel="stylesheet" type="text/css" href="../style/style.css">
         <script type="text/javascript" src="../JS/GetProperties.js" charset="utf-8"></script>
         <style>
-            h3 {
-                text-align:center;
-            }
             table {
                 width:50%;
             }
-            hr {
-                margin:2%;
+            h2 {
+                text-align: center;
+                color: #4682B4;
             }
             #col1 {
                 width:30%;
@@ -23,7 +21,7 @@
         </style>
     </head>
 
-    <body class="body" onload="getProperties();">
+    <body onload="getProperties();">
 
         <header>
 	        <div class="header">
@@ -38,19 +36,14 @@
             <a href="JobsAdmin.html">JOB</a>
 	    </div>
 
-        <h3 class="text">Add New Repair Job</h3>
+        <h2>Add New Repair Job</h2>
+        <hr style="width:98%"/>
         <form method = "POST" action = "../php/InsertJob.php">
             <table align="center">
                 <colgroup>
                     <col id="col1">
                     <col id="col2">
                 </colgroup>
-                <tr>
-                    <th colspan="2">JOB Information</th>
-                </tr>
-                <tr>
-                    <td colspan="2"><hr/></td>
-                </tr>
                 <tr>
                     <td class="text">
                         Job Title
@@ -72,7 +65,7 @@
                         For Property
                     </td>
                     <td>
-                        <select id="propertyTitle" name="propertyId" class="input" tabindex="3">
+                        <select id="propertyTitle" name="propertyId" class="input" tabindex="3" style="width:100%">
                         </select>
                     </td>
                 </tr>
@@ -92,18 +85,6 @@
                 </tr>
             </table>
         </form>
-		<br>
-		<footer>
-			<div class="footerColumn1">
-				<h2>Real Estate Project</h2>
-				Specialized in rentals, buying, and repair jobs.
-			</div>
-
-			<div class="footerColumn2">
-				<h2>Brought to you by students at EMU</h2>
-				 This website was made by a group of students studying computer science at Eastern Michigan University.</div>
-
-			<div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
-		</footer>
+		<br/>
     </body>
 </html>

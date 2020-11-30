@@ -103,7 +103,6 @@ function getPropertiesUser() {
 
 
                title_td_tag = document.createElement("td");
-               //title_td_tag.padding = "10px 30px";
                title_p_tag = document.createElement("p");
 			   title_p_tag.style.color = "#4682B4";
                title_p_tag.class = "title";
@@ -119,7 +118,6 @@ function getPropertiesUser() {
                tr_tag.appendChild(title_td_tag); 
 
                menu_td_tag = document.createElement("td");
-               //menu_td_tag.padding = "10px";
                menu_td_tag.align = "center";
                update_button = document.createElement("button");
                update_button.type = "button";

@@ -6,14 +6,12 @@
         <script type="text/javascript" src="../JS/UpdateJob.js"></script>
 	    <script type="text/javascript" src="../JS/GetProperties.js" ></script>
         <style>
-            h3 {
-                text-align:center;
+            h2 {
+                text-align: center;
+                color: #4682B4;
             }
             table {
                 width:50%;
-            }
-            hr {
-                margin:2%;
             }
             #col1 {
                 width:35%;
@@ -36,10 +34,11 @@
 	    <div id="navbar" class="sticky">
 	        <a href="RentalPropertiesAdmin.html"> HOME</a>
             <a href=".html">BUY A HOUSE</a>
-            <a href="JobAdmin.html">JOB</a>
+            <a href="JobsAdmin.html">JOB</a>
 	    </div>
         
-        <h3 class="text">Update Repair Job</h3>
+        <h2>Update Repair Job</h2>
+        <hr style="width:98%"/>
         <form method = "POST" action = "../php/UpdateJob.php">
             <input type = "hidden" id = "jobId" name = "jobId">
             <table align="center">
@@ -47,12 +46,6 @@
                     <col id="col1">
                     <col id="col2">
                 </colgroup>
-                <tr>
-                    <th colspan="2">JOB Information</th>
-                </tr>
-                <tr>
-                    <td colspan="2"><hr/></td>
-                </tr>
                 <tr>
                     <td class="text">
                         Job Title
@@ -74,7 +67,7 @@
                         For Property
                     </td>
                     <td>
-                        <select id="propertyTitle" name="propertyTitle" class="input" tabindex="3"></select>
+                        <select id="propertyTitle" name="propertyTitle" class="input" tabindex="3" ></select>
                         <script>getProperties()</script>
                     </td>
                 </tr>
@@ -88,7 +81,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <input type="submit" class="button" tabindex="5" value="Update" style="width: 120px;" />
+                        <input type="submit" class="button" tabindex="5" value="Update" style="width: 120px;margin-top:2%" />
                     </td>
                 </tr>
             </table>

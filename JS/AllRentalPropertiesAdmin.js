@@ -19,21 +19,19 @@ function getPropertiesAdmin()
 			   var state = property['STATE'];
 			   var img = property['IMAGE'];
 
-
                tr_tag = document.createElement("tr");
 
                img_td_tag = document.createElement("td");
                img_tag = document.createElement("img");
                img_tag.src = "..\\PropertyImages\\"+img;
-               img_tag.width = "100";
-               img_tag.height = "100";
+               img_tag.width = "250";
+               img_tag.height = "150";
                img_tag.align = "center";
                img_tag.onclick = function(){document.location.href='UpdateImagesAdmin.php?ID=' +  property_key;}; 
                img_td_tag.appendChild(img_tag); 
                tr_tag.appendChild(img_td_tag);
 
                title_td_tag = document.createElement("td");
-               //title_td_tag.padding = "10px 30px";
                title_p_tag = document.createElement("p");
 			   title_p_tag.style.color = "#4682B4";
                title_p_tag.class = "title";
@@ -42,14 +40,13 @@ function getPropertiesAdmin()
                address_p_tag = document.createElement("p");
                address_p_tag.class = "title";
                address_p_tag.style.fontSize = "25px";
-               address_p_tag.innerHTML = property_address1 +",<br> " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
+               address_p_tag.innerHTML = property_address1 +", " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
 			   
                title_td_tag.appendChild(title_p_tag); 
                title_td_tag.appendChild(address_p_tag); 
                tr_tag.appendChild(title_td_tag); 
 
                menu_td_tag = document.createElement("td");
-               //menu_td_tag.padding = "10px";
                menu_td_tag.align = "center";
                update_button = document.createElement("button");
                update_button.type = "button";
