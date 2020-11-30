@@ -18,7 +18,7 @@
 	}
 	function email ()
 	{
-		document.getElementById("emer").innerHTML = "xxxxx@gmail.com";
+		document.getElementById("emer").innerHTML = "xxxxx@yyyyy.zzz";
 	}
 	function  addr()
 	{
@@ -143,7 +143,7 @@
 		
 		
 		
-		if ((pass.search(/^[A-Z]+[a-z]+[0-9]+$/) == 0) && (email.search(/^[a-zA-Z]+[0-9]*@gmail.com$/) == 0) && (phoneNum.search(/^\d{3}-\d{3}-\d{4}$/) == 0) && (firstName.search(/^[a-zA-Z][a-zA-Z]+$/)==0) && (lastName.search(/^[a-zA-Z][a-zA-Z]+$/)==0)){
+		if ((pass.search(/^[A-Z]+[a-z]+[0-9]+$/) == 0) && (email.search(/^[a-zA-Z]+[0-9]*@[a-zA-Z]+.[a-zA-Z]+$/) == 0) && (phoneNum.search(/^\d{3}-\d{3}-\d{4}$/) == 0) && (firstName.search(/^[a-zA-Z][a-zA-Z]+$/)==0) && (lastName.search(/^[a-zA-Z][a-zA-Z]+$/)==0)){
 		
 			firstColor.style.background = "white";
 			lastColor.style.background = "white";
@@ -164,7 +164,7 @@
 			phoneColor.style.background = "red";	
 		}
 
-		if (email.search(/^[a-zA-Z]+[0-9]*@gmail.com$/)!= 0 && email!=""){
+		if (email.search(/^[a-zA-Z]+[0-9]*@[a-zA-Z]+.[a-zA-Z]+$/)!= 0 && email!=""){
 			emailColor.style.background = "red";	
 		}
 

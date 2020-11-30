@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin_login` (
-  `admin_id` int NOT NULL AUTO_INCREMENT,
+  `Email` VARCHAR(100),
   `admin_password` varchar(255) NOT NULL,
   PRIMARY KEY (admin_id)
 ) ;
@@ -37,8 +37,8 @@ CREATE TABLE `admin_login` (
 -- Dumping data for table `admin_login`
 --
 
-INSERT INTO `admin_login` (`admin_id`, `admin_password`) VALUES
-(1, 'admin123');
+INSERT INTO `admin_login` (`Email`, `admin_password`) VALUES
+('memcommity@gmail.com', 'memcomm2020');
 
 -- Table structure for table `property_type`
 --
@@ -217,5 +217,18 @@ CREATE TABLE `user_login` (
   `address` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL
+) ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_job_user`
+--
+
+CREATE TABLE `contact_job_user` (
+  `Name` varchar(100),
+  `Address` varchar(100),
+  `phone` varchar(50),
+  FOREIGN KEY (job_id) REFERENCES repair_job(job_id)
 ) ;
 
