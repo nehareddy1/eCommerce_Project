@@ -21,11 +21,11 @@
 		}
 		else 
 		{
-			header('Location: ../html/LoginUser_Errorcredentialpage.html');
+			header('Location: ../html/LoginUser.php');
 		} 
 
 	}
 	
 	else
-		header('Location: ../html/LoginUser_Errorcredentialpage.html'); 
+		header('Location: ../html/LoginUser.php'); 
 ?>
