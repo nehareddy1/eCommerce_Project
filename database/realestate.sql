@@ -217,6 +217,8 @@ CREATE TABLE `user_login` (
   `address` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (user_id)
 ) ;
 
 -- --------------------------------------------------------
