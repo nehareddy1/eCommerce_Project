@@ -3,6 +3,10 @@
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN']; 
     
+
+	$name = $_POST['name'];
+	setcookie('name', $name);
+	
 	$fnm = $_POST['fir'];
 	$lnm = $_POST['las'];
 	$ph = $_POST['ph'];
@@ -14,14 +18,16 @@
 	
 
 		// Call query on SQL server
-		$query = "INSERT INTO user_login VALUES ('".$fnm."','".$lnm."','".$ph."','".$addr."','".$ID."','".$PASSWORD."')";
+		$query = "INSERT INTO user_login (first_name, last_name, phone, address, email, password) VALUES ('".$fnm."','".$lnm."','".$ph."','".$addr."','".$ID."','".$PASSWORD."')";
 
 		$result = mysqli_query($conn, $query);
 		
 		// If we have results 
 		if(!$result)
-		{   
-			header('Location: ../html/LoginUser_Errorsignup.html');   
+		{ // ********************************************** ERROR MESSAGE PAGE *********************************
+		    
+			
+			header('Location: ../html/LoginUser.php');   
 		}
 		else 
 		{
@@ -31,5 +37,5 @@
 	}
 	
 	else
-		header('Location: ../html/LoginUser_Errorsignup.html');   
+		header('Location: ../html/LoginUser.php'); 
 ?>

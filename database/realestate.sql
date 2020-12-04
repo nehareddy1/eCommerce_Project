@@ -56,10 +56,25 @@ CREATE TABLE `property_type` (
 --
 
 CREATE TABLE `property_buy` (
-  `buy_id` int NOT NULL,
+  `property_id` int NOT NULL AUTO_INCREMENT,
+  `property_name` varchar(255) NOT NULL,
+  `type_id` int NOT NULL,
+  `property_price` double NOT NULL,
+  `property_address1` varchar(255) NOT NULL,
+  `property_address2` varchar(255) DEFAULT NULL,
+  `zip_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `property_availability` tinyint NOT NULL,
+  `property_square_feet` varchar(45) DEFAULT NULL,
+  `property_bed` varchar(10) DEFAULT NULL,
+  `property_bath` varchar(10) DEFAULT NULL,
+  `property_parking` varchar(45) DEFAULT NULL,
+  `pet_allowed` tinyint DEFAULT NULL,
   `buy_description` varchar(255) NOT NULL,
-  `buy_note` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (buy_id)
+  PRIMARY KEY (property_id, buy_id),
+  FOREIGN KEY (type_id) REFERENCES property_type(type_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (zip_id) REFERENCES zip_code(zip_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES user_login(user_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
 
 --
@@ -217,6 +232,8 @@ CREATE TABLE `user_login` (
   `address` varchar(255) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (user_id)
 ) ;
 
 -- --------------------------------------------------------

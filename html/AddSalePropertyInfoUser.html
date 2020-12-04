@@ -24,7 +24,7 @@
 
 <div>
     <h3 style="text-align:center;font-size:40px;" class="text">Add New Property To Sell</h3>
-    <form method = "POST" action = "../php/InsertProperty.php" enctype = "multipart/form-data">
+    <form method = "POST" action = "../php/InsertPropertyBuy.php" enctype = "multipart/form-data">
     <table align="center" width="97%" >
         <colgroup>
             <col width="15%">
@@ -178,7 +178,11 @@
         <td></td>
         
        </tr>
-
+	    <tr>
+            <td colspan="5" align="center">
+                <input type="file" name="files[]" multiple>
+            </td>
+        </tr>
        <tr>
             <td colspan="5" align="center">
                 <output id="list"></output>
@@ -189,7 +193,6 @@
         <td colspan="5" align="center">
             <button type="reset" id="clear" class="button" style="width: 120px;" tabindex="25">Clear</button>
             <button type="submit" id="setProperty" class="button" style="width: 120px;" tabindex="24" >Add</button>
-            <button type="button" id="addMore" class="button" style="width: 120px;" tabindex="23" onclick="oneMore()">Update</button>
         </td>
        </tr>
      </table>
