@@ -9,8 +9,7 @@
     $result = mysqli_query($conn, $query);
     
     // If we have results 
-    if(mysqli_num_rows($result) > 0)
-    {
+    if(mysqli_num_rows($result) > 0) {
         // Start packaging the query result into a json object 
         $properties = array(); 
 
