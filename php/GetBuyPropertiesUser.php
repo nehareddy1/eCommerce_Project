@@ -1,12 +1,11 @@
 <?php
-	session_start();
-	
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN'];
 	
-	$user_id = $_SESSION['user_id'];
+	if(isset($_SESSION['user_id'])){
+		$user_id = $_SESSION['user_id'];
 
-    $query = "SELECT * FROM property_buy WHERE property_availability = 1 && user_id = '$user_id'";
+    $query = "SELECT * FROM property_buy WHERE user_id = '$user_id'";
     $result = mysqli_query($conn, $query);
     
     if(mysqli_num_rows($result) > 0)
@@ -54,12 +53,10 @@
             $property["SQUARE_FEET"] = $row["property_square_feet"];
             $property["BED"] = $row["property_bed"];
             $property["BATH"] = $row["property_bath"];
-            $property["PARKING"] = $row["property_parking"];
-            $property["PET_FRIENDLY"] = $row["pet_allowed"];
             $property["BUY_DESCRIPTION"] = $row["buy_description"];
 
             $id = $property["ID"];
-            $query = "SELECT * FROM property_media WHERE property_id = $id LIMIT 1";
+            $query = "SELECT * FROM property_media_buy WHERE property_id = $id LIMIT 1";
             $imgresult = mysqli_query($conn, $query);
             $imgrow = mysqli_fetch_assoc($imgresult);
             $property["IMAGE"] = $imgrow["media_src"];
@@ -72,5 +69,6 @@
         // Print out the json object
         echo json_encode($properties);
     }
+	}
     
 ?>
