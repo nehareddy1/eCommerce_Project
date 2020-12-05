@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-<script type="text/javascript" src="../JS/AllBuyPropertiesUser.js"></script>
 <script type="text/javascript" src="../javascript/home.js" charset="utf-8"></script>
 <style>
 ul {
@@ -64,14 +63,14 @@ li.prof {
 <body class="body">
 <header>
     <div class="header">
-        <a class="active" href="HomeUserLogin.php"><img src="../images/logo.png" class="logo"></a>
+        <a class="active" href="UpdateProfileUser.php"><img src="../images/logo.png" class="logo"></a>
 		<h1 class="headerText">Real Estate</h1>
     </div>
 </header>
 
 <div id="navbar" class="sticky">
 <ul>
-  <li><a class="active" href="HomeUserLogin.php"> HOME</a></li>
+  <li><a class="active" href="HomeUserLogin.html"> HOME</a></li>
   <li class="prof">
   <a href="UpdateProfileUser.php" class="dropbtn">UPDATE PROFILE</a>
 	<div class="profile">
@@ -84,20 +83,19 @@ li.prof {
   </ul>
 </div>
 
-<?php include '../php/GetBuyPropertiesUser.php';?>
-
 <table id="t02" width ="90%" align ="center">
     <col width="60%"/>
     <col width="10%"/>
     <col width="30%"/>
         <tr>
             <th colspan="3" align="left">
-                
+                <h2 style="font-size:40px;color:Black;padding:0px;" class="text">Here you can sell, rent and find repair jobs</h2>
             </th>
         </tr>
         <tr>
             <td valign="top">
-                
+                <p class="text" id="homeDescription" style="padding:0px;">Hello, How are you today! Welcome to our website
+                </p>
             </td>
             <td></td>
             <td>
@@ -107,12 +105,12 @@ li.prof {
                     </tr>
                     <tr>
                         <td class="contactInfoBack">
-                            <b>Address:</b> <p class="inlinep">41416, Temp Dr., TempCity, TempState, USA - 13579</p>
-                                    <br /><br />
-                                    <b>Phone:</b> <p class="inlinep">+1(909)909-9090</p>
-                                    <br /><br />
-                                    <b>Email:</b> <p class="inlinep">realestate@temp.com</p>
-                                    <br/>
+                            Address: <p id="add" class="title" style="font-size:20px;">address</p>
+                            <br/><br/>
+                            Phone: <p id="contact" class="title" style="font-size:20px;">phone number</p>
+                            <br/><br/>
+                            Email: <p id="email" class="title" style="font-size:20px;">email</p>
+                            <br/><br/>
                         </td>
                     </tr>
                 </table>            
@@ -141,6 +139,8 @@ li.prof {
 
         <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
     </footer>
+
+<script>loadHomePage()</script>
 </body>
 </html>
 <?php

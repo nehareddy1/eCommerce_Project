@@ -3,7 +3,6 @@
 	if(isset($_SESSION['user'])){
 ?>
 <!DOCTYPE html>
-
 <html>
     <head>
         <title>Real Estate</title>
@@ -71,7 +70,7 @@ li.prof {
 
         <header>
             <div class="header">
-                <a class="active" href="InfoUpdate.php"><img src="../images/logo.png" class="logo"></a>
+                <a class="active" href="PayInfoUser.php"><img src="../images/logo.png" class="logo"></a>
                 <h1 class="headerText">Real Estate</h1>
             </div>
         </header>
@@ -90,44 +89,40 @@ li.prof {
   </ul>
 </div>
 
-        <form method="get" action="../php/UserInfoUpdate.php">
+        <form method="get" action="../php/PayUserInfo.php">
 		
             <table width="30%" align="center">
                 <tr>
-                    <th class="contactBack">Profile Info</th>
+                    <th class="contactBack">Card Info</th>
                 </tr>
                 <tr>
                     <td class="contactInfoBack">
                         <table width="100%">
                             <tr>
                                 <td>
-                                   <?php echo '<input type="text" id="fir" name="fir" class="input" tabindex="2" placeholder="First Name" style="text-align: center" onmousemove="first()" onmouseout="firstOut()" onfocus="firstFocus()" onchange="idPassPhoneChange()" onblur="firstBlur()" value="'.$_SESSION['fn'].'"></input>'?><label id="fier"></label>
+                                    <input type="text" id="fir" name="fir" class="input" tabindex="2" placeholder="Name on the card" style="text-align: center">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                   <?php echo '<input type="text" id="las" name="las" class="input" tabindex="2" placeholder="Last Name" style="text-align: center" onmousemove="last()" onmouseout="lastOut()" onfocus="lastFocus()" onchange="idPassPhoneChange()" onblur="lastBlur()" value="'.$_SESSION['ln'].'"></input>'?><label id="laer"></label>
+                                    <input type="text" id="las" name="las" class="input" tabindex="2" placeholder="Credit card Number" style="text-align: center">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <?php echo '<input type="text" id="ph" name="ph" class="input" tabindex="2" placeholder="Phone Number" style="text-align: center" onmousemove="phone()" onmouseout="phoneOut()" onfocus="phoneFocus()" onchange="idPassPhoneChange()" onblur="phoneBlur()" value="'.$_SESSION['ph'].'"></input>'?><label id="pher"></label>
+                                    <input type="text" id="ph" name="ph" class="input" tabindex="2" placeholder="Expiration date(MM/YY)" style="text-align: center">
                                 </td>
                             </tr>
                             <tr>
-							<td>
-                                 <?php echo '<input type="text" id="add1" name="add" class="input" tabindex="2" placeholder="Address" style="text-align: center" onmousemove="addr()" onmouseout="adOut()" value="'.$_SESSION['adr'].'"></input>'?><label id="ader"></label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                     <?php echo '<input type="text" id="userId1" name="userId" class="input" tabindex="1" placeholder="Email" style="text-align: center" onmousemove="email()" onmouseout="eOut()" onfocus="eFocus()" onchange="idPassPhoneChange()" onblur="eBlur()" value="'.$_SESSION['em'].'"></input>'?><label id="emer"></label>
-                                </td>
+                                <td><input type="text" id="add1" name="add" class="input" tabindex="2" placeholder="CVV" style="text-align: center">
+								</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <?php echo '<input type="password" id="password1" name="password" class="input" tabindex="2" placeholder="Password" style="text-align: center" onmousemove="pass()" onmouseout="passOut()" onfocus="passFocus()" onchange="idPassPhoneChange()" onblur="passBlur()" value="'.$_SESSION['pw'].'"></input>'?><label id="per">
+                                    <input type="text" id="zip1" name="zip" class="input" tabindex="1" placeholder="Zip code" style="text-align: center">
                                 </td>
                             </tr>
+                     
 							<tr>
 							<td>
 							
