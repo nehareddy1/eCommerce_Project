@@ -17,10 +17,8 @@ function getBuyPropertiesUser() {
 			   var state = property['STATE'];
 			   var img = property['IMAGE'];
 			   var property_sqr_feet = property['SQUARE_FEET'];
-               var property_parking = property['PARKING'];
                var property_bed = property['BED'];
                var property_bath = property['BATH'];
-               var property_pet = property['PET_FRIENDLY'];
 
 
                tr_tag = document.createElement("tr");
@@ -82,7 +80,7 @@ function getBuyPropertiesUser() {
 
                 var Images = [];
 			    var xhr = new XMLHttpRequest();
-					xhr.open("POST", '../php/GetPropertyImages.php', true);
+					xhr.open("POST", '../php/GetPropertyImagesBuy.php', true);
 					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 					xhr.onreadystatechange = function() { 
@@ -127,10 +125,8 @@ function getBuyPropertiesUser() {
  
                      document.getElementById("propTitle").innerHTML =  property_name;
                      document.getElementById("sqft").innerHTML = "Total Area: " + property_sqr_feet + " Sq ft.";
-                     document.getElementById("parking").innerHTML = "Parking: " + property_parking;
                      document.getElementById("bed").innerHTML = "Total Bed: " + property_bed;
                      document.getElementById("bath").innerHTML = "Bath: " + property_bath;
-                     document.getElementById("pet").innerHTML = "Pets: " + (property_pet ? 'Friendly' : 'Not Friendly');
 					 
                       
                      var span1 = document.getElementsByClassName("close")[1];
