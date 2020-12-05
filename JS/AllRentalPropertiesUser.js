@@ -8,122 +8,125 @@ function getPropertiesUser() {
             properties.forEach(createProperty);
             
             function createProperty(property) {
-               var property_key = property['ID'];
-               var property_name = property['NAME'];
-               var property_address1 = property['ADDRESS1'];
-			   var property_address2 = property['ADDRESS2'];
-			   var zip_code = property['ZIPCODE'];
-			   var city = property['CITY'];
-			   var state = property['STATE'];
-			   var img = property['IMAGE'];
-			   var property_sqr_feet = property['SQUARE_FEET'];
-               var property_parking = property['PARKING'];
-               var property_bed = property['BED'];
-               var property_bath = property['BATH'];
-               var property_pet = property['PET_FRIENDLY'];
-			   var lease_min = property['LEASE_MIN'];
-			   var lease_max = property['LEASE_MAX'];
+                var property_key = property['ID'];
+                var property_name = property['NAME'];
+                var property_address1 = property['ADDRESS1'];
+			    var property_address2 = property['ADDRESS2'];
+			    var zip_code = property['ZIPCODE'];
+			    var city = property['CITY'];
+			    var state = property['STATE'];
+			    var property_sqr_feet = property['SQUARE_FEET'];
+                var property_parking = property['PARKING'];
+                var property_bed = property['BED'];
+                var property_bath = property['BATH'];
+                var property_pet = property['PET_FRIENDLY'];
+			    var lease_min = property['LEASE_MIN'];
+			    var lease_max = property['LEASE_MAX'];
+                if(property['IMAGE'] === null){
+                    var img = "default.png"; 
+                    var flag = 0;
+                }else{
+                    var img = property['IMAGE'];
+                    var flag = 1;
+                }
 
+                tr_tag = document.createElement("tr");
 
-               tr_tag = document.createElement("tr");
+                img_td_tag = document.createElement("td");
+                img_tag = document.createElement("img");
+                img_tag.src = "..\\PropertyImages\\"+img;
+                img_tag.width = "300";
+                img_tag.height = "150";
+                img_tag.align = "center";
 
-               img_td_tag = document.createElement("td");
-               img_tag = document.createElement("img");
-               img_tag.src = "..\\PropertyImages\\"+img;
-               img_tag.width = "300";
-               img_tag.height = "150";
-               img_tag.align = "center";
-               img_tag.onclick = function (){
-                    var imagePopup = document.getElementById("imagePopup");
-                    imagePopup.style.display = "block";
-
-                    var i = 0;
-
-                    image_slider_tag = document.getElementById("slider");
-	                image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
-	                image_slider_tag.width = "400";
-	                image_slider_tag.height = "200";
-	                link_tag = document.getElementById("link");
-	                link_tag.href = "..\\PropertyImages\\"+Images[i];
-
-                    document.getElementById("next").onclick=function(){
-                        if(i < (Images.length - 1)){
-		                    i = i+1;
-	                    }else{
-		                    i = 0;
-	                    }
+                if (flag == 1){
+                    img_tag.onclick = function (){
+                        var imagePopup = document.getElementById("imagePopup");
+                        imagePopup.style.display = "block";
+                        var i = 0;
+                        image_slider_tag = document.getElementById("slider");
 	                    image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
+	                    image_slider_tag.width = "400";
+	                    image_slider_tag.height = "200";
+	                    link_tag = document.getElementById("link");
 	                    link_tag.href = "..\\PropertyImages\\"+Images[i];
-                    };
 
-                    document.getElementById("previous").onclick=function(){
-                        if(i > 0){
-		                    i = i-1;
-	                    }else{
-		                    i = (Images.length - 1);
-	                    }
-	                    image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
-	                    link_tag.href = "..\\PropertyImages\\"+Images[i];
-                    };
-
-                    var span2 = document.getElementsByClassName("close")[0];
-                        span2.onclick = function() {
-                            imagePopup.style.display = "none";
+                        document.getElementById("next").onclick=function(){
+                            if(i < (Images.length - 1)){
+		                        i = i+1;
+	                        }else{
+		                        i = 0;
+	                        }
+	                        image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
+	                        link_tag.href = "..\\PropertyImages\\"+Images[i];
                         };
+
+                        document.getElementById("previous").onclick=function(){
+                            if(i > 0){
+		                        i = i-1;
+	                        }else{
+		                        i = (Images.length - 1);
+	                        }
+	                        image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
+	                        link_tag.href = "..\\PropertyImages\\"+Images[i];
+                        };
+
+                        var span2 = document.getElementsByClassName("close")[0];
+                            span2.onclick = function() {
+                                imagePopup.style.display = "none";
+                            };
  
-                     window.onclick = function(event) {
-                         if (event.target == imagePopup) {
-                             imagePopup.style.display = "none";
-                         } 
-                     };
+                        window.onclick = function(event) {
+                            if (event.target == imagePopup) {
+                                imagePopup.style.display = "none";
+                            } 
+                        };
+				    };
 
-				};
-               img_td_tag.appendChild(img_tag); 
-               tr_tag.appendChild(img_td_tag);
+                    var Images = [];
+			        var xhr = new XMLHttpRequest();
+			        xhr.open("POST", '../php/GetPropertyImages.php', true);
+				    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-
-                var Images = [];
-			    var xhr = new XMLHttpRequest();
-					xhr.open("POST", '../php/GetPropertyImages.php', true);
-					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-					xhr.onreadystatechange = function() { 
-						if (this.readyState === xhr.DONE && this.status === 200) 
-						{
-							var propertiesImg = JSON.parse(this.responseText);
-							propertiesImg.forEach(createPropertyImages);
+				    xhr.onreadystatechange = function() { 
+					    if (this.readyState === xhr.DONE && this.status === 200) 
+					    {
+						    var propertiesImg = JSON.parse(this.responseText);
+						    propertiesImg.forEach(createPropertyImages);
 							
-							function createPropertyImages(image)
-							{
+						    function createPropertyImages(image)
+						    {
                                 Images.push(image["MEDIASRC"]);
-							}		
-						}   
-					}
-					xhr.send('PROPERTY_KEY=' + property_key);
+						    }		
+					    }   
+				    }
+				    xhr.send('PROPERTY_KEY=' + property_key);
+                }
+                img_td_tag.appendChild(img_tag); 
+                tr_tag.appendChild(img_td_tag);
 
-
-               title_td_tag = document.createElement("td");
-               title_p_tag = document.createElement("p");
-			   title_p_tag.style.color = "#4682B4";
-               title_p_tag.class = "title";
-               title_p_tag.innerHTML = property_name;
+                title_td_tag = document.createElement("td");
+                title_p_tag = document.createElement("p");
+			    title_p_tag.style.color = "#4682B4";
+                title_p_tag.class = "title";
+                title_p_tag.innerHTML = property_name;
+			     
+                address_p_tag = document.createElement("p");
+                address_p_tag.class = "title";
+                address_p_tag.style.fontSize = "25px";
+                address_p_tag.innerHTML = property_address1 +", " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
 			   
-               address_p_tag = document.createElement("p");
-               address_p_tag.class = "title";
-               address_p_tag.style.fontSize = "25px";
-               address_p_tag.innerHTML = property_address1 +", " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
-			   
-               title_td_tag.appendChild(title_p_tag); 
-               title_td_tag.appendChild(address_p_tag); 
-               tr_tag.appendChild(title_td_tag); 
+                title_td_tag.appendChild(title_p_tag); 
+                title_td_tag.appendChild(address_p_tag); 
+                tr_tag.appendChild(title_td_tag); 
 
-               menu_td_tag = document.createElement("td");
-               menu_td_tag.align = "center";
-               update_button = document.createElement("button");
-               update_button.type = "button";
-               update_button.className = "button"
-               update_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
-               update_button.onclick = function(){
+                menu_td_tag = document.createElement("td");
+                menu_td_tag.align = "center";
+                update_button = document.createElement("button");
+                update_button.type = "button";
+                update_button.className = "button"
+                update_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
+                update_button.onclick = function(){
                      var property = document.getElementById("propertyPopup");
                      property.style.display = "block";
  
@@ -148,12 +151,12 @@ function getPropertiesUser() {
                          } 
                      };
                 }; 
-               update_button.innerHTML = "View";
+                update_button.innerHTML = "View";
                
-               menu_td_tag.appendChild(update_button); 
-               tr_tag.appendChild(menu_td_tag); 
+                menu_td_tag.appendChild(update_button); 
+                tr_tag.appendChild(menu_td_tag); 
 
-               document.getElementById("propertiesTable").appendChild(tr_tag);  
+                document.getElementById("propertiesTable").appendChild(tr_tag);  
             }
         }
     };
