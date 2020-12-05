@@ -1,5 +1,4 @@
 <?php
-    // Get SQL Connection object
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN'];
 	
@@ -13,7 +12,7 @@
             
     if (mysqli_query($conn, $query))
     {
-        header("Location: ../html/JobsAdmin.html");
+        header("Location: ../html/JobsAdmin.php");
     }
     else 
     {

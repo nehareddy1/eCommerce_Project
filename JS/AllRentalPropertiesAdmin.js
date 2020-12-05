@@ -40,7 +40,7 @@ function getPropertiesAdmin()
                address_p_tag = document.createElement("p");
                address_p_tag.class = "title";
                address_p_tag.style.fontSize = "25px";
-               address_p_tag.innerHTML = property_address1 +", " + property_address2 +",<br> " + zip_code + ", " + city + ", " + state ;
+               address_p_tag.innerHTML = property_address1 +", " + property_address2 +"<br> " + zip_code + ", " + city + ", " + state ;
 			   
                title_td_tag.appendChild(title_p_tag); 
                title_td_tag.appendChild(address_p_tag); 

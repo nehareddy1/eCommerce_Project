@@ -1,5 +1,8 @@
 <?php
 	session_start();
-	unset($_SESSION["user"]);
-	header("Location: ../html/AdminLogin.js");
+    if(isset($_GET['logout']))
+    {
+        session_destroy();
+	    header("Location: ../html/LoginAdmin.php");
+    }
 ?>

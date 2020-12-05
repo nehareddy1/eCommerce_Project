@@ -42,11 +42,10 @@
                 max_lease_period = '$PROPERTY_LEASE_MAX',
                 property_note = '$PROPERTY_NOTE'
                 WHERE property_id = $PROPERTY_ID";
-	
 
     if (mysqli_query($conn, $query))
     {
-        header("Location: ../html/RentalPropertiesAdmin.html");
+        header("Location: ../html/RentalPropertiesAdmin.php");
     }
     else 
     {

@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	if(isset($_SESSION['user'])){
+?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -22,19 +26,20 @@
         </style>
     </head>
 
-    <body class="body">
+    <body>
 
         <header>
 	        <div class="header">
-		        <a class="active" href="RentalPropertiesAdmin.html"><img src="../images/logo.png" class="logo"></a>
+		        <a class="active" href="RentalPropertiesAdmin.php"><img src="../images/logo.png" class="logo"></a>
 		        <h1 class="headerText">Real Estate</h1>
 		    </div>
         </header>
 
 	    <div id="navbar" class="sticky">
-	        <a href="RentalPropertiesAdmin.html"> HOME</a>
+	        <a href="RentalPropertiesAdmin.php"> HOME</a>
             <a href=".html">BUY A HOUSE</a>
-            <a href="JobsAdmin.html">JOB</a>
+            <a href="JobsAdmin.php">JOB</a>
+            <a href="../php/AdminLogout.php?logout" style="float: right;">LOGOUT</a>
 	    </div>
         
         <h2>Update Repair Job</h2>
@@ -89,3 +94,8 @@
         <script>getJob(<?php echo $_GET['ID']; ?>);</script>
     </body>
 </html>
+<?php
+	}else{
+		header('Location:LoginAdmin.php');
+	}
+?>

@@ -36,9 +36,15 @@ function GetCityState()
         if (this.readyState == 4 && this.status == 200) 
         {
             var response = JSON.parse(this.responseText);
+            document.getElementById("propertyZip").value = code;
 			document.getElementById("zipID").value = response["Zip"];
             document.getElementById("propertyCity").value = response["City"];
             document.getElementById("propertyState").value = response["State"];
+        }else{
+            document.getElementById("propertyZip").value="";
+            document.getElementById("zipID").value = "";
+            document.getElementById("propertyCity").value = "";
+            document.getElementById("propertyState").value = "";
         }
     };
     xmlhttp.send('zip_code=' + code);
