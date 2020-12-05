@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-<script type="text/javascript" src="../javascript/home.js" charset="utf-8"></script>
+<script type="text/javascript" src="../JS/AllBuyPropertiesUser.js"></script>
 <style>
 ul {
   list-style-type: none;
@@ -59,24 +59,26 @@ li.prof {
 <body class="body">
 <header>
     <div class="header">
-        <a class="active" href="UpdateProfileUser.html"><img src="../images/logo.png" class="logo"></a>
+        <a class="active" href="HomeUserLogin.php"><img src="../images/logo.png" class="logo"></a>
 		<h1 class="headerText">Real Estate</h1>
     </div>
 </header>
 
 <div id="navbar" class="sticky">
 <ul>
-  <li><a class="active" href="HomeUserLogin.html"> HOME</a></li>
+  <li><a class="active" href="HomeUserLogin.php"> HOME</a></li>
   <li class="prof">
   <a href="UpdateProfileUser.html" class="dropbtn">UPDATE PROFILE</a>
 	<div class="profile">
       <a href="PayInfoUser.html">PayInfo</a>
-      <a href="InfoUpdate.html">UserAccountInfo</a>
+      <a href="InfoUpdate.php">UserAccountInfo</a>
     </div>
 	</li>
   <li><a class="active" href="AddSalePropertyInfoUser.html">SELL PROPERTY</a></li>
   </ul>
 </div>
+
+<?php include '../php/GetBuyPropertiesUser.php';?>
 
 <table id="t02" width ="90%" align ="center">
     <col width="60%"/>
@@ -84,13 +86,12 @@ li.prof {
     <col width="30%"/>
         <tr>
             <th colspan="3" align="left">
-                <h2 style="font-size:40px;color:Black;padding:0px;" class="text">Here you can sell, rent and find repair jobs</h2>
+                
             </th>
         </tr>
         <tr>
             <td valign="top">
-                <p class="text" id="homeDescription" style="padding:0px;">Hello, How are you today! Welcome to our website
-                </p>
+                
             </td>
             <td></td>
             <td>
@@ -134,7 +135,5 @@ li.prof {
 
         <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
     </footer>
-
-<script>loadHomePage()</script>
 </body>
 </html>
