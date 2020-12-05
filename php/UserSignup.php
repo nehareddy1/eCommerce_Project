@@ -1,18 +1,15 @@
 <?php
+	session_start();
     // Get SQL Connection object
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN']; 
-    
-
-	$name = $_POST['name'];
-	setcookie('name', $name);
 	
-	$fnm = $_POST['fir'];
-	$lnm = $_POST['las'];
-	$ph = $_POST['ph'];
-	$addr = $_POST['add'];
-	$ID = $_POST['userId'];
-    $PASSWORD = $_POST['password'];
+	$fnm = $_GET['fir'];
+	$lnm = $_GET['las'];
+	$ph = $_GET['ph'];
+	$addr = $_GET['add'];
+	$ID = $_GET['userId'];
+    $PASSWORD = $_GET['password'];
 	
 	if ($fnm!=null && $lnm!=null && $ph!=null && $addr!=null && $ID!=null && $PASSWORD!=null){
 	
@@ -24,9 +21,7 @@
 		
 		// If we have results 
 		if(!$result)
-		{ // ********************************************** ERROR MESSAGE PAGE *********************************
-		    
-			
+		{ 
 			header('Location: ../html/LoginUser.php');   
 		}
 		else 

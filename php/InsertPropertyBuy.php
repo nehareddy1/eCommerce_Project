@@ -1,9 +1,8 @@
 <?php
+	session_start();
     // Get SQL Connection object
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN'];       
-
-    
 	
     $PROPERTY_NAME = $_POST['propertyTitle'];
     $PROPERTY_TYPE = $_POST['propertyType'];
@@ -11,19 +10,25 @@
     $PROPERTY_ADDRESS1 = $_POST['propertyAddress1'];
     $PROPERTY_ADDRESS2 = $_POST['propertyAddress2'];
     $PROPERTY_ZIP = $_POST['propertyZip'];
-	$USER_ID=1;
-    $PROPERTY_AVAILABLE = true;
+	$user_id = $_SESSION['user_id'];
+    $PROPERTY_AVAILABLE = 1;
     $PROPERTY_SQUARE_FEET = $_POST['propertySqrFt'];
 	$PROPERTY_BED = $_POST['propertyBed'];
     $PROPERTY_BATH = $_POST['propertyBath'];
     $PROPERTY_PARKING = $_POST['propertyParking'];
     $PROPERTY_PET_FRIENDLY = $_POST['propertyPet'];
     $BUY_DESCRIPTION = $_POST['propertyNote'];
+	
+	
+	if ($PROPERTY_PET_FRIENDLY='yes')
+		$PROPERTY_PET_FRIENDLY =1;
+	else
+		$PROPERTY_PET_FRIENDLY =0;
 
     $query = "INSERT INTO property_buy ( property_name, type_id, property_price, property_address1, property_address2, zip_id, user_id, property_availability, 
               property_square_feet, property_bed, property_bath, property_parking, pet_allowed, buy_description)
-              VALUES('$PROPERTY_NAME','$PROPERTY_TYPE',$PROPERTY_PRICE, '$PROPERTY_ADDRESS1','$PROPERTY_ADDRESS2','$PROPERTY_ZIP','$USER_ID','$PROPERTY_AVAILABLE',
-              '$PROPERTY_SQUARE_FEET','$PROPERTY_BED',$PROPERTY_BATH, '$PROPERTY_PARKING', '$PROPERTY_PET_FRIENDLY','$BUY_DESCRIPTION')";
+              VALUES('$PROPERTY_NAME','$PROPERTY_TYPE','$PROPERTY_PRICE', '$PROPERTY_ADDRESS1','$PROPERTY_ADDRESS2','$PROPERTY_ZIP','$user_id','$PROPERTY_AVAILABLE',
+              '$PROPERTY_SQUARE_FEET','$PROPERTY_BED','$PROPERTY_BATH', '$PROPERTY_PARKING', '$PROPERTY_PET_FRIENDLY','$BUY_DESCRIPTION')";
             
     mysqli_query($conn, $query);
 
@@ -74,6 +79,5 @@
 		}
 		
 		header("Location: ../html/HomeUserLogin.html");
-
 
 ?>
