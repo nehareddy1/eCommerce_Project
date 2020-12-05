@@ -34,14 +34,14 @@
 
 		<div id="navbar" class="sticky">
 			<a href="RentalPropertiesAdmin.php">RENTAL</a>
-			<a href=".html">BUY A HOUSE</a>
+			<a href="BuyProprtiesAdmin.php">BUY A HOUSE</a>
 			<a href="JobsAdmin.php">JOBS</a>
 			<a href="../php/AdminLogout.php?logout" style="float: right;">LOGOUT</a>
 			<a href="AddJobAdmin.php" style="float: right;">ADD NEW REPAIR JOB</a>
 		</div>
 
 		<div>
-			<h2> Rental Properties</h2>
+			<h2>Repair Jobs</h2>
 			<hr style="width:98%" />
 			<table id="jobsTable" align="center" width="45%">
 				<colgroup>

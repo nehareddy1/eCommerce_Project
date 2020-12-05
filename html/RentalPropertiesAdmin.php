@@ -37,7 +37,7 @@
 
 			<div id="navbar" class="sticky">
 				<a href="RentalPropertiesAdmin.php" > RENTAL</a>
-				<a href=".html" > BUY A HOUSE</a>
+				<a href="BuyProprtiesAdmin.php" > BUY A HOUSE</a>
 				<a href="JobsAdmin.php" > JOBS</a>
 				<a href="../php/AdminLogout.php?logout" style="float: right;">LOGOUT</a>
 				<a href="AddRentalAdmin.php" style="float: right;">ADD NEW RENTAL PREOPERTY </a>
