@@ -10,6 +10,8 @@ function getPropertiesUser() {
             function createProperty(property) {
                 var property_key = property['ID'];
                 var property_name = property['NAME'];
+                var property_type = property['TYPE'];
+                var property_price = property['PRICE'];
                 var property_address1 = property['ADDRESS1'];
 			    var property_address2 = property['ADDRESS2'];
 			    var zip_code = property['ZIPCODE'];
@@ -130,15 +132,13 @@ function getPropertiesUser() {
                      var property = document.getElementById("propertyPopup");
                      property.style.display = "block";
  
-                     document.getElementById("propTitle").innerHTML =  property_name;
+                     document.getElementById("propTitle").innerHTML =  property_name + " - " + property_type + "<br>$" + property_price + "/Month";
                      document.getElementById("sqft").innerHTML = "Total Area: " + property_sqr_feet + " Sq ft.";
                      document.getElementById("parking").innerHTML = "Parking: " + property_parking;
                      document.getElementById("bed").innerHTML = "Total Bed: " + property_bed;
                      document.getElementById("bath").innerHTML = "Bath: " + property_bath;
                      document.getElementById("pet").innerHTML = "Pets: " + (property_pet ? 'Friendly' : 'Not Friendly');
 					 document.getElementById("lease").innerHTML = "Lease Min: " + lease_min + " <br> Max: " + lease_max;
-					 
-                      
 
                      var span1 = document.getElementsByClassName("close")[1];
                      span1.onclick = function() {
