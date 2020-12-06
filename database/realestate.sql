@@ -257,3 +257,19 @@ CREATE TABLE `property_media_buy` (
   PRIMARY KEY (media_id),
   FOREIGN KEY (property_id) REFERENCES property(property_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
+
+--
+-- Table for the paypal account 'payments'
+--
+CREATE TABLE `payments`(
+    `id` int(6) NOT NULL AUTO_INCREMENT,
+    `txnid` varchar(20) NOT NULL,
+    `payment_amount` decimal(7,2) NOT NULL,
+    `payment_status` varchar(25) NOT NULL,
+    `property_id` varchar(25) NOT NULL,
+    `createdtime` datetime NOT NULL,
+	`user_id` int NOT NULL,
+    PRIMARY KEY (`id`),
+	FOREIGN KEY (user_id) REFERENCES user_login(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (property_id) REFERENCES property_buy(property_id) ON DELETE CASCADE ON UPDATE CASCADE
+    ) 
