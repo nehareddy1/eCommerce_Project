@@ -11,84 +11,30 @@
         <link rel="stylesheet" type="text/css" href="../style/style.css">
 		<script type="text/javascript" src="../JS/LoginUser.js"></script>
         <style>
-            table {
-                margin-top:3%;
-                text-align:center;
+            form{
+                margin-top:2%;
+            }  
+            td{
+                padding:2%;
             }
-            .button {
-                margin-top:3%;
-            }
-			
-			ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: lightblue;
-}
-
-li {
-  float: left;
-}
-
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover, .prof:hover .dropbtn {
-  background-color: lightblue;
-}
-
-li.prof {
-  display: inline-block;
-}
-
-.profile {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  
-}
-
-.profile a {
-  display: block;
-  text-align: left;
-}
-
-
-.prof:hover .profile {
-  display: block;
-}
         </style>
     </head>
 
     <body>
-
         <header>
             <div class="header">
                 <a class="active" href="InfoUpdate.php"><img src="../images/logo.png" class="logo"></a>
                 <h1 class="headerText">Real Estate</h1>
             </div>
         </header>
+
         <div id="navbar" class="sticky">
-<ul>
-  <li><a class="active" href="HomeUserLogin.php"> HOME</a></li>
-  <li class="prof">
-  <a href="UpdateProfileUser.html" class="dropbtn">UPDATE PROFILE</a>
-	<div class="profile">
-      <a href="PayInfoUser.php">PayInfo</a>
-      <a href="InfoUpdate.php">UserAccountInfo</a>
-    </div>
-	</li>
-  <li><a class="active" href="AddSalePropertyInfoUser.php">SELL PROPERTY</a></li>
-  <li><a href="../php/UserLogout.php?logout" style="float: right;">LOGOUT</a></li>
-  </ul>
-</div>
+            <a href="HomeUser.html">HOME</a>
+            <a href="RentalPropertiesUser.html">RENTAL HOUSE</a>
+            <a href="JobsUser.html">JOBS</a>
+	        <a href="HomeUserLogin.php">SELL PROPERTY</a>
+            <a href="../php/UserLogout.php?logout" style="float: right;">LOGOUT</a>
+        </div>
 
         <form method="get" action="../php/UserInfoUpdate.php">
 		
@@ -128,14 +74,9 @@ li.prof {
                                     <?php echo '<input type="password" id="password1" name="password" class="input" tabindex="2" placeholder="Password" style="text-align: center" onmousemove="pass()" onmouseout="passOut()" onfocus="passFocus()" onchange="idPassPhoneChange()" onblur="passBlur()" value="'.$_SESSION['pw'].'"></input>'?><label id="per">
                                 </td>
                             </tr>
-							<tr>
-							<td>
-							
-							</td>
-							</tr>
                             <tr>
-                                <td>
-                                    <input type="submit" id="login1" class="button" tabindex="3" value="UPDATE" />
+                                <td style="text-align:center">
+                                    <input type="submit" class="button" tabindex="3" value="Update" />
                                 </td>
                             </tr>
                         </table>

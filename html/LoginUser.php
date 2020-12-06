@@ -25,11 +25,10 @@
             </div>
         </header>
         <div id="navbar" class="sticky">
-            <a href="HomeUser.html"> HOME</a>
+            <a href="HomeUser.html">HOME</a>
             <a href="RentalPropertiesUser.html">RENTAL HOUSE</a>
             <a href="JobsUser.html">JOBS</a>
-			<a class="active" href="AddSalePropertyInfoUser.php">SELL PROPERTY</a>
-            <a href="LoginUser.php">LOGIN/SIGNUP</a>
+	        <a href="HomeUserLogin.php">SELL PROPERTY</a>
         </div>
 		<div style=" padding-top: 60px;">
             <?php

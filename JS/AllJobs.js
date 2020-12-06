@@ -119,7 +119,9 @@ function getJobsUser() {
                         interested_button.className = "button";
                         interested_button.onclick = function(){
                             var job = document.getElementById("contactPopup");
-                            job.style.display = "block";  
+                            job.style.display = "block"; 
+
+                            document.getElementById("jId").value = job_id;
 
                             var span1 = document.getElementsByClassName("close")[0];
                             span1.onclick = function() {
@@ -134,7 +136,6 @@ function getJobsUser() {
                         };
                         interested_button.innerHTML = "Interested";
                         interested_td_tag.appendChild(interested_button);
-                        document.getElementById("jbid").value = job_id;
                     tr_tag.appendChild(interested_td_tag);
 
                document.getElementById("jobsTable").appendChild(tr_tag);  

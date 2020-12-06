@@ -252,8 +252,8 @@ footer {
     grid-template-columns: 1fr 1fr;
     font-family: sans-serif;
     background-image: linear-gradient( to left, white, #26C756 );
-    font-size:45%;
-    margin-top:2%;
+    font-size: 45%;
+    margin-top: 2%;
 }
 
 .inputfile {

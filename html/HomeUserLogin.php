@@ -5,141 +5,116 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Real Estate</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
-<link rel="stylesheet" type="text/css" href="../style/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-<script type="text/javascript" src="../JS/AllBuyPropertiesUser.js"></script>
-<script type="text/javascript" src="../javascript/home.js" charset="utf-8"></script>
-<style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: lightblue;
-}
+    <title>Real Estate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script type="text/javascript" src="../JS/AllBuyPropertiesUser.js"></script>
+    <style>
+        #col1 {
+            width: 40%;
+        }
+        #col2 {
+            width: 50%;
+        }
 
-li {
-  float: left;
-}
+        #col3 {
+            width: 10%;
+        }
+        #maincol1 {
+            width: 75%;
+        }
+        #maincol2 {
+            width: 25%;
+        }
+        #main{
+            margin-top:2%;
+            min-height:370px;
+        }
+        li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 15px;
+            margin:4%;
+        }
 
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+        li:before {
+            content: "\25BA \0020";
+            font-size: 10px;
+            position: absolute;
+            top: 5px;
+            left: -10px;
+            color:#28C857;
+        }
 
-li a:hover, .prof:hover .dropbtn {
-  background-color: lightblue;
-}
-
-li.prof {
-  display: inline-block;
-}
-
-.profile {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  
-}
-
-.profile a {
-  display: block;
-  text-align: left;
-}
-
-
-.prof:hover .profile {
-  display: block;
-}
-</style>
+        li>a{
+            color:#4682B4;
+            text-decoration:none;
+        }
+    </style>
 </head>
 
-<body class="body">
-<header>
-    <div class="header">
-        <a class="active" href="HomeUserLogin.php"><img src="../images/logo.png" class="logo"></a>
-		<h1 class="headerText">Real Estate</h1>
+<body onload="">
+    <header>
+        <div class="header">
+            <a class="active" href="HomeUser.php"><img src="../images/logo.png" class="logo"></a>
+		    <h1 class="headerText">Real Estate</h1>
+        </div>
+    </header>
+
+    <div id="navbar" class="sticky">
+        <a href="HomeUser.html">HOME</a>
+        <a href="RentalPropertiesUser.html">RENTAL HOUSE</a>
+        <a href="JobsUser.html">JOBS</a>
+	    <a href="HomeUserLogin.php">SELL PROPERTY</a>
+        <a href="../php/UserLogout.php?logout" style="float: right;">LOGOUT</a>
     </div>
-</header>
 
-<div id="navbar" class="sticky">
-<ul>
-  <li><a class="active" href="HomeUserLogin.php"> HOME</a></li>
-  <li class="prof">
-  <a href="UpdateProfileUser.php" class="dropbtn">UPDATE PROFILE</a>
-	<div class="profile">
-      <a href="PayInfoUser.php">PayInfo</a>
-      <a href="InfoUpdate.php">UserAccountInfo</a>
-    </div>
-	</li>
-  <li><a class="active" href="AddSalePropertyInfoUser.php">SELL PROPERTY</a></li>
-  <li><a href="../php/UserLogout.php?logout" style="float: right;">LOGOUT</a></li>
-  </ul>
-</div>
-
-<?php include '../php/GetBuyPropertiesUser.php';?>
-
-<table id="t02" width ="90%" align ="center">
-    <col width="60%"/>
-    <col width="10%"/>
-    <col width="30%"/>
-        <tr>
-            <th colspan="3" align="left">
-                
-            </th>
-        </tr>
+    <table width ="95%" align ="center" id="main">
+        <colgroup>
+            <col id="maincol1" />
+            <col id="maincol2" />
+        </colgroup>
         <tr>
             <td valign="top">
-                
+                <table id="propertiesTable" align="center" width=90%>
+                    <colgroup>
+                        <col id="col1" />
+                        <col id="col2" />
+                        <col id="col3" />
+                    </colgroup>
+                </table>
             </td>
-            <td></td>
-            <td>
+            <td valign="top">
                 <table width="100%">
                     <tr>
-                        <th class="contactBack">Contact US</th>
+                        <th class="contactBack">Welcome!</th>
                     </tr>
                     <tr>
                         <td class="contactInfoBack">
-                            <b>Address:</b> <p class="inlinep">41416, Temp Dr., TempCity, TempState, USA - 13579</p>
-                                    <br /><br />
-                                    <b>Phone:</b> <p class="inlinep">+1(909)909-9090</p>
-                                    <br /><br />
-                                    <b>Email:</b> <p class="inlinep">realestate@temp.com</p>
-                                    <br/>
+                            <ul>
+                                <li><a href="InfoUpdate.php">Upadte User Propfile</a></li>
+                                <li><a href="PayInfoUser.php">Update Account Profile</a></li>
+                                <li><a href="AddSalePropertyInfoUser.php">Sell Property</a></li>
+                            </ul>    
                         </td>
                     </tr>
                 </table>            
             </td>
         </tr>
-        <tr>
-            <td>
-                <div id="homeVideo">    
-                </div>
-            </td>
-            <td></td>
-            <td></td>
-        </tr>
     </table>
     <br/>
     <footer>
-    	<div class="footerColumn1">
-            <h2>Real Estate</h2>
-             Specialized in rentals, buying, and repair jobs.
-    	</div>
-    
-    	<div class="footerColumn2">
-            <h2>Brought to you by students at EMU</h2>
-                This website was made by a group of students studying computer science at Eastern Michigan University. 
-    	</div>
+        <div class="footerColumn1">
+            <h3>Real Estate Project</h3>
+            Specialized in rentals, buying, and repair jobs.
+        </div>
 
-        <div class="footerTextCopy">©2020 Dhwani Neha Pooja </div>
+        <div class="footerColumn2">
+            <h3>Brought to you by students at EMU</h3>
+            This website was made by a group of students studying computer science at Eastern Michigan University.
+        </div>
+        <div></div>
+        <p class="footerTextCopy">&copy;2020 Dhwani Neha Pooja</p>
     </footer>
 </body>
 </html>
