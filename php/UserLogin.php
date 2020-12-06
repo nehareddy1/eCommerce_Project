@@ -36,13 +36,14 @@
 			  $_SESSION['pw']=$row['password'];
 			  
 		  }
+		  $_SESSION['user'] = 'admin';
 		  header("Location: ../html/HomeUserLogin.php");
 		}
 		else 
 		{
-			header('Location: ../html/LoginUser.php');
+			header("Location: ../html/LoginUser.php?Invalid= Please Enter Correct User Name and Password&User= $ID");
 		} 
 	}
 	else
-		header('Location: ../html/LoginUser.php'); 
+		header("Location: ../html/LoginUser.php?Invalid= Please Enter User Name and Password"); 
 ?>

@@ -64,12 +64,9 @@ CREATE TABLE `property_buy` (
   `property_address2` varchar(255) DEFAULT NULL,
   `zip_id` int NOT NULL,
   `user_id` int NOT NULL,
-  `property_availability` tinyint NOT NULL,
   `property_square_feet` varchar(45) DEFAULT NULL,
   `property_bed` varchar(10) DEFAULT NULL,
   `property_bath` varchar(10) DEFAULT NULL,
-  `property_parking` varchar(45) DEFAULT NULL,
-  `pet_allowed` tinyint DEFAULT NULL,
   `buy_description` varchar(255) NOT NULL,
   PRIMARY KEY (property_id, buy_id),
   FOREIGN KEY (type_id) REFERENCES property_type(type_id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -249,3 +246,14 @@ CREATE TABLE `contact_job_user` (
   FOREIGN KEY (job_id) REFERENCES repair_job(job_id)
 ) ;
 
+--
+-- Table structure for table `property_media_buy`
+--
+
+CREATE TABLE `property_media_buy` (
+  `media_id` int NOT NULL AUTO_INCREMENT,
+  `media_src` blob NOT NULL,
+  `property_id` int NOT NULL,
+  PRIMARY KEY (media_id),
+  FOREIGN KEY (property_id) REFERENCES property(property_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ;
