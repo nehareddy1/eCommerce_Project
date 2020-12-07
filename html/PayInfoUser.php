@@ -46,21 +46,26 @@
                         <table width="100%">
                             <tr>
                                 <td>
-                                    <input type="text" id="name" name="name" class="input" tabindex="1" placeholder="Name on the Acoount" style="text-align: center" required/>
+                                    <?php echo '<input type="text" id="name" name="name" class="input" tabindex="1" placeholder="Name on the Acoount" style="text-align: center" 
+									value="'.$_SESSION['nmpay'].'"></input>'?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="text" id="account" name="account" class="input" tabindex="2" placeholder="Account Number" style="text-align: center" onkeypress="return isNumberKey(event)" required/>
+                                    <?php echo '<input type="text" id="account" name="account" class="input" tabindex="2" placeholder="Account Number" style="text-align: center" onkeypress="return isNumberKey(event)" 
+									value="'.$_SESSION['acnum'].'"></input>'?>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <input type="email" id="email" name="email" class="input" tabindex="3" placeholder="Email" style="text-align: center" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" required/>
+                                    <?php echo '<input type="text" id="email" name="email" class="input" tabindex="3" placeholder="Email" style="text-align: center" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$"
+									value="'.$_SESSION['empay'].'"></input>'?>
                                 </td>
                             </tr>
                             <tr>
-                                <td><input type="text" id="phone" name="phone" class="input" tabindex="4" placeholder="Phone Number" style="text-align: center" onkeypress="return isNumberKey(event)">
+                                <td>
+								<?php echo '<input type="text" id="phone" name="phone" class="input" tabindex="4" placeholder="Phone Number" style="text-align: center" onkeypress="return isNumberKey(event)"
+								value="'.$_SESSION['phpay'].'"></input>'?>
 								</td>
                             </tr>
                             <tr>
