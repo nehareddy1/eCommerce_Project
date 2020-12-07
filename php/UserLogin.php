@@ -7,6 +7,13 @@
     $PASSWORD = $_POST['password'];
 	$ID = $_POST['userId'];
 	
+	
+	
+	 $_SESSION['acnum']='Test';
+	$_SESSION['empay']='email';
+	$_SESSION['phpay']='test3';
+	$_SESSION['nmpay']='test5';
+	
 	if ($ID!=null && $PASSWORD!=null){
 
 		// Call query on SQL server	
@@ -36,6 +43,22 @@
 			  $_SESSION['pw']=$row['password'];
 			  
 		  }
+		  
+		  $user_id = $_SESSION['user_id'];
+		  //************************************************This is for pay user info retrieval
+		  $query3 = "SELECT * from account_info where user_id='$user_id'";
+		  
+			$result3 = mysqli_query ($conn, $query3); 
+					
+              $row3 = mysqli_fetch_assoc($result3);
+			  
+			    $_SESSION['acnum']=$row3['account_number'];
+				$_SESSION['empay']=$row3['email'];
+				$_SESSION['phpay']=$row3['phone'];
+				$_SESSION['nmpay']=$row3['name'];
+
+		  //*************************************************
+		  
 		  $_SESSION['user'] = 'admin';
 		  header("Location: ../html/HomeUserLogin.php");
 		}
