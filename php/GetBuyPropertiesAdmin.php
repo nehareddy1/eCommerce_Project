@@ -57,11 +57,11 @@
             $property["USERPHONE"] = $userrow["phone"];
             $property["USEREMAIL"] = $userrow["email"];
 
-            /*$id = $property["ID"];
-            $query = "SELECT * FROM buy_property_media WHERE property_id = $id LIMIT 1";
+            $id = $property["ID"];
+            $query = "SELECT * FROM property_media_buy WHERE property_id = $id LIMIT 1";
             $imgresult = mysqli_query($conn, $query);
             $imgrow = mysqli_fetch_assoc($imgresult);
-            $property["IMAGE"] = $imgrow["media_src"];*/
+            $property["IMAGE"] = $imgrow["media_src"];
 
             array_push($properties, $property);
         }

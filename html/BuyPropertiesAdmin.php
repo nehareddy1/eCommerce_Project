@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="../JS/BuyPropertiesAdmin.js"></script>
 		<style>
 			table{
-				width: 70%;
+				width: 80%;
 			}
 
 			th{
@@ -19,15 +19,19 @@
 			}
 
 			#col1 {
-				width: 30%;
+				width: 20%;
 			}
 
 			#col2 {
-				width:50%;
+				width:20%;
 			}
 
 			#col3 {
-				width:20%;
+				width:50%;
+			}
+
+			#col4 {
+				width:10%;
 			}
 
 			#popupcol {
@@ -64,14 +68,29 @@
 					<col id="col1" />
 					<col id="col2" />
 					<col id="col3" />
+					<col id="col4" />
 				</colgroup>
 				<tr>
-					<th>Property Title</th>
-					<th>Contact Details</th>
-					<th>View More</th>
+					<th colspan="2">Property Details</th>
+					<th colspan="2">Contact Details</th>
 				</tr>
 			</table>
 		</div>
+
+		<div id="imagePopup" class="popup">
+            <div class="popup-content" align="center" style="width:40%;margin-top:180px;">
+                <span class="close">&times;</span>
+                <div name="extraInfo">
+                    <div>
+                        <a href="" target="_blank" id="link"><img id="slider" src="" /></a>
+                    </div>
+                    <br />
+                    <input type="button" class="button" onclick="previous()" value="Previous" id="previous" />
+                    <input type="button" class="button" onclick="next()" value="Next" id="next" />
+                </div>
+            </div>
+        </div>
+
 		<div id="propertyPopup" class="popup">
             <div class="popup-content" align="center" style="width:40%;margin-top:180px;">
                 <span class="close">&times;</span>

@@ -36,7 +36,7 @@
 
 	    <div id="navbar" class="sticky">
 	        <a href="RentalPropertiesAdmin.php">RENTAL</a>
-            <a href="BuyProprtiesAdmin.php">BUY A HOUSE</a>
+            <a href="BuyPropertiesAdmin.php">BUY A HOUSE</a>
             <a href="JobsAdmin.php">JOB</a>
             <a href="../php/AdminLogout.php?logout" style="float: right;">LOGOUT</a>
 	    </div>

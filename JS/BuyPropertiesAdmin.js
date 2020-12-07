@@ -28,87 +28,95 @@ function getBuyProperties() {
                 var user_phone = property['USERPHONE'];
                 var user_email = property['USEREMAIL'];
 
+                if(property['IMAGE'] === null){
+                    var img = "default.png"; 
+                    var flag = 0;
+                }else{
+                    var img = property['IMAGE'];
+                    var flag = 1;
+                }
+
                 tr_tag = document.createElement("tr");
                     td_tag = document.createElement("td");
-                    td_tag.colSpan = "3";
+                    td_tag.colSpan = "4";
                         hr_tag = document.createElement("hr");
-                        td_tag.appendChild(hr_tag); 
+                        td_tag.appendChild(hr_tag);
                     tr_tag.appendChild(td_tag); 
                 document.getElementById("propertiesTable").appendChild(tr_tag);  
 
                 tr_tag = document.createElement("tr");
 
-                /*img_td_tag = document.createElement("td");
-                img_tag = document.createElement("img");
-                img_tag.src = "..\\PropertyImages\\"+img;
-                img_tag.width = "300";
-                img_tag.height = "150";
-                img_tag.align = "center";
-                img_tag.onclick = function (){
-                    var imagePopup = document.getElementById("imagePopup");
-                    imagePopup.style.display = "block";
+                img_td_tag = document.createElement("td");
+                    img_tag = document.createElement("img");
+                    img_tag.src = "..\\PropertyImages\\"+img;
+                    img_tag.width = "200";
+                    img_tag.height = "150";
+                    img_tag.align = "center";
+                    if (flag == 1){
+                        img_tag.onclick = function (){
+                            var imagePopup = document.getElementById("imagePopup");
+                            imagePopup.style.display = "block";
+                            var i = 0;
+                            image_slider_tag = document.getElementById("slider");
+	                        image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
+	                        image_slider_tag.width = "400";
+	                        image_slider_tag.height = "200";
+	                        link_tag = document.getElementById("link");
+	                        link_tag.href = "..\\PropertyImages\\"+Images[i];
 
-                    var i = 0;
+                            document.getElementById("next").onclick=function(){
+                                if(i < (Images.length - 1)){
+		                            i = i+1;
+	                            }else{
+		                            i = 0;
+	                            }
+	                            image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
+	                            link_tag.href = "..\\PropertyImages\\"+Images[i];
+                            };
 
-                    image_slider_tag = document.getElementById("slider");
-	                image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
-	                image_slider_tag.width = "400";
-	                image_slider_tag.height = "200";
-	                link_tag = document.getElementById("link");
-	                link_tag.href = "..\\PropertyImages\\"+Images[i];
+                            document.getElementById("previous").onclick=function(){
+                                if(i > 0){
+		                            i = i-1;
+	                            }else{
+		                            i = (Images.length - 1);
+	                            }
+	                            image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
+	                            link_tag.href = "..\\PropertyImages\\"+Images[i];
+                            };
 
-                    document.getElementById("next").onclick=function(){
-                        if(i < (Images.length - 1)){
-		                    i = i+1;
-	                    }else{
-		                    i = 0;
-	                    }
-	                    image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
-	                    link_tag.href = "..\\PropertyImages\\"+Images[i];
-                    };
-
-                    document.getElementById("previous").onclick=function(){
-                        if(i > 0){
-		                    i = i-1;
-	                    }else{
-		                    i = (Images.length - 1);
-	                    }
-	                    image_slider_tag.src = "..\\PropertyImages\\"+Images[i];
-	                    link_tag.href = "..\\PropertyImages\\"+Images[i];
-                    };
-
-                    var span2 = document.getElementsByClassName("close")[0];
-                        span2.onclick = function() {
-                            imagePopup.style.display = "none";
-                        };
+                            var span2 = document.getElementsByClassName("close")[0];
+                                span2.onclick = function() {
+                                    imagePopup.style.display = "none";
+                                };
  
-                    window.onclick = function(event) {
-                        if (event.target == imagePopup) {
-                             imagePopup.style.display = "none";
-                        } 
-                    };
-				};
+                            window.onclick = function(event) {
+                                if (event.target == imagePopup) {
+                                    imagePopup.style.display = "none";
+                                } 
+                            };
+				        };
+
+                        var Images = [];
+			            var xhr = new XMLHttpRequest();
+			            xhr.open("POST", '../php/GetBuyPropertyImages.php', true);
+				        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+				        xhr.onreadystatechange = function() { 
+					        if (this.readyState === xhr.DONE && this.status === 200) 
+					        {
+						        var propertiesImg = JSON.parse(this.responseText);
+						        propertiesImg.forEach(createPropertyImages);
+							
+						        function createPropertyImages(image)
+						        {
+                                    Images.push(image["MEDIASRC"]);
+						        }		
+					        }   
+				        }
+				    xhr.send('PROPERTY_KEY=' + property_key);
+                }
                 img_td_tag.appendChild(img_tag); 
                 tr_tag.appendChild(img_td_tag);
-
-                var Images = [];
-			    var xhr = new XMLHttpRequest();
-			    xhr.open("POST", '../php/GetPropertyImages.php', true);
-			    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-				xhr.onreadystatechange = function() { 
-					if (this.readyState === xhr.DONE && this.status === 200) 
-					{
-						var propertiesImg = JSON.parse(this.responseText);
-						propertiesImg.forEach(createPropertyImages);
-							
-						function createPropertyImages(image)
-						{
-                            Images.push(image["MEDIASRC"]);
-						}		
-					}   
-				}
-				xhr.send('PROPERTY_KEY=' + property_key);*/
 
 
                 title_td_tag = document.createElement("td");
@@ -140,7 +148,6 @@ function getBuyProperties() {
                 view_button = document.createElement("button");
                 view_button.type = "button";
                 view_button.className = "button"
-                //view_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
                 view_button.onclick = function(){
                      var property = document.getElementById("propertyPopup");
                      property.style.display = "block";
@@ -151,7 +158,7 @@ function getBuyProperties() {
                      document.getElementById("bath").innerHTML = "<b>Total Bath:</b> " + property_bath;
                      document.getElementById("note").innerHTML = "<b>Extra Note:</b> " + property_note;
 
-                     var span1 = document.getElementsByClassName("close")[0];
+                     var span1 = document.getElementsByClassName("close")[1];
                      span1.onclick = function() {
                          property.style.display = "none";
                      };
