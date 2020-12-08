@@ -19,8 +19,11 @@
 		}
 		else 
 		{
-			header("Location: ../html/LoginAdmin.php?Invalid= Please Enter Correct User Name and Password&User= $ID");
+			$_SESSION['error'] = $ID;
+			header('Location: ../html/LoginAdmin.php');
 		} 
-	}else
-		header("Location: ../html/LoginAdmin.php?Invalid= Please Enter User Name and Password"); 
+	}else{
+		$_SESSION['error'] = true;
+		header("Location: ../html/LoginAdmin.php"); 
+	}
 ?>
