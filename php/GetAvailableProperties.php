@@ -59,11 +59,9 @@
             $imgrow = mysqli_fetch_assoc($imgresult);
             $property["IMAGE"] = $imgrow["media_src"];
             
-            // Pack property into properties array 
             array_push($properties, $property);
         }
 
-        // Print out the json object
         echo json_encode($properties);
     }
     else 

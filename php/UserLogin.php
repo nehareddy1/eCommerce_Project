@@ -7,9 +7,7 @@
     $PASSWORD = $_POST['password'];
 	$ID = $_POST['userId'];
 	
-	
-	
-	 $_SESSION['acnum']='Test';
+	$_SESSION['acnum']='Test';
 	$_SESSION['empay']='email';
 	$_SESSION['phpay']='test3';
 	$_SESSION['nmpay']='test5';

@@ -11,14 +11,14 @@
     <script type="text/javascript" src="../JS/AllBuyPropertiesUser.js"></script>
     <style>
         #col1 {
-            width: 40%;
+            width: 30%;
         }
         #col2 {
-            width: 50%;
+            width: 40%;
         }
 
         #col3 {
-            width: 10%;
+            width: 20%;
         }
         #maincol1 {
             width: 75%;
@@ -28,7 +28,7 @@
         }
         #main{
             margin-top:2%;
-            min-height:370px;
+            min-height:50vh;
         }
         li {
             list-style-type: none;
@@ -53,7 +53,7 @@
     </style>
 </head>
 
-<body onload="">
+<body onload="getBuyPropertiesUser() ">
     <header>
         <div class="header">
             <a class="active" href="HomeUser.php"><img src="../images/logo.png" class="logo"></a>
@@ -76,7 +76,7 @@
         </colgroup>
         <tr>
             <td valign="top">
-                <table id="propertiesTable" align="center" width=90%>
+                <table id="propertiesTable" align="center" width="95%">
                     <colgroup>
                         <col id="col1" />
                         <col id="col2" />
