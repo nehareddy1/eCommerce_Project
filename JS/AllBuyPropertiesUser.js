@@ -32,7 +32,7 @@ function getBuyPropertiesUser() {
                 img_tag.width = "300";
                 img_tag.height = "150";
                 img_tag.align = "center";
-                img_tag.onclick = function (){/*add update image page like AllRentalPropertiesAdmin*/};
+                img_tag.onclick = function (){document.location.href='../html/UpdateImageUser.php?ID=' +  property_key;};
                 img_td_tag.appendChild(img_tag); 
                 tr_tag.appendChild(img_td_tag);
 
@@ -59,7 +59,7 @@ function getBuyPropertiesUser() {
                 update_button.className = "button"
                 update_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
                 //Make UpdateUserProperty.php and update page name below
-                update_button.onclick = function(){document.location.href='UpdateRentalAdmin.php?ID=' +  property_key;};
+                update_button.onclick = function(){document.location.href='../html/UpdateUserProperty.php?ID=' +  property_key;};
                 update_button.innerHTML = "Update";
                 delete_button = document.createElement("button");
                 delete_button.type = "button";
@@ -67,7 +67,7 @@ function getBuyPropertiesUser() {
                 delete_button.onclick = function(){
                     var xmlhttp = new XMLHttpRequest();
                     //Make DeleteUserProperty.phph page and update page name below
-                    xmlhttp.open("GET", "../php/DeleteProperty.php?ID=" +  property_key, true);
+                    xmlhttp.open("GET", "../php/DeleteUserProperty.php?ID=" +  property_key, true);
                     xmlhttp.send();
                     location.reload();
                 }; 
