@@ -23,25 +23,37 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `admin_login`
---
-
 CREATE TABLE `admin_login` (
+  `admin_id` int NOT NULL AUTO_INCREMENT, 
   `Email` VARCHAR(100),
   `admin_password` varchar(255) NOT NULL,
   PRIMARY KEY (admin_id)
 ) ;
 
---
--- Dumping data for table `admin_login`
---
 
 INSERT INTO `admin_login` (`Email`, `admin_password`) VALUES
-('memcommity@gmail.com', 'memcomm2020');
+('admin@gmail.com', 'admin123');
 
--- Table structure for table `property_type`
---
+
+CREATE TABLE `user_login` (
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `phone` varchar(255),
+  `address` varchar(255) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `user_id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (user_id)
+) ;
+
+CREATE TABLE `account_info`(
+    `account_number` varchar(255) NOT NULL,
+    `email` varchar(50) NOT NULL,
+	`phone` varchar(25) NOT NULL,
+    `name`  varchar(50) NOT NULL,
+	`user_id` int NOT NULL,
+	FOREIGN KEY (user_id) REFERENCES user_login(user_id) ON DELETE CASCADE ON UPDATE CASCADE
+    );
 
 CREATE TABLE `property_type` (
   `type_id` int NOT NULL AUTO_INCREMENT,
@@ -49,68 +61,17 @@ CREATE TABLE `property_type` (
   PRIMARY KEY (type_id)
 ) ;
 
-
--- --------------------------------------------------------
---
--- Table structure for table `property_buy`
---
-
-CREATE TABLE `property_buy` (
-  `property_id` int NOT NULL AUTO_INCREMENT,
-  `property_name` varchar(255) NOT NULL,
-  `type_id` int NOT NULL,
-  `property_price` double NOT NULL,
-  `property_address1` varchar(255) NOT NULL,
-  `property_address2` varchar(255) DEFAULT NULL,
-  `zip_id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `property_square_feet` varchar(45) DEFAULT NULL,
-  `property_bed` varchar(10) DEFAULT NULL,
-  `property_bath` varchar(10) DEFAULT NULL,
-  `buy_description` varchar(255) NOT NULL,
-  PRIMARY KEY (property_id, buy_id),
-  FOREIGN KEY (type_id) REFERENCES property_type(type_id) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (zip_id) REFERENCES zip_code(zip_id) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (user_id) REFERENCES user_login(user_id) ON DELETE CASCADE ON UPDATE CASCADE
-) ;
-
---
--- Table structure for table `buy_type`
---
-
-CREATE TABLE `buy_type` (
-  `buy_id` int NOT NULL,
-  `type_is` int NOT NULL,
-  FOREIGN KEY (`buy_id`) REFERENCES `property_buy` (`buy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`type_is`) REFERENCES `property_type` (`type_id`) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `city`
---
-
 CREATE TABLE `city` (
-  `city_id` int NOT NULL AUTO_INCREMENT,
+  `city_id` int NOT NULL ,
   `city_name` varchar(45) NOT NULL,
   PRIMARY KEY (city_id)
 );
 
--- --------------------------------------------------------
-
---
--- Table structure for table `state`
---
-
 CREATE TABLE `state` (
-  `state_id` int NOT NULL AUTO_INCREMENT,
+  `state_id` int NOT NULL ,
   `state_name` varchar(45) NOT NULL,
   PRIMARY KEY (state_id)
 ) ;
---
--- Table structure for table `zip_code`
---
 
 CREATE TABLE `zip_code` (
   `zip_id` int NOT NULL AUTO_INCREMENT,
@@ -121,24 +82,6 @@ CREATE TABLE `zip_code` (
   FOREIGN KEY (city_id) REFERENCES city(city_id) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (state_id) REFERENCES state(state_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
-
---
--- Table structure for table `buy_zip_code`
---
-
-CREATE TABLE `buy_zip_code` (
-  `buy_id` int NOT NULL,
-  `zip_id` int NOT NULL,
-  FOREIGN KEY (`buy_id`) REFERENCES `property_buy` (`buy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  FOREIGN KEY (`zip_id`) REFERENCES `zip_code` (`zip_id`) ON DELETE CASCADE ON UPDATE CASCADE
-);
--- --------------------------------------------------------
---
-
-
---
--- Table structure for table `property`
---
 
 CREATE TABLE `property` (
   `property_id` int NOT NULL AUTO_INCREMENT,
@@ -162,12 +105,6 @@ CREATE TABLE `property` (
   FOREIGN KEY (zip_id) REFERENCES zip_code(zip_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
-
---
--- Table structure for table `property_media`
---
-
 CREATE TABLE `property_media` (
   `media_id` int NOT NULL AUTO_INCREMENT,
   `media_src` blob NOT NULL,
@@ -176,15 +113,32 @@ CREATE TABLE `property_media` (
   FOREIGN KEY (property_id) REFERENCES property(property_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
 
--- --------------------------------------------------------
+CREATE TABLE `property_buy` (
+  `property_id` int NOT NULL AUTO_INCREMENT,
+  `property_name` varchar(255) NOT NULL,
+  `type_id` int NOT NULL,
+  `property_price` double NOT NULL,
+  `property_address1` varchar(255) NOT NULL,
+  `property_address2` varchar(255) DEFAULT NULL,
+  `zip_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `property_square_feet` varchar(45) DEFAULT NULL,
+  `property_bed` varchar(10) DEFAULT NULL,
+  `property_bath` varchar(10) DEFAULT NULL,
+  `buy_description` varchar(255) NOT NULL,
+  PRIMARY KEY (property_id),
+  FOREIGN KEY (type_id) REFERENCES property_type(type_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (zip_id) REFERENCES zip_code(zip_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES user_login(user_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ;
 
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `repair_job`
---
+CREATE TABLE `property_media_buy` (
+  `media_id` int NOT NULL AUTO_INCREMENT,
+  `media_src` blob NOT NULL,
+  `property_id` int NOT NULL,
+  PRIMARY KEY (media_id),
+  FOREIGN KEY (property_id) REFERENCES property_buy(property_id) ON DELETE CASCADE ON UPDATE CASCADE
+) ;
 
 CREATE TABLE `repair_job` (
   `job_id` int NOT NULL AUTO_INCREMENT,
@@ -192,84 +146,77 @@ CREATE TABLE `repair_job` (
   `job_description` varchar(255) NOT NULL,
   `job_note` varchar(255) DEFAULT NULL,
   `property_id` int DEFAULT NULL,
-	PRIMARY KEY (job_id),
-    FOREIGN KEY (property_id) REFERENCES property(property_id) ON DELETE CASCADE ON UPDATE CASCADE
+   PRIMARY KEY (job_id),
+   FOREIGN KEY (property_id) REFERENCES property(property_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
 
---
--- Table structure for table `user_information`
---
-
-CREATE TABLE `user_information` (
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  `user_name` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `verification` tinyint(1) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `address1` varchar(255) NOT NULL,
-  `address2` varchar(255) DEFAULT NULL,
-  `zip_id` int NOT NULL,
-  PRIMARY KEY (user_id),
-  FOREIGN KEY (zip_id) REFERENCES zip_code(zip_id) ON DELETE CASCADE ON UPDATE CASCADE
-) ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_login`
---
-
-CREATE TABLE `user_login` (
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `phone` varchar(255),
-  `address` varchar(255) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-  `user_id` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (user_id)
-) ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contact_job_user`
---
-
-CREATE TABLE `contact_job_user` (
+CREATE TABLE `contact_job_user`(
   `Name` varchar(100),
   `Address` varchar(100),
   `phone` varchar(50),
+  `job_id` int NOT NULL,
   FOREIGN KEY (job_id) REFERENCES repair_job(job_id)
 ) ;
 
---
--- Table structure for table `property_media_buy`
---
-
-CREATE TABLE `property_media_buy` (
-  `media_id` int NOT NULL AUTO_INCREMENT,
-  `media_src` blob NOT NULL,
-  `property_id` int NOT NULL,
-  PRIMARY KEY (media_id),
-  FOREIGN KEY (property_id) REFERENCES property(property_id) ON DELETE CASCADE ON UPDATE CASCADE
-) ;
-
---
--- Table for the paypal account 'payments'
---
 CREATE TABLE `payments`(
     `id` int(6) NOT NULL AUTO_INCREMENT,
     `txnid` varchar(20) NOT NULL,
     `payment_amount` decimal(7,2) NOT NULL,
     `payment_status` varchar(25) NOT NULL,
-    `property_id` varchar(25) NOT NULL,
+    `property_id` int NOT NULL,
     `createdtime` datetime NOT NULL,
 	`user_id` int NOT NULL,
     PRIMARY KEY (`id`),
 	FOREIGN KEY (user_id) REFERENCES user_login(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (property_id) REFERENCES property_buy(property_id) ON DELETE CASCADE ON UPDATE CASCADE
-    ) 
+    ) ;
+
+INSERT INTO `state`(`state_id`, `state_name`) VALUES (21, 'MI');
+INSERT INTO `state`(`state_id`, `state_name`) VALUES (29, 'NJ');
+INSERT INTO `state`(`state_id`, `state_name`) VALUES (4, 'CA');
+INSERT INTO `state`(`state_id`, `state_name`) VALUES (34, 'OH');
+INSERT INTO `state`(`state_id`, `state_name`) VALUES (37, 'PA');
+
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (211,'Ypsilanti');
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (212,'Canton');
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (213,'Ann Arbor');
+
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (41,'San Francisco');
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (42,'San Diego');
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (43,'Sacramento');
+
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (291,'Jersey City');
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (292,'Newark');
+
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (341,'Cleveland');
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (342,'Cincinnati');
+
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (371,'Philadelphia');
+INSERT INTO `city`(`city_id`,`city_name`) VALUES (372,'Scranton');
+
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (48187,212,21);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (48188,212,21);
+
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (48197,211,21);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (48198,211,21);
+
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (48103,213,21);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (48104,213,21);
+
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (94016,41,4);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (22434,42,4);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (94203,43,4);
+
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (07030,291,29);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (07101,292,29);
+
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (44101,341,34);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (41073,342,34);
+
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (19019,371,37);
+INSERT INTO `zip_code`(`zip_code`, `city_id`, `state_id`) VALUES (18503,372,37);
+
+INSERT INTO `property_type`(`type_name`) VALUES ('House');
+INSERT INTO `property_type`(`type_name`) VALUES ('Appartment');
+INSERT INTO `property_type`(`type_name`) VALUES ('Condo');
+INSERT INTO `property_type`(`type_name`) VALUES ('Cabin');
