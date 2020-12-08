@@ -2,10 +2,10 @@
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN']; 
     
-	$nm = $_POST['name'];
-	$addrs = $_POST['add'];
-	$ph = $_POST['phone'];
-	$Jbid = $_POST['jId'];
+	$nm = $_GET['name'];
+	$addrs = $_GET['add'];
+	$ph = $_GET['phone'];
+	$Jbid = $_GET['jId'];
 	
 	if ($nm!=null && $addrs!=null && $ph!=null){
 
@@ -14,7 +14,9 @@
 		
 		if(!$result){   
 			print "<p>Enter correct details</p>";   
-		}  
+		}else{
+			header("Location: ../html/JobsUser.html");
+		}
 	}else
-		print "<p>Please enter details</p>"; 
+		print "<p>Please enter details</p>";
 ?>

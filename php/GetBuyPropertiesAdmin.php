@@ -2,15 +2,14 @@
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN'];
 
-    $query = "SELECT * FROM property WHERE property_availability = 1";
+    $query = "SELECT * FROM property_buy";
     $result = mysqli_query($conn, $query);
+    
+    if(mysqli_num_rows($result) > 0){
 
-    if(mysqli_num_rows($result) > 0)
-    { 
         $properties = array(); 
 
-        while($row = mysqli_fetch_assoc($result)) 
-        {
+        while($row = mysqli_fetch_assoc($result)) {
             $property = array();   
             $property["ID"] = $row["property_id"];
             $property["NAME"] = $row["property_name"];
@@ -47,26 +46,25 @@
             $property["SQUARE_FEET"] = $row["property_square_feet"];
             $property["BED"] = $row["property_bed"];
             $property["BATH"] = $row["property_bath"];
-            $property["PARKING"] = $row["property_parking"];
-            $property["PET_FRIENDLY"] = $row["pet_allowed"];
-            $property["LEASE_MIN"] = $row["min_lease_period"];
-            $property["LEASE_MAX"] = $row["max_lease_period"];
-            $property["NOTE"] = $row["property_note"];
+            $property["DESCRIPTION"] = $row["buy_description"];
+
+            $userId = $row["user_id"];
+            $query = "SELECT * FROM user_login WHERE user_id = $userId";
+            $userresult = mysqli_query($conn, $query);
+            $userrow = mysqli_fetch_assoc($userresult);
+            $property["USERNAME"] = $userrow["first_name"] ." ". $userrow["last_name"];
+            $property["USERADD"] = $userrow["address"];
+            $property["USERPHONE"] = $userrow["phone"];
+            $property["USEREMAIL"] = $userrow["email"];
 
             $id = $property["ID"];
-            $query = "SELECT * FROM property_media WHERE property_id = $id LIMIT 1";
+            $query = "SELECT * FROM property_media_buy WHERE property_id = $id LIMIT 1";
             $imgresult = mysqli_query($conn, $query);
             $imgrow = mysqli_fetch_assoc($imgresult);
             $property["IMAGE"] = $imgrow["media_src"];
-            
+
             array_push($properties, $property);
         }
-
         echo json_encode($properties);
     }
-    else 
-    {
-        echo "Error: " . $conn . "<br>" . mysqli_error($conn);
-    } 
-    
 ?>

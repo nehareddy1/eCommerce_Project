@@ -1,5 +1,4 @@
-function getJobs()
-{
+function getJobs() {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() 
     {
@@ -22,38 +21,45 @@ function getJobs()
                     title_p_tag.innerHTML = job_title;
 			   
                     property_p_tag = document.createElement("p");
-                    property_p_tag.class = "title";
-                    property_p_tag.innerHTML = "For "+property_name;
+                    property_p_tag.style.fontSize = "16px";
+                    property_p_tag.innerHTML = "For "+property_name + " Property";
 			   
                     title_td_tag.appendChild(title_p_tag); 
                     title_td_tag.appendChild(property_p_tag); 
                     tr_tag.appendChild(title_td_tag); 
 
-               menu_td_tag = document.createElement("td");
-               menu_td_tag.align = "center";
-                   update_button = document.createElement("button");
-                   update_button.type = "button";
-                   update_button.className = "button"
-                   update_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
-                   update_button.onclick = function(){document.location.href='UpdateJob.php?ID=' +  job_id;};
-                   update_button.innerHTML = "Update";
+                menu_td_tag = document.createElement("td");
+                menu_td_tag.align = "center";
+                    view_button = document.createElement("button");
+                    view_button.type = "button";
+                    view_button.className = "button"
+                    view_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
+                    view_button.onclick = function(){document.location.href='ViewJobContacts.php?ID=' +  job_id +'&TITLE='+job_title;};
+                    view_button.innerHTML = "View";
 
-                   delete_button = document.createElement("button");
-                   delete_button.type = "button";
-                   delete_button.onclick = function(){
+                    update_button = document.createElement("button");
+                    update_button.type = "button";
+                    update_button.className = "button"
+                    update_button.style="width: 100px;margin-top: 0px;margin-right: 5px;";
+                    update_button.onclick = function(){document.location.href='UpdateJob.php?ID=' +  job_id;};
+                    update_button.innerHTML = "Update";
+
+                    delete_button = document.createElement("button");
+                    delete_button.type = "button";
+                    delete_button.onclick = function(){
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.open("GET", "../php/DeleteJob.php?ID=" +  job_id, true);
                         xmlhttp.send();
                         location.reload();
                     }; 
-                   delete_button.className = "button";
-                   delete_button.style="width: 100px;margin-top: 0px;";
-                   delete_button.innerHTML = "Delete";
-               menu_td_tag.appendChild(update_button); 
-               menu_td_tag.appendChild(delete_button); 
-               tr_tag.appendChild(menu_td_tag); 
-
-               document.getElementById("jobsTable").appendChild(tr_tag);  
+                    delete_button.className = "button";
+                    delete_button.style="width: 100px;margin-top: 0px;";
+                    delete_button.innerHTML = "Delete";
+                menu_td_tag.appendChild(view_button);
+                menu_td_tag.appendChild(update_button); 
+                menu_td_tag.appendChild(delete_button); 
+                tr_tag.appendChild(menu_td_tag); 
+                document.getElementById("jobsTable").appendChild(tr_tag);  
             }
         }
     };
@@ -113,7 +119,9 @@ function getJobsUser() {
                         interested_button.className = "button";
                         interested_button.onclick = function(){
                             var job = document.getElementById("contactPopup");
-                            job.style.display = "block";  
+                            job.style.display = "block"; 
+
+                            document.getElementById("jId").value = job_id;
 
                             var span1 = document.getElementsByClassName("close")[0];
                             span1.onclick = function() {
@@ -128,7 +136,6 @@ function getJobsUser() {
                         };
                         interested_button.innerHTML = "Interested";
                         interested_td_tag.appendChild(interested_button);
-                        document.getElementById("jbid").value = job_id;
                     tr_tag.appendChild(interested_td_tag);
 
                document.getElementById("jobsTable").appendChild(tr_tag);  

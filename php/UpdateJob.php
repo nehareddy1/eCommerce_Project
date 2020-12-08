@@ -17,7 +17,7 @@
 
     if (mysqli_query($conn, $query))
     {
-        header("Location: ../html/JobsAdmin.html");
+        header("Location: ../html/JobsAdmin.php");
     }
     else 
     {

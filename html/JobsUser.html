@@ -39,7 +39,7 @@
     <body onload="getJobsUser();">
         <header>
             <div class="header">
-                <a class="active" href="HomeUser.html"><img src="../images/logo.png" class="logo"></a>
+                <a class="active" href="JobsUser.html"><img src="../images/logo.png" class="logo"></a>
                 <h1 class="headerText">Real Estate</h1>
             </div>
         </header>
@@ -47,14 +47,13 @@
         <div id="navbar" class="sticky">
             <a href="HomeUser.html"> HOME</a>
             <a href="RentalPropertiesUser.html">RENTAL HOUSE</a>
-            <a class="active" href="JobsUser.html">JOBS</a>
-            <a class="active" href="LoginUser.html">LOGIN/SIGNUP</a>
+            <a href="JobsUser.html">JOBS</a>
+            <a href="HomeUserLogin.php">SELL PROPERTY</a>
         </div>
 
         <div>
             <h2>Repair Jobs</h2>
             <hr style="width:98%" />
-            <!--<p>Contact <a href="ContactJobUser.html">HERE</a> to get repair job.</p>-->
             <table width="97%">
                 <colgroup>
                     <col id="maincol1" />
@@ -96,7 +95,7 @@
             <div class="popup-content" align="center" style="width:30%;margin-top:180px;">
                 <span class="close">&times;</span>
                 <div name="extraInfo">
-                    <form method="post" >
+                    <form method="get" action="../php/UserContactJob.php">
                         <table>
                             <tr>
                                 <td>
@@ -118,8 +117,8 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align:center">
-                                                <input type="hidden" id="jbid" name="jId">
-                                                <input type="submit" id="login" class="button" style="margin-top:3%" tabindex="4" value="Submit"/>
+                                                <input type="hidden" id="jId" name="jId">
+                                                <input type="submit" id="login" class="button" style="margin-top:3%" tabindex="4" value="Submit" />
                                             </td>
                                         </tr>
                                     </table>

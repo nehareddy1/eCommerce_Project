@@ -1,45 +1,46 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Real Estate</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="../style/style.css">
-        <script type="text/javascript" src="../JS/AllRentalPropertiesUser.js"></script>
-        <style>
-            #col1 {
-                width: 40%;
-            }
-            #col2 {
-                width: 50%;
-            }
+<head>
+    <title>Real Estate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <script type="text/javascript" src="../JS/AllRentalPropertiesUser.js"></script>
+    <style>
+        #col1 {
+            width: 40%;
+        }
 
-            #col3 {
-                width: 10%;
-            }
+        #col2 {
+            width: 50%;
+        }
 
-            #maincol1 {
-                width: 75%;
-            }
+        #col3 {
+            width: 10%;
+        }
 
-            #maincol2 {
-                width: 25%;
-            }
+        #maincol1 {
+            width: 75%;
+        }
 
-            #popupcol {
-                width: 33%;
-            }
+        #maincol2 {
+            width: 25%;
+        }
 
-            h2 {
-                text-align: center;
-                color: #4682B4;
-            }
-        </style>
-    </head>
+        #popupcol {
+            width: 33%;
+        }
 
-    <body onload="getPropertiesUser();">
+        h2 {
+            text-align: center;
+            color: #4682B4;
+        }
+    </style>
+</head>
+
+    <body onload="getPropertiesUser(0);getstates();">
         <header>
             <div class="header">
-                <a class="active" href="HomeUser.html"><img src="../images/logo.png" class="logo"></a>
+                <a class="active" href="RentalPropertiesUser.html"><img src="../images/logo.png" class="logo"></a>
                 <h1 class="headerText">Real Estate</h1>
             </div>
         </header>
@@ -47,7 +48,7 @@
             <a href="HomeUser.html"> HOME</a>
             <a href="RentalPropertiesUser.html">RENTAL HOUSE</a>
             <a href="JobsUser.html">JOBS</a>
-            <a href="LoginUser.html">LOGIN/SIGNUP</a>
+            <a href="HomeUserLogin.php">SELL PROPERTY</a>
         </div>
 
         <div>
@@ -59,6 +60,14 @@
                     <col id="maincol2" />
                 </colgroup>
                 <tr>
+                    <td style="text-align:right; padding-right:4%;">
+                        <select name="state" id="state" class="input" style="width: 20%;" onchange="getPropertiesUser(this.value);">
+                            <option value="0" selected>All State</option>
+                        </select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>
                         <table id="propertiesTable" align="center" width=90%>
                             <colgroup>
@@ -67,6 +76,7 @@
                                 <col id="col3" />
                             </colgroup>
                         </table>
+                        <p id="noData" style="text-align:center"></p>
                     </td>
 
                     <td valign="top">

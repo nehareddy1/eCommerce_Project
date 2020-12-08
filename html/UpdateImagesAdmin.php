@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	if(isset($_SESSION['user'])){
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,15 +26,16 @@
     <body>
         <header>
 	        <div class="header">
-		        <a class="active" href="RentalPropertiesAdmin.html"><img src="../images/logo.png" class="logo"></a>
+		        <a class="active" href="RentalPropertiesAdmin.php"><img src="../images/logo.png" class="logo"></a>
 		        <h1 class="headerText">Real Estate</h1>
 		        </div>
         </header>
 
 	        <div id="navbar" class="sticky">
-	            <a href="RentalPropertiesAdmin.html">RENTAL</a>
-                <a href="RentalAdmin.html">BUY A HOUSE</a>
-                <a href="JobsAdmin.html">JOBS</a>
+	            <a href="RentalPropertiesAdmin.php">RENTAL</a>
+                <a href="BuyPropertiesAdmin.php">BUY A HOUSE</a>
+                <a href="JobsAdmin.php">JOBS</a>
+                <a href="../php/AdminLogout.php?logout" style="float: right;">LOGOUT</a>
 	        </div>
 
         <div>
@@ -58,3 +63,8 @@
         <script>getPropertyImages(<?php echo $_GET['ID'] ?>);</script>
     </body>
 </html>
+<?php
+	}else{
+		header('Location:LoginAdmin.php');
+	}
+?>

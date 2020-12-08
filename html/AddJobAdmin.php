@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	if(isset($_SESSION['user'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,15 +29,16 @@
 
         <header>
 	        <div class="header">
-		        <a class="active" href="RentalPropertiesAdmin.html"><img src="../images/logo.png" class="logo"></a>
+		        <a class="active" href="RentalPropertiesAdmin.php"><img src="../images/logo.png" class="logo"></a>
 		        <h1 class="headerText">Real Estate</h1>
 		    </div>
         </header>
 
 	    <div id="navbar" class="sticky">
-	        <a href="RentalPropertiesAdmin.html">RENTAL</a>
-            <a href=".html">BUY A HOUSE</a>
-            <a href="JobsAdmin.html">JOB</a>
+	        <a href="RentalPropertiesAdmin.php">RENTAL</a>
+            <a href="BuyPropertiesAdmin.php">BUY A HOUSE</a>
+            <a href="JobsAdmin.php">JOB</a>
+            <a href="../php/AdminLogout.php?logout" style="float: right;">LOGOUT</a>
 	    </div>
 
         <h2>Add New Repair Job</h2>
@@ -88,3 +93,8 @@
 		<br/>
     </body>
 </html>
+<?php
+	}else{
+		header('Location:LoginAdmin.php');
+	}
+?>

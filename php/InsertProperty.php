@@ -1,9 +1,6 @@
 <?php
-    // Get SQL Connection object
     include 'Connection.php';
-    $conn = $GLOBALS['SQL_CONN'];       
-
-    
+    $conn = $GLOBALS['SQL_CONN'];  
 	
     $PROPERTY_NAME = $_POST['propertyTitle'];
     $PROPERTY_TYPE = $_POST['propertyType'];
@@ -46,9 +43,7 @@
             if(in_array($fileType, $allowTypes)){ 
                 // Upload file to server 
                 if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){ 
-                    // Image db insert sql 
-                    $insertValuesSQL .= "('".$fileName."', $PROPERTY_ID),"; 
-					
+                    $insertValuesSQL .= "('".$fileName."', $PROPERTY_ID),"; 					
                 }else{ 
                     $errorUpload .= $_FILES['files']['name'][$key].' | '; 
                 } 
@@ -74,7 +69,7 @@
 			}
 		}
 		
-		header("Location: ../html/RentalPropertiesAdmin.html");
+		header("Location: ../html/RentalPropertiesAdmin.php");
 
 
 ?>

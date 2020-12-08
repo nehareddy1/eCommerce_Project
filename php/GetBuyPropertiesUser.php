@@ -1,18 +1,22 @@
 <?php
     session_start();
-    if (isset($_SESSION['user'])){
+    include 'Connection.php';
+    $conn = $GLOBALS['SQL_CONN'];
+	
+	if(isset($_SESSION['user_id'])){
+		$user_id = $_SESSION['user_id'];
 
-        include 'Connection.php';
-        $conn = $GLOBALS['SQL_CONN'];
-
-        $query = "SELECT * FROM property";
+        $query = "SELECT * FROM property_buy WHERE user_id = '$user_id'";
         $result = mysqli_query($conn, $query);
-
-        if(mysqli_num_rows($result) > 0) {
+    
+        if(mysqli_num_rows($result) > 0)
+        {
+            // Start packaging the query result into a json object 
             $properties = array(); 
 
             while($row = mysqli_fetch_assoc($result)) 
             {
+                // Each property will have a map of property info
                 $property = array();   
                 $property["ID"] = $row["property_id"];
                 $property["NAME"] = $row["property_name"];
@@ -32,6 +36,7 @@
                 $zipresult = mysqli_query($conn, $query);
                 $ziprow = mysqli_fetch_assoc($zipresult);
                 $property["ZIPCODE"] = $ziprow["zip_code"];
+			
 
                 $city_id = $ziprow["city_id"];
                 $state_id = $ziprow["state_id"];
@@ -49,33 +54,18 @@
                 $property["SQUARE_FEET"] = $row["property_square_feet"];
                 $property["BED"] = $row["property_bed"];
                 $property["BATH"] = $row["property_bath"];
-                $property["PARKING"] = $row["property_parking"];
-                $property["PET_FRIENDLY"] = $row["pet_allowed"];
-                $property["LEASE_MIN"] = $row["min_lease_period"];
-                $property["LEASE_MAX"] = $row["max_lease_period"];
-                $property["NOTE"] = $row["property_note"];
+                $property["BUY_DESCRIPTION"] = $row["buy_description"];
 
                 $id = $property["ID"];
-                $query = "SELECT * FROM property_media WHERE property_id = $id LIMIT 1";
+                $query = "SELECT * FROM property_media_buy WHERE property_id = $id LIMIT 1";
                 $imgresult = mysqli_query($conn, $query);
                 $imgrow = mysqli_fetch_assoc($imgresult);
                 $property["IMAGE"] = $imgrow["media_src"];
             
-			    $id = $property["ID"];
-                $query = "SELECT * FROM property_media WHERE property_id = $id LIMIT 1";
-                $imgresult = mysqli_query($conn, $query);
-                $imgrow = mysqli_fetch_assoc($imgresult);
-                $property["IMAGE"] = $imgrow["media_src"];
-
                 array_push($properties, $property);
+			
             }
             echo json_encode($properties);
         }
-        else 
-        {
-            echo "Error: " . $conn . "<br>" . mysqli_error($conn);
-        }
-    } else{
-        header('Location: ../html/LoginAdmin.html');
-    }   
+    }
 ?>

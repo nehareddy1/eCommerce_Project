@@ -1,5 +1,5 @@
 <?php
-    // Get SQL Connection object
+	session_start();
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN']; 
     
@@ -7,25 +7,20 @@
 	$ID = $_POST['userId'];
 	
 	if ($ID!=null && $PASSWORD!=null){
-
-		// Call query on SQL server	
+	
 		$query = "SELECT * FROM admin_login where Email='$ID' && admin_password='$PASSWORD'";
 
 		$result = mysqli_query($conn, $query);
 		
-		// If we have results 
 		if(mysqli_num_rows($result) == 1)
 		{   
-			session_start();
-			header('Location: ../html/RentalPropertiesAdmin.html');   
+			$_SESSION['user'] = 'admin';
+			header('Location: ../html/RentalPropertiesAdmin.php');   
 		}
 		else 
 		{
-			header('Location: ../html/AdminUser_Errorcredentialpage.html');
+			header("Location: ../html/LoginAdmin.php?Invalid= Please Enter Correct User Name and Password&User= $ID");
 		} 
-
-	}
-	
-	else
-		header('Location: ../html/AdminUser_Errorcredentialpage.html'); 
+	}else
+		header("Location: ../html/LoginAdmin.php?Invalid= Please Enter User Name and Password"); 
 ?>

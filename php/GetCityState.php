@@ -20,8 +20,6 @@
         echo "Error: " . $conn . "<br>" . mysqli_error($conn);
     } 
 
-    
-    
     $query = "SELECT city_name FROM city WHERE city_id = $city_id";
     $result = mysqli_query($conn, $query);
     if(mysqli_num_rows($result) > 0)
