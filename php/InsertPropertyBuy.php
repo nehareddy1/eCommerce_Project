@@ -15,12 +15,6 @@
 	$PROPERTY_BED = $_POST['propertyBed'];
     $PROPERTY_BATH = $_POST['propertyBath'];
     $BUY_DESCRIPTION = $_POST['propertyNote'];
-	
-	
-	if ($PROPERTY_PET_FRIENDLY='yes')
-		$PROPERTY_PET_FRIENDLY =1;
-	else
-		$PROPERTY_PET_FRIENDLY =0;
 
     $query = "INSERT INTO property_buy ( property_name, type_id, property_price, property_address1, property_address2, zip_id, user_id,  
               property_square_feet, property_bed, property_bath, buy_description)

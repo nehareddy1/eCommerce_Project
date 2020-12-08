@@ -20,10 +20,6 @@
     $PROPERTY_SQUARE_FEET = $_POST['propertySqrFt'];
 	$PROPERTY_BED = $_POST['propertyBed'];
     $PROPERTY_BATH = $_POST['propertyBath'];
-    $PROPERTY_PARKING = $_POST['propertyParking'];
-    $PROPERTY_PET_FRIENDLY = $_POST['propertyPet'];
-    $PROPERTY_LEASE_MIN = $_POST['propertyMinLease'];
-    $PROPERTY_LEASE_MAX = $_POST['propertyMaxLease'];
     $PROPERTY_NOTE = $_POST['propertyNote'];
     
     $query = "UPDATE property SET 
