@@ -150,6 +150,7 @@ function getBuyProperties() {
 				form_tag.action = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 				form_tag.method = "post";
 				form_tag.target = "_top";
+                form_tag.style.display = "inline";
 				
 				hidden_tag = document.createElement("input");
 				hidden_tag.type = "hidden";
@@ -207,42 +208,13 @@ function getBuyProperties() {
 				hidden_tag.name = "cmd";
 				form_tag.appendChild(hidden_tag);
 				
-				buy_button = document.createElement("button");
+				buy_button = document.createElement("input");
                 buy_button.type = "submit";
 				buy_button.className = "button";
 				buy_button.style.marginRight = "1%";
-				buy_button.innerHTML = "Buy";
+				buy_button.value = "Buy";
                 form_tag.appendChild(buy_button);
-				
-				
-				
 				menu_td_tag.appendChild(form_tag);
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				
                 view_button = document.createElement("button");
                 view_button.type = "button";

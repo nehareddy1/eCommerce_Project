@@ -180,7 +180,7 @@
 
                 <tr>
                     <td class="text" valign="top">
-                        Price (/Month) $
+                        Price $
                     </td>
                     <td valign="top">
                         <input type="text" name="propertyPrice" id="propertyPrice" class="input" tabindex="9" required="required" onkeypress="return isNumberWithDecimal(event)">
