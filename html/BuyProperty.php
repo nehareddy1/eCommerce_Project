@@ -35,6 +35,7 @@
 			<h2>Buy Property</h2>
 			<hr style="width:98%"/>
 			<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type='hidden' name='business' value='sb-wn9gx4022747@business.example.com'> 
 				<input type='hidden' name='item_number' id='propertyId' value=''> 
 				<input type='hidden' name='amount' id="amount" value=''> 
 				<input type='hidden' name='no_shipping' value='1'> 
@@ -55,6 +56,8 @@
 	</body>
 </html>
 <?php
+	$_SESSION['property_id'] = $_GET['ID'];
+	$_SESSION['grand_total'] = $_GET['price'];
 	}else{
 		header('Location:LoginAdmin.php');
 	}
