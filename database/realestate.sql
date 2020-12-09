@@ -158,18 +158,18 @@ CREATE TABLE `contact_job_user`(
   FOREIGN KEY (job_id) REFERENCES repair_job(job_id)
 ) ;
 
-CREATE TABLE `payments`(
-    `id` int(6) NOT NULL AUTO_INCREMENT,
-    `txnid` varchar(20) NOT NULL,
-    `payment_amount` decimal(7,2) NOT NULL,
-    `payment_status` varchar(25) NOT NULL,
-    `property_id` int NOT NULL,
-    `createdtime` datetime NOT NULL,
-	`user_id` int NOT NULL,
-    PRIMARY KEY (`id`),
-	FOREIGN KEY (user_id) REFERENCES user_login(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY (property_id) REFERENCES property_buy(property_id) ON DELETE CASCADE ON UPDATE CASCADE
-    ) ;
+
+CREATE TABLE IF NOT EXISTS `payment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `property_id` varchar(255) NOT NULL,
+  `payment_status` varchar(255) NOT NULL,
+  `payment_amount` double(10,2) NOT NULL,
+  `payment_currency` varchar(255) NOT NULL,
+  `txn_id` varchar(255) NOT NULL,
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (property_id) REFERENCES property_buy(property_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 INSERT INTO `state`(`state_id`, `state_name`) VALUES (21, 'MI');
 INSERT INTO `state`(`state_id`, `state_name`) VALUES (29, 'NJ');
@@ -220,3 +220,4 @@ INSERT INTO `property_type`(`type_name`) VALUES ('House');
 INSERT INTO `property_type`(`type_name`) VALUES ('Appartment');
 INSERT INTO `property_type`(`type_name`) VALUES ('Condo');
 INSERT INTO `property_type`(`type_name`) VALUES ('Cabin');
+

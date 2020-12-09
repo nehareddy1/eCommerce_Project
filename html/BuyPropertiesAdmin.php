@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="../JS/BuyPropertiesAdmin.js"></script>
 		<style>
 			table{
-				width: 80%;
+				width: 90%;
 			}
 
 			th{
@@ -27,11 +27,11 @@
 			}
 
 			#col3 {
-				width:50%;
+				width:35%;
 			}
 
 			#col4 {
-				width:10%;
+				width:25%;
 			}
 
 			#popupcol {

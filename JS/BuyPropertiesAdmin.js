@@ -145,6 +145,105 @@ function getBuyProperties() {
                 menu_td_tag = document.createElement("td");
                 menu_td_tag.style.paddingTop= "3%";
                 menu_td_tag.style.verticalAlign = "top";
+				
+				form_tag = document.createElement("form");
+				form_tag.action = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+				form_tag.method = "post";
+				form_tag.target = "_top";
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = "sb-wn9gx4022747@business.example.com";
+				hidden_tag.name = "business";
+				form_tag.appendChild(hidden_tag);
+				
+								
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = property_key;
+				hidden_tag.name = "property_id";
+				form_tag.appendChild(hidden_tag);
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = property_price;
+				hidden_tag.name = "amount";
+				form_tag.appendChild(hidden_tag);
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = "1";
+				hidden_tag.name = "no_shipping";
+				form_tag.appendChild(hidden_tag);
+				
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = "USD";
+				hidden_tag.name = "currency_code";
+				form_tag.appendChild(hidden_tag);
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = "http://localhost/eCommerce_Project/Payments/notify.php";
+				hidden_tag.name = "notify_url";
+				form_tag.appendChild(hidden_tag);
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = "http://localhost/eCommerce_Project/Payments/cancel.php";
+				hidden_tag.name = "cancel_return";
+				form_tag.appendChild(hidden_tag);
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = "http://localhost/eCommerce_Project/Payments/return.php";
+				hidden_tag.name = "return";
+				form_tag.appendChild(hidden_tag);
+				
+				hidden_tag = document.createElement("input");
+				hidden_tag.type = "hidden";
+				hidden_tag.value = "_xclick";
+				hidden_tag.name = "cmd";
+				form_tag.appendChild(hidden_tag);
+				
+				buy_button = document.createElement("button");
+                buy_button.type = "submit";
+				buy_button.className = "button";
+				buy_button.style.marginRight = "1%";
+				buy_button.innerHTML = "Buy";
+                form_tag.appendChild(buy_button);
+				
+				
+				
+				menu_td_tag.appendChild(form_tag);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
                 view_button = document.createElement("button");
                 view_button.type = "button";
                 view_button.className = "button"
@@ -169,6 +268,7 @@ function getBuyProperties() {
                          } 
                      };
                 }; 
+
                 view_button.innerHTML = "View";
                 menu_td_tag.appendChild(view_button); 
                 tr_tag.appendChild(menu_td_tag); 
