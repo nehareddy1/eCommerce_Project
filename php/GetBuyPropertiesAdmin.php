@@ -2,7 +2,7 @@
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN'];
 
-    $query = "SELECT * FROM property_buy";
+    $query = "SELECT * FROM property_buy where property_id NOT IN (select property_id from payment)";
     $result = mysqli_query($conn, $query);
     
     if(mysqli_num_rows($result) > 0){
