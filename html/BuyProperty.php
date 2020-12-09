@@ -13,6 +13,10 @@
 				text-align: center;
 				color: #4682B4;
 			}
+			
+			form {
+				text-align: center;
+			}
 		</style>
 	</head>
 
@@ -44,11 +48,16 @@
 				<input type='hidden' name='cancel_return' value='http://localhost/eCommerce_Project/Payments/cancel.php'>
 				<input type='hidden' name='return' value='http://localhost/eCommerce_Project/Payments/return.php'>
 				<input type="hidden" name="cmd" value="_xclick"> 
+				<br/>
+				<label>Property Title: </label>
 				<label id="propertyTitle"></label>
 				<br/>
-				<label>$ </label>
+				<br/>
+				<label>Price: $</label>
 				<label id="propertyPrice"></label>
-				<input type="submit" name="pay_now" id="pay_now" Value="Pay Now">
+				<br/>
+				<br/>
+				<input type="submit" name="pay_now" id="pay_now" Value="Buy Now" class="button">
 			</form>
 		</div>
 		<script>getProperty(<?php echo $_GET['ID']; ?>); 

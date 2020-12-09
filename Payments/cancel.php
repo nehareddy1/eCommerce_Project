@@ -1,4 +1,5 @@
-
-
-Sorry! Payment Cancelled.
-<a href="../html/BuyPropertiesAdmin.php"> Click here to return to the main merchant page </a>
+<?php
+    session_start();
+    $_SESSION['paymentStatus'] = "0";
+    header("Location:../html/BuyPropertiesAdmin.php");
+?>
