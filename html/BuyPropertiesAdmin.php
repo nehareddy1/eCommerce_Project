@@ -125,6 +125,12 @@
 	</body>
 </html>
 <?php
+	if(isset($_SESSION['paymentStatus']) && $_SESSION['paymentStatus'] == "1"){
+			echo '<script>alert("Payment was Successful. Congratulations!")</script>';
+		}else if(isset($_SESSION['paymentStatus']) && $_SESSION['paymentStatus'] == "0"){
+			echo '<script>alert("Payment was not Successful. You can Buy again.")</script>';
+		}
+		unset($_SESSION['paymentStatus']);
 	}else{
 		header('Location:LoginAdmin.php');
 	}
