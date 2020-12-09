@@ -1,11 +1,9 @@
-<?php 
-    session_start();
-?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../style/style.css">
+        <script type="text/javascript" src="../JS/LoginAdmin.js"></script>
     </head>
 
     <body>
@@ -18,10 +16,10 @@
 
         <div style=" padding-top: 60px;">
             <?php
-                if(isset($_SESSION['error']))
+                if(@$_GET['Invalid']==true)
                 {
             ?>
-                <p style="text-align:center"><?php echo "Invalid Inputs" ?></p>
+                <p style="text-align:center"><?php echo $_GET['Invalid'] ?></p>
             <?php
                 }
             ?>
@@ -37,7 +35,7 @@
                                     <td>
                                         <input type="text" id="userId" name="userId" class="input" tabindex="1" placeholder="Email" 
                                         style="text-align: center" required 
-                                        value="<?php echo (isset($_SESSION['error']) ? htmlspecialchars($_SESSION['error']) : ''); ?>">
+                                        value="<?php echo (@$_GET['User']==true ? htmlspecialchars($_GET['User']) : ''); ?>">
                                         
                                     </td>
                                 </tr>
@@ -62,6 +60,3 @@
         </div>
     </body>
 </html>
-<?php 
-    unset($_SESSION['error']);    
-?>
