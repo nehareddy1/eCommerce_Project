@@ -6,7 +6,7 @@
 	if(isset($_SESSION['user_id'])){
 		$user_id = $_SESSION['user_id'];
 
-        $query = "SELECT * FROM property_buy WHERE user_id = '$user_id'";
+        $query = "SELECT * FROM property_buy WHERE user_id = '$user_id' AND property_id NOT IN (select property_id from payment)";
         $result = mysqli_query($conn, $query);
     
         if(mysqli_num_rows($result) > 0)

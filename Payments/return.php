@@ -1,7 +1,7 @@
 <?php
 session_start();
 //unset($_SESSION["compare"]);
-include 'Connection.php';
+include '../php/Connection.php';
  $conn = $GLOBALS['SQL_CONN'];
 
 
@@ -13,14 +13,14 @@ $amount = $_SESSION['grand_total'];
 $currency = 'USD';
 $date = date('Y-m-d');
 
- $insert_q= mysqli_query($conn,"insert into payment values ('','$item_number','$payment_status','$amount','$currency','','$date')");
- //$insert_q= mysqli_query($conn,"insert into payment values ('','$item_number','$payment_status','$amount','$currency','','$date')");
+ $insert_q= mysqli_query($conn,"insert into payment values ('','$item_number','$payment_status','$amount','$currency','$date','')");
+ //$insert_q= mysqli_query($conn,"insert into payment values ('','$item_number','$payment_status','$amount','$currency','$date')");
  if($insert_q) {
 echo 'succeess';
 }
 else
 {
-echo 'failed'."insert into payment values ('','$item_number','$payment_status','$amount','$currency','','$date')";
+echo 'failed'."insert into payment values ('','$item_number','$payment_status','$amount','$currency','$date','')";
 }
 
  //$update_q = mysqli_query($conn,"update prod_orders set order_status = 'Payment Received' where property_id = '$item_number' ")		;
@@ -50,7 +50,7 @@ echo 'failed'."insert into payment values ('','$item_number','$payment_status','
     <div class="response-text">
         You have placed your order successfully.<br> Thank you for
         shopping with us! 
-		<a href="GetBuyPropertiesAdmin.php" > Click here to return to the main merchant page </a>
+		<a href="../html/BuyPropertiesAdmin.php" > Click here to return to the main merchant page </a>
     </div>
 </body>
 </html>

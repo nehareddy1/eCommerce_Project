@@ -151,7 +151,7 @@ function getBuyProperties() {
 				buy_button.className = "button";
 				buy_button.style.marginRight = "1%";
 				buy_button.value = "Buy";
-                buy_button.onclick = function(){document.location.href='BuyProperty.php?ID=' +  property_key;};
+                buy_button.onclick = function(){document.location.href='BuyProperty.php?ID=' +  property_key + '&price=' + property_price;};
 				
                 view_button = document.createElement("button");
                 view_button.type = "button";

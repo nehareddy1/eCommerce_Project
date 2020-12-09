@@ -10,7 +10,7 @@ function getProperty(propertyKey) {
         var obj = JSON.parse(this.responseText);
 			propertyId.value = obj.ID;
             propertyTitle.innerHTML = obj.NAME;
-            propertyPrice.value = obj.PRICE;
+            propertyPrice.innerHTML = obj.PRICE;
             amount.value = obj.PRICE;
         }   
     }
