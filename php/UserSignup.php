@@ -26,7 +26,7 @@
 		}
 		else 
 		{
-			$_SESSION['user'] = 'admin';
+			$_SESSION['user2'] = 'user2';
 			
 			$query1 = "SELECT * from user_login where email='$ID' && password='$PASSWORD'";
 	
