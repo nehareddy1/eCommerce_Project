@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if(isset($_SESSION['user'])){
+	if(isset($_SESSION['user2'])){
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,7 +92,7 @@
                     <tr>
                         <td class="contactInfoBack">
                             <ul>
-                                <li><a href="InfoUpdate.php">Upadte User Propfile</a></li>
+                                <li><a href="InfoUpdate.php">Update User Profile</a></li>
                                 <li><a href="PayInfoUser.php">Update Account Profile</a></li>
                                 <li><a href="AddSalePropertyInfoUser.php">Sell Property</a></li>
                             </ul>    

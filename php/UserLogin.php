@@ -7,10 +7,10 @@
     $PASSWORD = $_POST['password'];
 	$ID = $_POST['userId'];
 	
-	$_SESSION['acnum']='Test';
-	$_SESSION['empay']='email';
-	$_SESSION['phpay']='test3';
-	$_SESSION['nmpay']='test5';
+	$_SESSION['acnum']='';
+	$_SESSION['empay']='';
+	$_SESSION['phpay']='';
+	$_SESSION['nmpay']='';
 	
 	if ($ID!=null && $PASSWORD!=null){
 
@@ -57,7 +57,7 @@
 
 		  //*************************************************
 		  
-		  $_SESSION['user'] = 'admin';
+		  $_SESSION['user2'] = 'user2';
 		  header("Location: ../html/HomeUserLogin.php");
 		}
 		else 
