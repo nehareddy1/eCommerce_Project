@@ -95,8 +95,8 @@ if (strcmp ($res, "VERIFIED") == 0) {
 	$receiver_email = $_POST['receiver_email'];
 	$payer_email = $_POST['payer_email'];
 	
-	include 'Connection.php';
-    $db = $GLOBALS['SQL_CONN'];
+	include("DBController.php");
+	$db = new DBController();
 	
 	// check whether the payment_status is Completed
 	$isPaymentCompleted = false;
