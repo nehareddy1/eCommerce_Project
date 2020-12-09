@@ -13,6 +13,7 @@
 				text-align: center;
 				color: #4682B4;
 			}
+
 			form {
 				text-align: center;
 			}
