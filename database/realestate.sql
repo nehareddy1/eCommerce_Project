@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `contact_job_user`(
   `Address` varchar(100),
   `phone` varchar(50),
   `job_id` int NOT NULL,
-  FOREIGN KEY (job_id) REFERENCES repair_job(job_id)
+  FOREIGN KEY (job_id) REFERENCES repair_job(job_id) ON DELETE CASCADE ON UPDATE CASCADE
 ) ;
 
 CREATE TABLE IF NOT EXISTS `payment` (
@@ -151,8 +151,8 @@ CREATE TABLE IF NOT EXISTS `payment` (
   `payment_status` varchar(255) NOT NULL,
   `payment_amount` double(10,2) NOT NULL,
   `payment_currency` varchar(255) NOT NULL,
-  `txn_id` varchar(255) NOT NULL,
   `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `txn_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 );
 

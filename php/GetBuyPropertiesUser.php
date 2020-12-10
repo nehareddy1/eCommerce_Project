@@ -11,12 +11,10 @@
     
         if(mysqli_num_rows($result) > 0)
         {
-            // Start packaging the query result into a json object 
             $properties = array(); 
 
             while($row = mysqli_fetch_assoc($result)) 
             {
-                // Each property will have a map of property info
                 $property = array();   
                 $property["ID"] = $row["property_id"];
                 $property["NAME"] = $row["property_name"];

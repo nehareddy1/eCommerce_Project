@@ -20,11 +20,13 @@
               property_square_feet, property_bed, property_bath, buy_description)
               VALUES('$PROPERTY_NAME','$PROPERTY_TYPE','$PROPERTY_PRICE', '$PROPERTY_ADDRESS1','$PROPERTY_ADDRESS2','$PROPERTY_ZIP','$user_id',
               '$PROPERTY_SQUARE_FEET','$PROPERTY_BED','$PROPERTY_BATH', '$BUY_DESCRIPTION')";
+    echo $query;
             
     mysqli_query($conn, $query);
 
     //Get primary key
     $PROPERTY_ID = mysqli_insert_id($conn);
+    echo $PROPERTY_ID." :ID";
     $targetDir = "../PropertyImages/"; 
     $allowTypes = array('jpg','png','jpeg','gif');
 	$statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';

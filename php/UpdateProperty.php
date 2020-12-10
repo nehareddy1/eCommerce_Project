@@ -1,6 +1,4 @@
 <?php
-
-    // Get SQL Connection object
     include 'Connection.php';
     $conn = $GLOBALS['SQL_CONN'];  
 
@@ -17,6 +15,9 @@
 	else{
 		$PROPERTY_AVAILABLE = 0;
 	}
+
+    $PROPERTY_PARKING = $_POST['propertyParking'];
+    $PROPERTY_PET_FRIENDLY = $_POST['propertyPet'];
     $PROPERTY_SQUARE_FEET = $_POST['propertySqrFt'];
 	$PROPERTY_BED = $_POST['propertyBed'];
     $PROPERTY_BATH = $_POST['propertyBath'];
@@ -38,6 +39,8 @@
                 max_lease_period = '$PROPERTY_LEASE_MAX',
                 property_note = '$PROPERTY_NOTE'
                 WHERE property_id = $PROPERTY_ID";
+    
+    echo $query;
 
     if (mysqli_query($conn, $query))
     {

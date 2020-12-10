@@ -102,7 +102,7 @@
                                 Total Bed
                             </td>
                             <td>
-                                <input type="number" list="bed" id="propertyBed" name="propertyBed" class="input" tabindex="11" required onkeypress="return isNumberKey(event)">
+                                <input type="number" id="propertyBed" name="propertyBed" class="input" tabindex="11" required onkeypress="return isNumberKey(event)">
                             </td>
                         </tr>
                         <tr>
@@ -117,7 +117,7 @@
                                 Total Bath
                             </td>
                             <td>
-                                <input type="number" list="bath" id="propertyBath" name="propertyBath" class="input" min="1" tabindex="12" required onkeypress="return isNumberWithDecimal(event)">
+                                <input type="number" id="propertyBath" name="propertyBath" class="input" min="1" tabindex="12" required onkeypress="return isNumberWithDecimal(event)">
                             </td>
                         </tr>
                         <tr>
