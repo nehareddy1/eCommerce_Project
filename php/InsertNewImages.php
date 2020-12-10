@@ -40,6 +40,7 @@
 				$errorUploadType = !empty($errorUploadType)?'File Type Error: '.trim($errorUploadType, ' | '):''; 
 				$errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType; 
 				$statusMsg = "Files are uploaded successfully.".$errorMsg; 
+				header("Location: ../html/UpdateImagesAdmin.php");
 			}else{ 
 				$statusMsg = "Sorry, there was an error uploading your file."; 
 			} 

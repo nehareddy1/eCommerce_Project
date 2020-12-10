@@ -17,14 +17,14 @@
 
     if(count($zipIds)>0){
         $properties = array();
+       
         foreach($zipIds as $value){
-            
-            $query = "SELECT * FROM property WHERE property_availability = 1 AND zip_id = $value";
-            $result = mysqli_query($conn, $query); 
-            
-            if(mysqli_num_rows($result) > 0) {  
 
-                while($row = mysqli_fetch_assoc($result)) 
+            $query1 = "SELECT * FROM property WHERE property_availability = 1 AND zip_id = $value"; 
+            $result1 = mysqli_query($conn, $query1);
+
+            if(mysqli_num_rows($result1) > 0) {  
+                while($row = mysqli_fetch_assoc($result1)) 
                 {
                     $property = array();   
                     $property["ID"] = $row["property_id"];
@@ -77,7 +77,7 @@
                     array_push($properties, $property);
                 }
             }
-            else 
+            else if(mysqli_num_rows($result1) < 0)
             {
                 echo "Error: " . $conn . "<br>" . mysqli_error($conn);
             }

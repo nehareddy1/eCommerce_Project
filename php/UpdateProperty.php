@@ -23,15 +23,15 @@
     $PROPERTY_NOTE = $_POST['propertyNote'];
     
     $query = "UPDATE property SET 
-                type_id = '$PROPERTY_TYPE',
+                type_id = $PROPERTY_TYPE,
                 property_price = $PROPERTY_PRICE,
                 property_address1 = '$PROPERTY_ADDRESS1',
                 property_address2 = '$PROPERTY_ADDRESS2',
                 zip_id = $PROPERTY_ZIP,
                 property_availability = $PROPERTY_AVAILABLE,
-                property_square_feet = $PROPERTY_SQUARE_FEET,
-                property_bed = $PROPERTY_BED,
-                property_bath = $PROPERTY_BATH,
+                property_square_feet = '$PROPERTY_SQUARE_FEET',
+                property_bed = '$PROPERTY_BED',
+                property_bath = '$PROPERTY_BATH',
                 property_parking = '$PROPERTY_PARKING',
                 pet_allowed = $PROPERTY_PET_FRIENDLY,
                 min_lease_period = '$PROPERTY_LEASE_MIN',

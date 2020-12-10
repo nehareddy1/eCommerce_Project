@@ -44,9 +44,9 @@
 				<input type='hidden' name='amount' id="amount" value=''> 
 				<input type='hidden' name='no_shipping' value='1'> 
 				<input type='hidden' name='currency_code' value='USD'> 
-				<input type='hidden' name='notify_url' value='http://localhost/eCommerce_Project/Payments/notify.php'>
-				<input type='hidden' name='cancel_return' value='http://localhost/eCommerce_Project/Payments/cancel.php'>
-				<input type='hidden' name='return' value='http://localhost/eCommerce_Project/Payments/return.php'>
+				<input type='hidden' name='notify_url' value='https://ec2-3-22-71-79.us-east-2.compute.amazonaws.com/eCommerce_Project-main/Payments/notify.php'>
+				<input type='hidden' name='cancel_return' value='https://ec2-3-22-71-79.us-east-2.compute.amazonaws.com/eCommerce_Project-main/Payments/cancel.php'>
+				<input type='hidden' name='return' value='https://ec2-3-22-71-79.us-east-2.compute.amazonaws.com/eCommerce_Project-main/Payments/return.php'>
 				<input type="hidden" name="cmd" value="_xclick"> 
 				<br/>
 				<label>Property Title: </label>
